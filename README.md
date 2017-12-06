@@ -3,7 +3,7 @@
 DashThing.io is tool dedicated to DIYers in need of an easy way to build
 **Dashboard** for their **Things**.
 
-## Definition
+## Context
 
 We are using the concept of "Things" described in the "Building the Web of
 Things" book writen by Dominique D. Guinard and Vlad M. Trifa:
