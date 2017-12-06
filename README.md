@@ -1,6 +1,6 @@
 # DashThings.io
 
-DashThing.io is tool dedicated to DIYers in need of an easy way to build
+DashThing.io is a tool dedicated to DIYers in need of an easy way to build
 **Dashboard** for their **Things**.
 
 ## Context
