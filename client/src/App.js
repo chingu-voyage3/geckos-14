@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router, Route, withRouter} from 'react-router-dom';
+import { Router, Route, withRouter} from 'react-router';
 import history from './services/history';
 import NavBar from './NavBar.js';
 import Footer from './Footer.js';
