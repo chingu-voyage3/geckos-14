@@ -17,7 +17,7 @@ digitally augmented with one or more of the following:_
 * _Communication interfaces (wired or wireless)_
 
 We also assume that all connected Things follow the authors recommendations and
-W3C definition of a Web Thing: http://model.webofthings.io/
+W3C definition of a Web Thing: http://model.webofthings.io/.
 
 ## Features
 
@@ -33,6 +33,7 @@ visualisation. We were all keen to explore MERN stack. Also NodeJS, ReactJS,
 Express and MongoDB are popular and well Documented and D3 is powerful data Viz
 library.
 
+
 For unit tests we are using Jest. We chose Jest because it is included within
 the Create-react-app provided by Facebook. For CI we are using Travis CI. It is
-used by the Chingu Organisation and is free for opensource
+used by the Chingu Organisation and is free for opensource.
