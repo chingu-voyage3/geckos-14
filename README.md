@@ -31,7 +31,7 @@ W3C definition of a Web Thing: http://model.webofthings.io/.
 The app has been built using the MERN stack and we used D3 library for data
 visualisation. We were all keen to explore MERN stack. Also NodeJS, ReactJS,
 Express and MongoDB are popular and well Documented and D3 is powerful data Viz
-library.
+library using
 
 
 For unit tests we are using Jest. We chose Jest because it is included within
