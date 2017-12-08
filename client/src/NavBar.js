@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
-import {NavLink} from 'react-router-dom'
+import { Link } from 'react-router-dom';
+
 class NavBar extends Component {
   render() {
     return (
       <div>
-      <ul>
-        <li>DashThing Logo</li>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/getstarted">Get Started</NavLink></li>
-        <li><NavLink to="/dashboard">Dashboard</NavLink></li>
-      </ul>
-    </div>
+        <ul>
+          <li>DashThing Logo</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/getstarted">Get Started</Link>
+          </li>
+          <li>
+            <Link to="/dashboard">Dashboard</Link>
+          </li>
+        </ul>
+      </div>
     );
   }
 }
