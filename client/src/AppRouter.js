@@ -8,7 +8,7 @@ import history from './services/history';
 import NavBar from './NavBar';
 import Footer from './Footer';
 import Landing from './Landing';
-import Dashboard from './Dashboard';
+import Dashboard from './containers/Dashboard';
 import GetStarted from './GetStarted';
 
 const LocatedNavBar = withRouter(NavBar);
