@@ -1,0 +1,8 @@
+{
+  "extends": ["react-app", "plugin:jsx-a11y/recommended", "airbnb-base/legacy"],
+  "plugins": ["jsx-a11y"],
+  "env": {
+    "browser": true,
+    "jest": true
+  }
+}

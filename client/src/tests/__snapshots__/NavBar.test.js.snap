@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<div>
+  <ul>
+    <li>
+      DashThing Logo
+    </li>
+    <li>
+      <Link
+        replace={false}
+        to="/"
+      >
+        Home
+      </Link>
+    </li>
+    <li>
+      <Link
+        replace={false}
+        to="/getstarted"
+      >
+        Get Started
+      </Link>
+    </li>
+    <li>
+      <Link
+        replace={false}
+        to="/dashboard"
+      >
+        Dashboard
+      </Link>
+    </li>
+  </ul>
+</div>
+`;
