@@ -1,6 +1,7 @@
 .dashboard {
   display: grid;
   grid-template-columns: 2fr 6fr;
+  margin: 20px 20px 20px 20px;
 }
 .control-panel {
   border: dashed 1px;
