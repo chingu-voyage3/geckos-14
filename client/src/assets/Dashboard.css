@@ -1,0 +1,23 @@
+.dashboard {
+  display: grid;
+  grid-template-columns: 2fr 6fr;
+}
+.control-panel {
+  border: dashed 1px;
+}
+.device-panel {
+  display: grid;
+  grid-template-rows: 1fr 9fr;
+  border: solid 1px;
+}
+.device-list {
+  display: grid;
+  grid-auto-rows: 100px;
+}
+.device {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.viz-panel {
+  border: solid 1px;
+}
