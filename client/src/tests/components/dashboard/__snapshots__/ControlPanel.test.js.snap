@@ -2,8 +2,8 @@
 
 exports[`renders without crashing 1`] = `
 <div
-  className="viz-panel"
+  className="control-panel"
 >
-  Viz Panel
+  Control Panel
 </div>
 `;

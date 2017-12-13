@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<div
+  className="device"
+>
+  <h4>
+    device1
+     
+    <span>
+      online
+    </span>
+  </h4>
+  <p>
+    Thermometer
+  </p>
+</div>
+`;
