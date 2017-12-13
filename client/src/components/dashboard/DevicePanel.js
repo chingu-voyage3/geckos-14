@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DeviceList from './DeviceList';
-
+import ControlPanel from './ControlPanel';
 const devices = [
   { name: 'device1', status: 'online', type: 'Thermometer' },
   { name: 'device2', status: 'offline', type: 'PhMeter' },
@@ -10,7 +10,7 @@ class DevicePanel extends Component {
   render() {
     return (
       <div className="device-panel">
-        <h3>Device Panel</h3>
+        <ControlPanel />
         <DeviceList devices={devices} />
       </div>
     );

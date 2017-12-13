@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class VizPanel extends Component {
   render() {
-    return <div>Viz Panel</div>;
+    return <div className="viz-panel">Viz Panel</div>;
   }
 }
 

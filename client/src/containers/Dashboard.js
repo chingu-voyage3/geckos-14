@@ -4,7 +4,7 @@ import VizPanel from '../components/dashboard/VizPanel';
 class Dashboard extends Component {
   render() {
     return (
-      <div>
+      <div className="dashboard">
         <DevicePanel />
         <VizPanel />
       </div>

@@ -4,9 +4,7 @@ exports[`renders without crashing 1`] = `
 <div
   className="device-panel"
 >
-  <h3>
-    Device Panel
-  </h3>
+  <ControlPanel />
   <DeviceList
     devices={
       Array [
