@@ -3,5 +3,24 @@
 exports[`renders without crashing 1`] = `
 <div
   className="device-list"
-/>
+>
+  <Device
+    key="device1"
+    name="device1"
+    status="online"
+    type="Thermometer"
+  />
+  <Device
+    key="device2"
+    name="device2"
+    status="offline"
+    type="PhMeter"
+  />
+  <Device
+    key="device3"
+    name="device3"
+    status="offline"
+    type="Thermometer"
+  />
+</div>
 `;

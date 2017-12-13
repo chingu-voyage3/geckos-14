@@ -4,14 +4,15 @@ exports[`renders without crashing 1`] = `
 <div
   className="device"
 >
-  <h3>
+  <h4>
     device1
-  </h3>
-  <h4>
+     
+    <span>
+      online
+    </span>
+  </h4>
+  <p>
     Thermometer
-  </h4>
-  <h4>
-    online
-  </h4>
+  </p>
 </div>
 `;
