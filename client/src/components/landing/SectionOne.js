@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../assets/Landing.css';
 import board from '../../assets/images/board.png';
 
 const SectionOne = () => {

@@ -7,7 +7,6 @@ import history from './services/history';
 // import from components
 import NavBar from './NavBar';
 import Footer from './Footer';
-// import Landing from './Landing'; /* The landing page has been moved to components/landing */
 import Landing from './containers/Landing';
 import Dashboard from './containers/Dashboard';
 import GetStarted from './GetStarted';

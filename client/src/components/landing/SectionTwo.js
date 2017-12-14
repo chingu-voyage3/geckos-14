@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../assets/Landing.css';
 import devices from '../../assets/images/devices.png';
 
 const SectionTwo = () => {

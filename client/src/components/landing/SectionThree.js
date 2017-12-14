@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../assets/Landing.css';
 import dataOne from '../../assets/images/dataOne.jpg';
 import dataTwo from '../../assets/images/dataTwo.jpg';
 
