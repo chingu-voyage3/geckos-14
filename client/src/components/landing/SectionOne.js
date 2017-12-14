@@ -4,9 +4,9 @@ import board from '../../assets/images/board.png';
 
 const SectionOne = () => {
  return (
-   <section className="section_one section">
+   <section className="section-one section">
      <h2 className="text-center font-weight-bold">Features</h2>
-     <div className="row featuresOne">
+     <div className="row features-one">
        <div className="col-md-6">
           <img src={board} className="img-fluid" alt="A Web of things dashboard" />
        </div>

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import Main from './Main';
-import SectionOne from './SectionOne';
-import SectionTwo from './SectionTwo';
-import SectionThree from './SectionThree';
+// import Main from '../Main';
+import SectionOne from '../components/landing/SectionOne';
+import SectionTwo from '../components/landing/SectionTwo';
+import SectionThree from '../components/landing/SectionThree';
 
 
 class Landing extends Component {
@@ -10,7 +10,7 @@ class Landing extends Component {
     return (
       // Returns the four sections that makeup the landing page
       <div className="container">
-        <Main />
+        {/* <Main /> */}
         <SectionOne />
         <SectionTwo />
         <SectionThree />

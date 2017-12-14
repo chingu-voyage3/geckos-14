@@ -4,8 +4,8 @@ import devices from '../../assets/images/devices.png';
 
 const SectionTwo = () => {
   return (
-    <section className="section_two section">
-      <div className="row featuresTwo">
+    <section className="section-two section">
+      <div className="row features-two">
         <div className="col-md-6">
           <h4 className="font-weight-bold"> Easily add or remove devices in your DashThings board </h4>
         </div>
