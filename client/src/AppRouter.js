@@ -7,7 +7,8 @@ import history from './services/history';
 // import from components
 import NavBar from './NavBar';
 import Footer from './Footer';
-import Landing from './Landing';
+// import Landing from './Landing'; /* The landing page has been moved to components/landing */
+import Landing from './components/landing-page/Landing';
 import Dashboard from './containers/Dashboard';
 import GetStarted from './GetStarted';
 
@@ -16,7 +17,7 @@ const LocatedNavBar = withRouter(NavBar);
 const AppRouter = () => (
   <Router history={history}>
     <div>
-      <LocatedNavBar />
+      {/* <LocatedNavBar /> */}
       <Switch>
         <Route exact path="/" component={Landing} />
         <Route path="/getstarted" component={GetStarted} />
