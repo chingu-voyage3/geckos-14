@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Footer from '../containers/Footer';
+import { shallow } from 'enzyme';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Footer />, div);
+  const wrapper = shallow(<Footer />);
+  expect(toJson(wrapper)).toMatchSnapshot(); 
 });
