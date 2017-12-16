@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Footer from '../containers/Footer';
+import CatchyPhrase from '../components/footer/SupportMail';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Footer />, div);
+  ReactDOM.render(<SupportMail />, div);
 });
