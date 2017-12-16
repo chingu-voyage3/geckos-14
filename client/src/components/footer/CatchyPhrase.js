@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CatchyPhrase = () => {
    return (
-        <div className="footer-catchyPhrase">
-          <p><strong>DashThings.io - An easy way to build <a href="#toDashboards">Dashboards</a> for your things.</strong></p>
+        <div className="footer-catchyphrase">
+          <p><strong>DashThings.io - An easy way to build <Link to="/Dashboards">Dashboards</Link> for your things.</strong></p>
         </div>
     );
 };
