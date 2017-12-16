@@ -2,7 +2,7 @@ import React from 'react';
 
 const SocialMedia = () => {
    return (
-       <div className="mediaButtons">
+       <div className="footer-mediaButtons">
         <p>
         <u>Get in touch: </u>
           <i className="fa fa-facebook-official fa-x2"></i>
