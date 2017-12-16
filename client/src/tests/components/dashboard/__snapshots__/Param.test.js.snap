@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<label>
+  label
+  <input
+    className="param-name"
+    name="name"
+    onChange={[Function]}
+    value="value"
+  />
+</label>
+`;

@@ -5,26 +5,6 @@ exports[`renders without crashing 1`] = `
   className="device-panel"
 >
   <ControlPanel />
-  <DeviceList
-    devices={
-      Array [
-        Object {
-          "name": "device1",
-          "status": "online",
-          "type": "Thermometer",
-        },
-        Object {
-          "name": "device2",
-          "status": "offline",
-          "type": "PhMeter",
-        },
-        Object {
-          "name": "device3",
-          "status": "offline",
-          "type": "Thermometer",
-        },
-      ]
-    }
-  />
+  <DeviceList />
 </div>
 `;

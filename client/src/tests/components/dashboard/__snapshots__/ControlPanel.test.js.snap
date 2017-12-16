@@ -4,6 +4,33 @@ exports[`renders without crashing 1`] = `
 <div
   className="control-panel"
 >
-  Control Panel
+  <div
+    className="add"
+  >
+    <Param
+      label="Name :"
+      name="name"
+      onChange={[Function]}
+      value=""
+    />
+    <Param
+      label="Type :"
+      name="type"
+      onChange={[Function]}
+      value=""
+    />
+    <Param
+      label="Url :"
+      name="url"
+      onChange={[Function]}
+      value=""
+    />
+    <button
+      className="add-device"
+      onClick={[Function]}
+    >
+      Add
+    </button>
+  </div>
 </div>
 `;
