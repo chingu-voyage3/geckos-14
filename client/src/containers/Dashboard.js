@@ -8,12 +8,17 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.addDevice = this.addDevice.bind(this);
+    this.addViz = this.addViz.bind(this);
     this.state = {
       devices: data.devices,
-      vizs: data.vizs
+      deviceParams: data.deviceParams,
+      vizs: data.vizs,
+      vizParams: data.vizParams
     };
   }
-  componentDidMount() {}
+  componentDidMount() {
+    console.log('dashboard state:', this.state);
+  }
   addDevice(device) {
     // console.log('deviceAdded');
     this.setState({
@@ -21,7 +26,8 @@ class Dashboard extends Component {
     });
   }
   addViz(viz) {
-    // console.log('vizAdded');
+    console.log('viz to be Added', viz);
+    console.log('dash vizs state', this.state);
     this.setState({
       vizs: [...this.state.vizs, viz]
     });
@@ -29,8 +35,12 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="dashboard">
-        <DevicePanel devices={this.state.devices} actions={this.addDevice} />
-        <VizPanel vizs={this.state.vizs} actions={this.addViz} />
+        <DevicePanel
+          devices={this.state.devices}
+          actions={this.addDevice}
+          params={this.state.deviceParams}
+        />
+        <VizPanel vizs={this.state.vizs} actions={this.addViz} params={this.state.vizParams} />
       </div>
     );
   }

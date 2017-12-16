@@ -10,6 +10,7 @@ export const barData = [
   { date: '14/12', hum: 98 },
   { date: '15/12', hum: 85 }
 ];
+export const modelTypes = ['Line', 'Bar', 'Status', 'Value'];
 export const devices = [
   {
     name: 'LondonTemp',
@@ -40,4 +41,44 @@ export const vizs = [
     y: 'hum',
     data: barData
   }
+];
+
+export const deviceParams = [
+  {
+    label: 'Name :',
+    name: 'name'
+  },
+  {
+    label: 'Type :',
+    name: 'type'
+  },
+  {
+    label: 'Url :',
+    name: 'url'
+  }
+];
+
+export const vizParams = [
+  {
+    label: 'Name :',
+    name: 'name',
+    options: ''
+  },
+  {
+    label: 'Model :',
+    name: 'model',
+    options: modelTypes
+  },
+  {
+    label: 'Device :',
+    name: 'device_name',
+    options: ''
+  }
+];
+
+export const testData = [
+  { date: '12/12', hum: 22 },
+  { date: '13/12', hum: 13 },
+  { date: '14/12', hum: 5 },
+  { date: '15/12', hum: 45 }
 ];

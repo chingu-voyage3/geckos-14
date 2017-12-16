@@ -6,7 +6,7 @@ const DevicePanel = props => {
   // console.log(props);
   return (
     <div className="device-panel">
-      <ControlPanel actions={props.actions} />
+      <ControlPanel params={props.params} actions={props.actions} parent="device" />
       <DeviceList devices={props.devices} />
     </div>
   );

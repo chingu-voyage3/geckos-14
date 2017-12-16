@@ -6,7 +6,7 @@ const VizPanel = props => {
   // console.log(props);
   return (
     <div className="viz-panel">
-      <ControlPanel actions={props.actions} />
+      <ControlPanel actions={props.actions} params={props.params} parent="viz" />
       <VizGrid vizs={props.vizs} />
     </div>
   );
