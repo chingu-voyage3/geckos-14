@@ -1,8 +1,9 @@
 import React from 'react';
 import { VictoryBar, VictoryLine, VictoryChart } from 'victory';
 
+// TODO: Make the VictoryChart Composistion more Dynamic.
 const Viz = props => {
-  console.log(props.model);
+  // console.log(props.model);
   const Type = props.model;
   return (
     <div className="viz">

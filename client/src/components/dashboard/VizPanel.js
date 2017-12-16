@@ -3,7 +3,7 @@ import VizGrid from './VizGrid';
 import ControlPanel from './ControlPanel';
 
 const VizPanel = props => {
-  console.log(props);
+  // console.log(props);
   return (
     <div className="viz-panel">
       <ControlPanel actions={props.actions} />

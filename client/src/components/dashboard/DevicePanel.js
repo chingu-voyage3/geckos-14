@@ -3,7 +3,7 @@ import DeviceList from './DeviceList';
 import ControlPanel from './ControlPanel';
 
 const DevicePanel = props => {
-  console.log(props);
+  // console.log(props);
   return (
     <div className="device-panel">
       <ControlPanel actions={props.actions} />

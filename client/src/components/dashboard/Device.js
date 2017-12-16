@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Device = device => {
-  console.log('Device Component');
+  // console.log('Device Component');
   return (
     <div className="device">
       <div>
