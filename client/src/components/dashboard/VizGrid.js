@@ -13,7 +13,11 @@ import ReactGridLayout from 'react-grid-layout';
 
 const renderViz = viz => {
   // console.log('renderViz', viz);
-  return <Viz key={viz.name} {...viz} />;
+  return (
+    <div key={viz.name} className="viz">
+      <Viz {...viz} />
+    </div>
+  );
 };
 const renderVizGrid = vizs => {
   // console.log('renderVizList');
@@ -25,7 +29,13 @@ const VizGrid = props => {
   // console.log('VizGrid Component');
   return (
     <div className="">
-      <ReactGridLayout className="layout" layout={d.gridLayout} autoSize={true} width={900}>
+      <ReactGridLayout
+        className="layout"
+        layout={d.gridLayout}
+        cols={4}
+        rowHeight={200}
+        width={1200}
+      >
         {renderVizGrid(props.vizs)}
       </ReactGridLayout>
     </div>

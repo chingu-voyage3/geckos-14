@@ -89,13 +89,13 @@ export const gridLayout = [
     x: 0,
     y: 0,
     w: 1,
-    h: 2
+    h: 1
   },
   {
     i: 'Humidity Bar',
     x: 1,
     y: 0,
-    w: 3,
-    h: 2
+    w: 1,
+    h: 1
   }
 ];
