@@ -1,20 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import DeviceList from './DeviceList';
 import ControlPanel from './ControlPanel';
-const devices = [
-  { name: 'device1', status: 'online', type: 'Thermometer' },
-  { name: 'device2', status: 'offline', type: 'PhMeter' },
-  { name: 'device3', status: 'offline', type: 'Thermometer' }
-];
-class DevicePanel extends Component {
-  render() {
-    return (
-      <div className="device-panel">
-        <ControlPanel />
-        <DeviceList devices={devices} />
-      </div>
-    );
-  }
-}
+
+const DevicePanel = props => {
+  console.log(props);
+  return (
+    <div className="device-panel">
+      <ControlPanel actions={props.actions} />
+      <DeviceList devices={props.devices} />
+    </div>
+  );
+};
 
 export default DevicePanel;
