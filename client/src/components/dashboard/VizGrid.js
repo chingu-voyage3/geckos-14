@@ -32,9 +32,9 @@ const VizGrid = props => {
       <ReactGridLayout
         className="layout"
         layout={d.gridLayout}
-        cols={4}
+        cols={3}
         rowHeight={200}
-        width={1200}
+        width={900}
       >
         {renderVizGrid(props.vizs)}
       </ReactGridLayout>

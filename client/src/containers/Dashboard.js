@@ -14,8 +14,7 @@ import * as data from '../tempData.js';
 class Dashboard extends Component {
   constructor(props) {
     super(props);
-    this.addDevice = this.addDevice.bind(this);
-    this.addViz = this.addViz.bind(this);
+
     this.state = {
       devices: data.devices,
       deviceParams: data.deviceParams,
@@ -24,19 +23,19 @@ class Dashboard extends Component {
     };
   }
 
-  addDevice(device) {
+  addDevice = device => {
     // console.log('deviceAdded');
     this.setState({
       devices: [...this.state.devices, device]
     });
-  }
-  addViz(viz) {
+  };
+  addViz = viz => {
     // console.log('viz to be Added', viz);
     // console.log('dash vizs state', this.state);
     this.setState({
       vizs: [...this.state.vizs, viz]
     });
-  }
+  };
   render() {
     return (
       <div className="dashboard">

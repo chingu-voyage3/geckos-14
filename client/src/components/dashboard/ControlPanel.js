@@ -23,8 +23,8 @@ import * as d from '../../tempData';
 class ControlPanel extends Component {
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleAdd = this.handleAdd.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
+    // this.handleAdd = this.handleAdd.bind(this);
     this.state = {
       device: {
         name: '',
@@ -42,7 +42,7 @@ class ControlPanel extends Component {
       }
     };
   }
-  handleChange(event) {
+  handleChange = event => {
     const value = event.target.value;
     const name = event.target.name;
     // console.log(event.target.name);
@@ -50,9 +50,9 @@ class ControlPanel extends Component {
     this.props.parent === 'device'
       ? this.setState({ device: { ...this.state.device, [name]: value } })
       : this.setState({ viz: { ...this.state.viz, [name]: value } });
-  }
+  };
 
-  handleAdd() {
+  handleAdd = () => {
     if (this.props.parent === 'device') {
       this.props.actions(this.state.device);
       this.setState({
@@ -75,8 +75,8 @@ class ControlPanel extends Component {
         }
       });
     }
-  }
-  renderParams(params) {
+  };
+  renderParams = params => {
     return params.map(param => {
       return (
         <Param
@@ -87,7 +87,7 @@ class ControlPanel extends Component {
         />
       );
     });
-  }
+  };
   render() {
     // console.log('params', this.props.params);
     return (
