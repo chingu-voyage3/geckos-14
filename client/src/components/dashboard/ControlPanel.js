@@ -3,6 +3,17 @@ ControlPanel component is a kind of toolbar of DevicePanel and VizPanel.
 So far it only display a device/viz adding form
 TODO: Move the form to specific Component
 TODO: Add other controls like reorder/save
+
+Testing Data:
+  Device
+    Name: test
+    Type: LCD
+    Url: http://devices.webofthings.io/pi/actuators/display/
+
+  Viz
+    Name: test
+    Model: VictoryLine or VictoryBar
+    Device: No need to fill
 */
 
 import React, { Component } from 'react';
