@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Param from './Param';
 import * as d from '../../tempData';
+
 class ControlPanel extends Component {
   constructor(props) {
     super(props);
@@ -27,7 +28,7 @@ class ControlPanel extends Component {
     const value = event.target.value;
     const name = event.target.name;
     // console.log(event.target.name);
-
+    // eslint-disable-next-line
     this.props.parent === 'device'
       ? this.setState({ device: { ...this.state.device, [name]: value } })
       : this.setState({ viz: { ...this.state.viz, [name]: value } });

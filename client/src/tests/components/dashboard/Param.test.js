@@ -1,8 +1,9 @@
 import React from 'react';
 import Param from '../../../components/dashboard/Param';
-
 import { shallow } from 'enzyme';
+
 const func = e => {
+  // eslint-disable-next-line no-console
   console.log(e.target.value);
 };
 const param = {
@@ -12,7 +13,6 @@ const param = {
   onChange: func
 };
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  const wrParamer = shallow(<Param {...param} />);
-  expect(toJson(wrParamer)).toMatchSnapshot();
+  const wrapper = shallow(<Param {...param} />);
+  expect(toJson(wrapper)).toMatchSnapshot();
 });

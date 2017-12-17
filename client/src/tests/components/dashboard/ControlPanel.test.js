@@ -17,11 +17,11 @@ const params = [
   }
 ];
 const addViz = viz => {
+  // eslint-disable-next-line no-console
   console.log('viz to be Added', viz);
 };
-const actions = [];
+
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  const wrControlPaneler = shallow(<ControlPanel params={params} actions={addViz} parent="device" />);
-  expect(toJson(wrControlPaneler)).toMatchSnapshot();
+  const wrapper = shallow(<ControlPanel params={params} actions={addViz} parent="device" />);
+  expect(toJson(wrapper)).toMatchSnapshot();
 });

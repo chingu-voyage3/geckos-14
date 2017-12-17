@@ -34,7 +34,6 @@ const vizs = [
 ];
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
   const wrapper = shallow(<VizGrid vizs={vizs} />);
   expect(toJson(wrapper)).toMatchSnapshot();
 });

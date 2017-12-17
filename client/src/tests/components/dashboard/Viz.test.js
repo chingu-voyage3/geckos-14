@@ -18,7 +18,6 @@ const viz = {
   data: lineData
 };
 it('renders without crashing', () => {
-  const div = document.createElement('div');
   const wrapper = shallow(<Viz {...viz} />);
   expect(toJson(wrapper)).toMatchSnapshot();
 });

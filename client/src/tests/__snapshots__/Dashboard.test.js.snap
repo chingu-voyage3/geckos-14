@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<div
+  className="dashboard"
+>
+  <DevicePanel
+    actions={[Function]}
+    devices={
+      Array [
+        Object {
+          "name": "LondonTemp",
+          "type": "Thermometer",
+          "url": "http://devices.webofthings.io/pi/sensors/temperature/",
+        },
+        Object {
+          "name": "LondonHumidity",
+          "type": "Humidity",
+          "url": "http://devices.webofthings.io/pi/sensors/humidity/",
+        },
+        Object {
+          "name": "LondonIR",
+          "type": "InfraRed",
+          "url": "http://devices.webofthings.io/pi/sensors/pir/",
+        },
+      ]
+    }
+    params={
+      Array [
+        Object {
+          "label": "Name :",
+          "name": "name",
+        },
+        Object {
+          "label": "Type :",
+          "name": "type",
+        },
+        Object {
+          "label": "Url :",
+          "name": "url",
+        },
+      ]
+    }
+  />
+  <VizPanel
+    actions={[Function]}
+    params={
+      Array [
+        Object {
+          "label": "Name :",
+          "name": "name",
+          "options": "",
+        },
+        Object {
+          "label": "Model :",
+          "name": "model",
+          "options": Array [
+            "Line",
+            "Bar",
+            "Status",
+            "Value",
+          ],
+        },
+        Object {
+          "label": "Device :",
+          "name": "device_name",
+          "options": "",
+        },
+      ]
+    }
+    vizs={
+      Array [
+        Object {
+          "data": Array [
+            Object {
+              "date": "12/12",
+              "temp": 2,
+            },
+            Object {
+              "date": "13/12",
+              "temp": 0,
+            },
+            Object {
+              "date": "14/12",
+              "temp": 5,
+            },
+            Object {
+              "date": "15/12",
+              "temp": -3,
+            },
+          ],
+          "deviceName": "LondonTemp",
+          "model": "VictoryLine",
+          "name": "Temp Line",
+          "x": "date",
+          "y": "temp",
+        },
+        Object {
+          "data": Array [
+            Object {
+              "date": "12/12",
+              "hum": 95,
+            },
+            Object {
+              "date": "13/12",
+              "hum": 93,
+            },
+            Object {
+              "date": "14/12",
+              "hum": 98,
+            },
+            Object {
+              "date": "15/12",
+              "hum": 85,
+            },
+          ],
+          "deviceName": "LondonHumidity",
+          "model": "VictoryBar",
+          "name": "Humidity Bar",
+          "x": "date",
+          "y": "hum",
+        },
+      ]
+    }
+  />
+</div>
+`;
