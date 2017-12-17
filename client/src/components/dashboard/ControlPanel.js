@@ -26,7 +26,7 @@ class ControlPanel extends Component {
   handleChange(event) {
     const value = event.target.value;
     const name = event.target.name;
-    console.log(event.target.name);
+    // console.log(event.target.name);
 
     this.props.parent === 'device'
       ? this.setState({ device: { ...this.state.device, [name]: value } })

@@ -16,9 +16,6 @@ class Dashboard extends Component {
       vizParams: data.vizParams
     };
   }
-  componentDidMount() {
-    console.log('dashboard state:', this.state);
-  }
   addDevice(device) {
     // console.log('deviceAdded');
     this.setState({
@@ -26,8 +23,8 @@ class Dashboard extends Component {
     });
   }
   addViz(viz) {
-    console.log('viz to be Added', viz);
-    console.log('dash vizs state', this.state);
+    // console.log('viz to be Added', viz);
+    // console.log('dash vizs state', this.state);
     this.setState({
       vizs: [...this.state.vizs, viz]
     });
