@@ -1,3 +1,9 @@
+/** VizPanel Component :
+The VizPanel displays  a controlPanel and a VizGrid
+ControPanel needs the params, actions and parent props
+VizGrid just needs the list of vizs
+ */
+
 import React from 'react';
 import VizGrid from './VizGrid';
 import ControlPanel from './ControlPanel';

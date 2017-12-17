@@ -1,3 +1,11 @@
+/** Device Component :
+The Device componet show for now static Data:
+Name, Type and URL.
+TODO: Add Status
+TODO: Add specific control like Sync, Del, Edit
+TODO: Allow expand/hide
+ */
+
 import React from 'react';
 
 const Device = device => {

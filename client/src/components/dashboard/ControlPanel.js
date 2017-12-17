@@ -1,3 +1,10 @@
+/** ControlPanel Component:
+ControlPanel component is a kind of toolbar of DevicePanel and VizPanel.
+So far it only display a device/viz adding form
+TODO: Move the form to specific Component
+TODO: Add other controls like reorder/save
+*/
+
 import React, { Component } from 'react';
 import Param from './Param';
 import * as d from '../../tempData';

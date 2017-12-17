@@ -1,3 +1,7 @@
+/** VizGrid Component :
+The VizGrid componet renders for now a basic CSS grid
+TODO: Transform grid into draggable
+ */
 import React from 'react';
 import Viz from './Viz';
 

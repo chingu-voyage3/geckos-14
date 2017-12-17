@@ -1,3 +1,7 @@
+/** Param Component:
+Param component is the smallest component of the controlPanel.
+TODO: Allow the composistion of different type of input (select, checkbox, radio)
+*/
 import React from 'react';
 
 const Param = props => {

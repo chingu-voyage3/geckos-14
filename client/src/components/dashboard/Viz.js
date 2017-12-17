@@ -1,3 +1,11 @@
+/** Viz Component :
+The Viz component can for now display 2 types of Chart :
+Both Chart are imported from the Victory Lib
+
+TODO: Allow the display of all kind of data (Static Data, Pulled Data, True/False status)
+TODO: Transform Viz into resizeable elements
+ */
+
 import React from 'react';
 import { VictoryBar, VictoryLine, VictoryChart } from 'victory';
 

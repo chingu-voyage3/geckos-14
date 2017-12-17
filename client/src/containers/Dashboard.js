@@ -1,3 +1,10 @@
+/** Dashboard Container :
+The Dahshboard contains the state allowing to display the Device list,
+ the Viz Grid and the control panels
+ For now the data is pulled from a localFile.
+ Later part of the data will be stored in cache and DB
+ */
+
 import React, { Component } from 'react';
 import DevicePanel from '../components/dashboard/DevicePanel';
 import VizPanel from '../components/dashboard/VizPanel';
@@ -16,6 +23,7 @@ class Dashboard extends Component {
       vizParams: data.vizParams
     };
   }
+
   addDevice(device) {
     // console.log('deviceAdded');
     this.setState({

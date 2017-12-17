@@ -1,3 +1,8 @@
+/** DeviceList Component :
+The DeviceList displays  a list of Devices using a simple CSS grid
+TODO: Allow hiding the List
+ */
+
 import React from 'react';
 import Device from './Device';
 
