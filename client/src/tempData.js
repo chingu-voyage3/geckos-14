@@ -82,3 +82,20 @@ export const testData = [
   { date: '14/12', hum: 5 },
   { date: '15/12', hum: 45 }
 ];
+
+export const gridLayout = [
+  {
+    i: 'Temp Line',
+    x: 0,
+    y: 0,
+    w: 1,
+    h: 2
+  },
+  {
+    i: 'Humidity Bar',
+    x: 1,
+    y: 0,
+    w: 3,
+    h: 2
+  }
+];
