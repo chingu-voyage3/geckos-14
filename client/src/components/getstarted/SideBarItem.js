@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 const SideBarItem = item => {
   return (
     <div className="sidebar-item">
-      <Link to={'#' + item.id}>{item.text}</Link>
+      <Link to={'#' + item.id}>
+        <h3>{item.text}</h3>
+      </Link>
     </div>
   );
 };

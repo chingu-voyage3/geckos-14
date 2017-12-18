@@ -12,7 +12,7 @@ const renderItems = items => {
 };
 
 const SideBar = props => {
-  return <div>{renderItems(props.items)}</div>;
+  return <div className="getstarted-sidebar">{renderItems(props.items)}</div>;
 };
 
 export default SideBar;

@@ -11,7 +11,7 @@ const renderSteps = steps => {
   });
 };
 const Content = props => {
-  return <div>{renderSteps(props.content)}</div>;
+  return <div className="getstarted-content">{renderSteps(props.content)}</div>;
 };
 
 export default Content;

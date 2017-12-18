@@ -1,0 +1,10 @@
+.getstarted {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+}
+.getstarted-sidebar {
+  margin-top: 50px;
+  margin-left: 20px;
+}
+.getstarted-content {
+}
