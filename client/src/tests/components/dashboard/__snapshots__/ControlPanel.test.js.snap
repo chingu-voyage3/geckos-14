@@ -8,25 +8,25 @@ exports[`renders without crashing 1`] = `
     className="add"
   >
     <Param
+      key="name"
       label="Name :"
       name="name"
       onChange={[Function]}
-      value=""
     />
     <Param
+      key="type"
       label="Type :"
       name="type"
       onChange={[Function]}
-      value=""
     />
     <Param
+      key="url"
       label="Url :"
       name="url"
       onChange={[Function]}
-      value=""
     />
     <button
-      className="add-device"
+      className="add-action"
       onClick={[Function]}
     >
       Add

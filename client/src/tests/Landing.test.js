@@ -1,8 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Landing from '../Landing';
 
+import { shallow } from 'enzyme';
+
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Landing />, div);
+  const wrapper = shallow(<Landing />);
+  expect(toJson(wrapper)).toMatchSnapshot();
 });

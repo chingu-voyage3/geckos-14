@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<div
+  className="viz-grid"
+>
+  <Viz
+    data={
+      Array [
+        Object {
+          "date": "12/12",
+          "temp": 2,
+        },
+        Object {
+          "date": "13/12",
+          "temp": 0,
+        },
+        Object {
+          "date": "14/12",
+          "temp": 5,
+        },
+        Object {
+          "date": "15/12",
+          "temp": -3,
+        },
+      ]
+    }
+    deviceName="LondonTemp"
+    key="Temp Line"
+    model="VictoryLine"
+    name="Temp Line"
+    x="date"
+    y="temp"
+  />
+  <Viz
+    data={
+      Array [
+        Object {
+          "date": "12/12",
+          "hum": 95,
+        },
+        Object {
+          "date": "13/12",
+          "hum": 93,
+        },
+        Object {
+          "date": "14/12",
+          "hum": 98,
+        },
+        Object {
+          "date": "15/12",
+          "hum": 85,
+        },
+      ]
+    }
+    deviceName="LondonHumidity"
+    key="Humidity Bar"
+    model="VictoryBar"
+    name="Humidity Bar"
+    x="date"
+    y="hum"
+  />
+</div>
+`;

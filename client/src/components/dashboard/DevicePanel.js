@@ -1,12 +1,18 @@
+/** DevicePanel Component :
+The DevicePanel displays  a controlPanel and a DeviceList
+ControPanel needs the params, actions and parent props
+DeviceList just needs the list of devices
+ */
+
 import React from 'react';
 import DeviceList from './DeviceList';
 import ControlPanel from './ControlPanel';
 
 const DevicePanel = props => {
-  console.log(props);
+  // console.log(props);
   return (
     <div className="device-panel">
-      <ControlPanel actions={props.actions} />
+      <ControlPanel params={props.params} actions={props.actions} parent="device" />
       <DeviceList devices={props.devices} />
     </div>
   );
