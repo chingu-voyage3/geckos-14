@@ -2,7 +2,7 @@
 
 exports[`renders without crashing 1`] = `
 <div
-  className="content-item"
+  className="getstarted-content-item"
 >
   <h2 />
   <p />

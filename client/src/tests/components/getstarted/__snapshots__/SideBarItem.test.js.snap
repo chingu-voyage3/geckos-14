@@ -4,9 +4,10 @@ exports[`renders without crashing 1`] = `
 <div
   className="sidebar-item"
 >
-  <Link
-    replace={false}
+  <HashLink
     to="#undefined"
-  />
+  >
+    <h3 />
+  </HashLink>
 </div>
 `;
