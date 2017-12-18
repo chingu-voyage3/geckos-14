@@ -1,8 +1,8 @@
 export const lineData = [
-  { date: '12/12', temp: 2 },
-  { date: '13/12', temp: 0 },
-  { date: '14/12', temp: 5 },
-  { date: '15/12', temp: -3 }
+  // { date: 12, temp: 25.5 },
+  // { date: 13, temp: 25.6 },
+  // { date: 14, temp: 24.3 },
+  // { date: 15, temp: 25.8 }
 ];
 export const barData = [
   { date: '12/12', hum: 95 },
@@ -26,7 +26,7 @@ export const devices = [
 ];
 export const vizs = [
   {
-    name: 'Temp Line',
+    name: 'Temperature Sensor',
     deviceName: 'LondonTemp',
     model: 'VictoryLine',
     x: 'date',
@@ -34,7 +34,7 @@ export const vizs = [
     data: lineData
   },
   {
-    name: 'Humidity Bar',
+    name: 'Humidity Sensor',
     deviceName: 'LondonHumidity',
     model: 'VictoryBar',
     x: 'date',
