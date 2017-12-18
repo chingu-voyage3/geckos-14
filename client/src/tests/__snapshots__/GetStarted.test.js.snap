@@ -2,19 +2,49 @@
 
 exports[`renders without crashing 1`] = `
 <div>
-  <h2>
-    Let's Get You Started with these basics steps
-  </h2>
-  <ul>
-    <li>
-      Step 1
-    </li>
-    <li>
-      Step 2
-    </li>
-    <li>
-      Step 3
-    </li>
-  </ul>
+  <SideBar
+    items={
+      Array [
+        Object {
+          "position": "",
+          "text": "Context",
+        },
+        Object {
+          "position": "",
+          "text": "Requirements",
+        },
+        Object {
+          "position": "",
+          "text": "Connect your Things",
+        },
+        Object {
+          "position": "",
+          "text": "Display data from yout Things",
+        },
+      ]
+    }
+  />
+  <Content
+    content={
+      Array [
+        Object {
+          "text": "We are using the concept of \\"Things\\" described in the \\"Building the Web of Things\\" book written by Dominique D. Guinard and Vlad M. Trifa: A Thing with an uppercase \\"T\\" refers to a smart thing. A physical object that's digitally augmented with one or more of the following:",
+          "title": "Context",
+        },
+        Object {
+          "text": "We will assume that all connected Things follow the authors recommendations and W3C definition of a Web Thing: http://model.webofthings.io/.",
+          "title": "Requirements",
+        },
+        Object {
+          "text": "To Come...",
+          "title": "Connect your Things",
+        },
+        Object {
+          "text": "To Come..",
+          "title": "Display data from yout Things",
+        },
+      ]
+    }
+  />
 </div>
 `;
