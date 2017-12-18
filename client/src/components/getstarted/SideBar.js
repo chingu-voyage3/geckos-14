@@ -2,7 +2,7 @@ import React from 'react';
 import SideBarItem from './SideBarItem';
 
 const renderItem = item => {
-  return <SideBarItem {...item} />;
+  return <SideBarItem key={item.id} {...item} />;
 };
 
 const renderItems = items => {

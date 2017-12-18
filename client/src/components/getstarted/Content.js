@@ -2,7 +2,7 @@ import React from 'react';
 import ContentItem from './ContentItem';
 
 const renderStep = step => {
-  return <ContentItem {...step} />;
+  return <ContentItem key={step.id} {...step} />;
 };
 
 const renderSteps = steps => {
