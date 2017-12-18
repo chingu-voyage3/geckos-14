@@ -83,13 +83,6 @@ export const testData = [
   { date: '15/12', hum: 45 }
 ];
 
-export const sideBarItems = [
-  { text: 'Context', id: 'step1' },
-  { text: 'Requirements', id: 'step2' },
-  { text: 'Connect Things', id: 'step3' },
-  { text: 'Display Things', id: 'step4' }
-];
-
 export const getStartedContent = [
   {
     id: 'step1',

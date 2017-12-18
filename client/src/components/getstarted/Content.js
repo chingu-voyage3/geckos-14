@@ -1,3 +1,7 @@
+/** Content Component :
+Content display a list of Support/Tutotrial sections.
+For now data is static and saved in local file.
+ */
 import React from 'react';
 import ContentItem from './ContentItem';
 

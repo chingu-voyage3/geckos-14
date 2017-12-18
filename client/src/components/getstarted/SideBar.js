@@ -1,3 +1,8 @@
+/** SideBar Component :
+SideBar display a list of Titles and provide inPage navigation.
+For now data is static and saved in local file.
+TODO:Make the SideBar Sticky when scrolling
+ */
 import React from 'react';
 import SideBarItem from './SideBarItem';
 
