@@ -21,6 +21,7 @@
 }
 .device-list {
   display: grid;
+  grid-gap: 5px;
   grid-auto-rows: auto;
 }
 .device {
@@ -30,4 +31,15 @@
 }
 .viz-panel {
   border: solid 1px;
+}
+.viz-grid {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, 300px);
+  grid-template-rows: repeat(auto-fit, 200px);
+}
+.viz {
+  height: 200px;
+  width: 300px;
+  border: dashed 1px;
 }

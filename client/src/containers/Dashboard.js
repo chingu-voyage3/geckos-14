@@ -1,42 +1,51 @@
+/** Dashboard Container :
+The Dahshboard contains the state allowing to display the Device list,
+ the Viz Grid and the control panels
+ For now the data is pulled from a localFile.
+ Later part of the data will be stored in cache and DB
+ */
+
 import React, { Component } from 'react';
 import DevicePanel from '../components/dashboard/DevicePanel';
 import VizPanel from '../components/dashboard/VizPanel';
 import '../assets/Dashboard.css';
-
-const devices = [
-  {
-    name: 'LondonTemp',
-    url: 'http://devices.webofthings.io/pi/sensors/temperature/',
-    type: 'Thermometer'
-  },
-  {
-    name: 'LondonHumidity',
-    url: 'http://devices.webofthings.io/pi/sensors/humidity/',
-    type: 'Humidity'
-  },
-  { name: 'LondonIR', url: 'http://devices.webofthings.io/pi/sensors/pir/', type: 'InfraRed' }
-];
+import * as data from '../tempData.js';
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.addDevice = this.addDevice.bind(this);
+    this.addViz = this.addViz.bind(this);
     this.state = {
-      devices: devices
+      devices: data.devices,
+      deviceParams: data.deviceParams,
+      vizs: data.vizs,
+      vizParams: data.vizParams
     };
   }
-  componentDidMount() {}
+
   addDevice(device) {
-    console.log('deviceAdded');
+    // console.log('deviceAdded');
     this.setState({
       devices: [...this.state.devices, device]
+    });
+  }
+  addViz(viz) {
+    // console.log('viz to be Added', viz);
+    // console.log('dash vizs state', this.state);
+    this.setState({
+      vizs: [...this.state.vizs, viz]
     });
   }
   render() {
     return (
       <div className="dashboard">
-        <DevicePanel devices={this.state.devices} actions={this.addDevice} />
-        <VizPanel />
+        <DevicePanel
+          devices={this.state.devices}
+          actions={this.addDevice}
+          params={this.state.deviceParams}
+        />
+        <VizPanel vizs={this.state.vizs} actions={this.addViz} params={this.state.vizParams} />
       </div>
     );
   }

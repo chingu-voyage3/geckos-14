@@ -4,7 +4,6 @@ import VizPanel from '../../../components/dashboard/VizPanel';
 import { shallow } from 'enzyme';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  const wrVizPaneler = shallow(<VizPanel />);
-  expect(toJson(wrVizPaneler)).toMatchSnapshot();
+  const wrapper = shallow(<VizPanel />);
+  expect(toJson(wrapper)).toMatchSnapshot();
 });
