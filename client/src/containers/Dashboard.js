@@ -23,25 +23,34 @@ class Dashboard extends Component {
       vizParams: d.vizParams
     };
   }
-  editDevice(id, newProps) {
+  editDevice = (id, newProps) => {
     // TODO: Add function that updates a Device
-  }
-  addDevice(device) {
+  };
+  addDevice = device => {
     // console.log('deviceAdded');
     this.setState({
       devices: [...this.state.devices, device]
     });
-  }
-  delDevice(id) {
+  };
+  delDevice = id => {
     // TODO: Add function that deletes a Device
-  }
-  addViz(viz) {
+  };
+  addViz = viz => {
     // console.log('viz to be Added', viz);
     // console.log('dash vizs state', this.state);
     this.setState({
       vizs: [...this.state.vizs, viz]
     });
-  }
+  };
+  editViz = (id, newProps) => {
+    // TODO: Add function that updates a Viz
+  };
+  delDevice = id => {
+    // TODO: Add function that deletes a Device
+  };
+  toogleSelected = id => {
+    console.log('Item selected', id);
+  };
 
   addDataPoint = dataPoint => {
     let tempViz = this.state.vizs;
@@ -63,21 +72,21 @@ class Dashboard extends Component {
       this.addDataPoint(result);
     };
   }
-  editViz(id, newProps) {
-    // TODO: Add function that updates a Viz
-  }
-  delDevice(id) {
-    // TODO: Add function that deletes a Device
-  }
+
   render() {
+    const actions = {
+      addDevice: this.addDevice,
+      addViz: this.addViz,
+      toogleSelected: this.toogleSelected
+    };
     return (
       <div className="dashboard">
         <DevicePanel
           devices={this.state.devices}
-          actions={(this.addDevice, this.toogleSelect)}
+          actions={actions}
           params={this.state.deviceParams}
         />
-        <VizPanel vizs={this.state.vizs} actions={this.addViz} params={this.state.vizParams} />
+        <VizPanel vizs={this.state.vizs} actions={actions} params={this.state.vizParams} />
       </div>
     );
   }

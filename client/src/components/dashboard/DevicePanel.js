@@ -9,7 +9,6 @@ import DeviceList from './DeviceList';
 import ControlPanel from './ControlPanel';
 
 const DevicePanel = props => {
-  // console.log(props);
   return (
     <div className="device-panel">
       <ControlPanel params={props.params} actions={props.actions} parent="device" />

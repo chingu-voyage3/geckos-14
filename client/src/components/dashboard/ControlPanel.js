@@ -54,7 +54,7 @@ class ControlPanel extends Component {
 
   handleAdd = () => {
     if (this.props.parent === 'device') {
-      this.props.actions(this.state.device);
+      this.props.actions.addDevice(this.state.device);
       this.setState({
         device: {
           name: '',
@@ -63,7 +63,7 @@ class ControlPanel extends Component {
         }
       });
     } else {
-      this.props.actions(this.state.viz);
+      this.props.actions.addViz(this.state.viz);
       this.setState({
         viz: {
           name: '',

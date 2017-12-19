@@ -10,7 +10,7 @@ import React from 'react';
 const Device = props => {
   // console.log('Device Component');
   return (
-    <div className="device" onClick={props.actions.toogleSelect(props.device.id)}>
+    <div className="device" onClick={props.actions.toogleSelected(props.device.id)}>
       <div>
         {props.device.name + '    '}
         <span>
