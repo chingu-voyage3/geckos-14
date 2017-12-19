@@ -1,7 +1,7 @@
 import React from 'react';
 import GettingStartedButton from './GettingStartedButton';
 
-const WelcomeSection = (props) => {
+const WelcomeText = (props) => {
   return (
     <section className="main-section">
       <div className="welcome-text">
@@ -13,4 +13,4 @@ const WelcomeSection = (props) => {
   );
 };
 
-export default WelcomeSection;
+export default WelcomeText;
