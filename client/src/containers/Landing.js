@@ -1,10 +1,12 @@
 import React from 'react';
 import '../assets/Landing.css';
 import devices from '../../assets/images/devices.png';
-import WelcomeText from '../components/landing/WelcomeSection';
+import dataOne from '../../assets/images/dataOne.jpg';
+import dataTwo from '../../assets/images/dataTwo.jpg';
+import WelcomeText from '../components/landing/WelcomeText';
 import SectionOne from '../components/landing/SectionOne';
 import RenderTextImage from './components/landing/RenderTextImage';
-import SectionThree from '../components/landing/SectionThree';
+import RenderImageImage from '../components/landing/RenderImageImage';
 
 
 const Landing = () => {
@@ -19,7 +21,12 @@ const Landing = () => {
           image = {devices}
           alt = "Internet of things devices"
         />
-        <SectionThree />
+        <RenderImageImage
+          heading = "Read easy to interpret, live data from all your devices"
+          imageOne = {dataOne}
+          imageTwo = {dataTwo}
+          alt = "Internet of things devices"
+         />
       </div>
   );
 };
