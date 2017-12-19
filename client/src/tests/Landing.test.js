@@ -1,5 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
 import ReactDOM from 'react-dom';
 import Landing from '../containers/Landing';
 
