@@ -9,7 +9,8 @@ exports[`renders without crashing 1`] = `
       Object {
         "addDevice": [Function],
         "addViz": [Function],
-        "toogleSelected": [Function],
+        "toogleSelectedDevice": [Function],
+        "toogleSelectedViz": [Function],
       }
     }
     devices={
@@ -53,7 +54,8 @@ exports[`renders without crashing 1`] = `
       Object {
         "addDevice": [Function],
         "addViz": [Function],
-        "toogleSelected": [Function],
+        "toogleSelectedDevice": [Function],
+        "toogleSelectedViz": [Function],
       }
     }
     params={
