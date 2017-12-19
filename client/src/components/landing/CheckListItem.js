@@ -1,5 +1,6 @@
 import React from 'react';
-const CheckListItem = props => {
+
+const CheckListItem = (props) => {
   return (
     <div>
       <i className="fas fa-check-square fa-3x"></i> <h5>{props.text}</h5>
