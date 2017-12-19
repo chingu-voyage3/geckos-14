@@ -9,33 +9,54 @@ import React, { Component } from 'react';
 import DevicePanel from '../components/dashboard/DevicePanel';
 import VizPanel from '../components/dashboard/VizPanel';
 import '../assets/Dashboard.css';
-import * as data from '../tempData.js';
+import * as d from '../tempData.js';
+
+const tempSocket = new WebSocket('ws://devices.webofthings.io/pi/sensors/temperature');
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
-    this.addDevice = this.addDevice.bind(this);
-    this.addViz = this.addViz.bind(this);
     this.state = {
-      devices: data.devices,
-      deviceParams: data.deviceParams,
-      vizs: data.vizs,
-      vizParams: data.vizParams
+      devices: d.devices,
+      deviceParams: d.deviceParams,
+      vizs: d.vizs,
+      vizParams: d.vizParams
     };
   }
 
-  addDevice(device) {
+  addDevice = device => {
     // console.log('deviceAdded');
     this.setState({
       devices: [...this.state.devices, device]
     });
-  }
-  addViz(viz) {
+  };
+  addViz = viz => {
     // console.log('viz to be Added', viz);
     // console.log('dash vizs state', this.state);
     this.setState({
       vizs: [...this.state.vizs, viz]
     });
+  };
+
+  addDataPoint = dataPoint => {
+    let tempViz = this.state.vizs;
+    for (var i = 0; i < tempViz.length; i++) {
+      if (tempViz[i].name === dataPoint.name) {
+        tempViz[i].data.push({
+          date: tempViz[0].data.length,
+          temp: dataPoint.value
+        });
+      }
+    }
+    this.setState({
+      vizs: tempViz
+    });
+  };
+  componentDidMount() {
+    tempSocket.onmessage = event => {
+      const result = JSON.parse(event.data);
+      this.addDataPoint(result);
+    };
   }
   render() {
     return (
