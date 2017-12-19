@@ -8,9 +8,9 @@ const RenderImageCheckList = props =>{
     checkList.push(<CheckListItem text={text} />);
   });
   return (
-    <section className="section-one section">
+    <section className="section">
       <h2 className="text-center font-weight-bold">{props.heading}</h2>
-      <div className="row features-one">
+      <div className="row">
         <div className="col-md-6">
            <img src={props.image} className="img-fluid" alt={props.alt} />
         </div>
