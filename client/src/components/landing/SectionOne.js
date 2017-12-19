@@ -2,7 +2,7 @@ import React from 'react';
 import board from '../../assets/images/board.png';
 
 const SectionOne = () => {
- return (
+  return (
    <section className="section-one section">
      <h2 className="text-center font-weight-bold">Features</h2>
      <div className="row features-one">
@@ -17,7 +17,7 @@ const SectionOne = () => {
        </div>
      </div>
   </section>
- );
+  );
 };
 
 export default SectionOne;
