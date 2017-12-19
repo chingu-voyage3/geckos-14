@@ -3,3 +3,17 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.wrapper{
+  height: 100%;
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 30% 30%;
+  grid-row-gap: 100px;
+}
+
+
+.wrapper:nth-child(odd){
+}
