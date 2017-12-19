@@ -6,7 +6,7 @@ import history from './services/history';
 
 // import from components
 import NavBar from './NavBar';
-import Footer from './Footer';
+import Footer from './containers/Footer';
 import Landing from './containers/Landing';
 import Dashboard from './containers/Dashboard';
 import GetStarted from './GetStarted';

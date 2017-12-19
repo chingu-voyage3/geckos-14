@@ -1,15 +1,20 @@
+/** DeviceList Component :
+The DeviceList displays  a list of Devices using a simple CSS grid
+TODO: Allow hiding the List
+ */
+
 import React from 'react';
 import Device from './Device';
 
+const renderDevice = device => {
+  // console.log('renderDevice', device);
+  return <Device key={device.name} {...device} />;
+};
 const renderDeviceList = devices => {
   // console.log('renderDeviceList');
   return devices.map(device => {
     return renderDevice(device);
   });
-};
-const renderDevice = device => {
-  // console.log('renderDevice', device);
-  return <Device key={device.name} {...device} />;
 };
 const DeviceList = props => {
   // console.log('DeviceList Component');

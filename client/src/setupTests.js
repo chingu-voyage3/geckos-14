@@ -12,6 +12,7 @@ global.mount = mount;
 global.toJson = toJson;
 
 // Fail tests on any warning
+// eslint-disable-next-line no-console
 console.error = message => {
   throw new Error(message);
 };

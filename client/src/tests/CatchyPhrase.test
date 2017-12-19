@@ -1,11 +1,10 @@
 import React from 'react';
-<<<<<<< HEAD
 import ReactDOM from 'react-dom';
-import Landing from '../containers/Landing';
-
+import Footer from '../components/footer/CatchyPhrase';
 import { shallow } from 'enzyme';
 
 it('renders without crashing', () => {
-  const wrapper = shallow(<Landing />);
+  const div = document.createElement('div');
+  const wrapper = shallow(<CatchyPhrase />);
   expect(toJson(wrapper)).toMatchSnapshot();
 });

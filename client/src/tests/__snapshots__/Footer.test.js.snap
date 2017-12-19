@@ -2,11 +2,10 @@
 
 exports[`renders without crashing 1`] = `
 <div
-  className="viz-panel"
+  className="footer"
 >
-  <ControlPanel
-    parent="viz"
-  />
-  <VizGrid />
+  <SocialMedia />
+  <CatchyPhrase />
+  <SupportMail />
 </div>
 `;

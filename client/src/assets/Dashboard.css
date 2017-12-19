@@ -4,21 +4,42 @@
   margin: 20px 20px 20px 20px;
 }
 .control-panel {
+  display: grid;
+  grid-auto-columns: auto;
   border: dashed 1px;
 }
+.add {
+  display: grid;
+  margin: 5px 20px 5px 20px;
+  grid-auto-rows: auto;
+}
+
 .device-panel {
   display: grid;
-  grid-template-rows: 1fr 9fr;
+  grid-template-rows: 3fr 6fr;
   border: solid 1px;
 }
 .device-list {
   display: grid;
-  grid-auto-rows: 100px;
+  grid-gap: 5px;
+  grid-auto-rows: auto;
 }
 .device {
   margin-left: 20px;
   margin-right: 20px;
+  border: dashed 1px;
 }
 .viz-panel {
   border: solid 1px;
+}
+.viz-grid {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, 300px);
+  grid-template-rows: repeat(auto-fit, 200px);
+}
+.viz {
+  height: 200px;
+  width: 300px;
+  border: dashed 1px;
 }
