@@ -10,36 +10,43 @@ export const barData = [
   { date: '14/12', hum: 98 },
   { date: '15/12', hum: 85 }
 ];
-export const modelTypes = ['Line', 'Bar', 'Status', 'Value'];
+export const modelTypes = ['LineChart', 'BarChart', 'Status', 'Display'];
 export const devices = [
   {
+    id: '1',
     name: 'LondonTemp',
     url: 'http://devices.webofthings.io/pi/sensors/temperature/',
-    type: 'Thermometer'
+    type: 'Thermometer',
+    selected: false
   },
   {
+    id: '2',
     name: 'LondonHumidity',
     url: 'http://devices.webofthings.io/pi/sensors/humidity/',
-    type: 'Humidity'
-  },
-  { name: 'LondonIR', url: 'http://devices.webofthings.io/pi/sensors/pir/', type: 'InfraRed' }
+    type: 'Humidity',
+    selected: false
+  }
 ];
 export const vizs = [
   {
+    id: '1',
     name: 'Temperature Sensor',
-    deviceName: 'LondonTemp',
+    deviceId: '1',
     model: 'VictoryLine',
     x: 'date',
     y: 'temp',
-    data: lineData
+    data: lineData,
+    selected: false
   },
   {
+    id: '2',
     name: 'Humidity Sensor',
-    deviceName: 'LondonHumidity',
+    deviceId: '2',
     model: 'VictoryBar',
     x: 'date',
     y: 'hum',
-    data: barData
+    data: barData,
+    selected: false
   }
 ];
 
