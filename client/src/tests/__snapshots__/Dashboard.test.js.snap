@@ -5,23 +5,28 @@ exports[`renders without crashing 1`] = `
   className="dashboard"
 >
   <DevicePanel
-    actions={[Function]}
+    actions={
+      Object {
+        "addDevice": [Function],
+        "addViz": [Function],
+        "toogleSelected": [Function],
+      }
+    }
     devices={
       Array [
         Object {
+          "id": "1",
           "name": "LondonTemp",
+          "selected": false,
           "type": "Thermometer",
           "url": "http://devices.webofthings.io/pi/sensors/temperature/",
         },
         Object {
+          "id": "2",
           "name": "LondonHumidity",
+          "selected": false,
           "type": "Humidity",
           "url": "http://devices.webofthings.io/pi/sensors/humidity/",
-        },
-        Object {
-          "name": "LondonIR",
-          "type": "InfraRed",
-          "url": "http://devices.webofthings.io/pi/sensors/pir/",
         },
       ]
     }
@@ -41,9 +46,16 @@ exports[`renders without crashing 1`] = `
         },
       ]
     }
+    selected={Object {}}
   />
   <VizPanel
-    actions={[Function]}
+    actions={
+      Object {
+        "addDevice": [Function],
+        "addViz": [Function],
+        "toogleSelected": [Function],
+      }
+    }
     params={
       Array [
         Object {
@@ -55,10 +67,10 @@ exports[`renders without crashing 1`] = `
           "label": "Model :",
           "name": "model",
           "options": Array [
-            "Line",
-            "Bar",
+            "LineChart",
+            "BarChart",
             "Status",
-            "Value",
+            "Display",
           ],
         },
         Object {
@@ -68,13 +80,16 @@ exports[`renders without crashing 1`] = `
         },
       ]
     }
+    selected={Object {}}
     vizs={
       Array [
         Object {
           "data": Array [],
-          "deviceName": "LondonTemp",
+          "deviceId": "1",
+          "id": "1",
           "model": "VictoryLine",
           "name": "Temperature Sensor",
+          "selected": false,
           "x": "date",
           "y": "temp",
         },
@@ -97,9 +112,11 @@ exports[`renders without crashing 1`] = `
               "hum": 85,
             },
           ],
-          "deviceName": "LondonHumidity",
+          "deviceId": "2",
+          "id": "2",
           "model": "VictoryBar",
           "name": "Humidity Sensor",
+          "selected": false,
           "x": "date",
           "y": "hum",
         },

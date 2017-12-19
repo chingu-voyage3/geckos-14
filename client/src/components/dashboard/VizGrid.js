@@ -11,18 +11,24 @@ import * as d from '../../tempData.js';
 
 import ReactGridLayout from 'react-grid-layout';
 
-const renderViz = viz => {
+const renderViz = (viz, actions) => {
   // console.log('renderViz', viz);
   return (
-    <div key={viz.name} className="viz">
+    <div
+      key={viz.name}
+      className="viz"
+      onClick={() => {
+        actions.toogleSelectedViz(viz.id);
+      }}
+    >
       <Viz {...viz} />
     </div>
   );
 };
-const renderVizGrid = vizs => {
+const renderVizGrid = props => {
   // console.log('renderVizList');
-  return vizs.map(viz => {
-    return renderViz(viz);
+  return props.vizs.map(viz => {
+    return renderViz(viz, props.actions);
   });
 };
 const VizGrid = props => {
@@ -36,7 +42,7 @@ const VizGrid = props => {
         rowHeight={200}
         width={900}
       >
-        {renderVizGrid(props.vizs)}
+        {renderVizGrid(props)}
       </ReactGridLayout>
     </div>
   );

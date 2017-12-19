@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<div
+  className="footer-mediabuttons"
+>
+  <p>
+    <u>
+      Get in touch: 
+    </u>
+    <i
+      className="fa fa-facebook-official fa-x2"
+    />
+    <i
+      className="fa fa-github fa-x2"
+    />
+    <i
+      className="fa fa-twitter-square fa-x2"
+    />
+  </p>
+</div>
+`;

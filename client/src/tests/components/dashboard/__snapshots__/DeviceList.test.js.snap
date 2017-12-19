@@ -5,22 +5,34 @@ exports[`renders without crashing 1`] = `
   className="device-list"
 >
   <Device
+    device={
+      Object {
+        "name": "device1",
+        "status": "online",
+        "type": "Thermometer",
+      }
+    }
     key="device1"
-    name="device1"
-    status="online"
-    type="Thermometer"
   />
   <Device
+    device={
+      Object {
+        "name": "device2",
+        "status": "offline",
+        "type": "PhMeter",
+      }
+    }
     key="device2"
-    name="device2"
-    status="offline"
-    type="PhMeter"
   />
   <Device
+    device={
+      Object {
+        "name": "device3",
+        "status": "offline",
+        "type": "Thermometer",
+      }
+    }
     key="device3"
-    name="device3"
-    status="offline"
-    type="Thermometer"
   />
 </div>
 `;

@@ -19,15 +19,17 @@ class Dashboard extends Component {
     this.state = {
       devices: d.devices,
       deviceParams: d.deviceParams,
+      selectedDevice: {},
       vizs: d.vizs,
-      vizParams: d.vizParams
+      vizParams: d.vizParams,
+      selectedViz: {}
     };
   }
   editDevice = (id, newProps) => {
     // TODO: Add function that updates a Device
   };
   addDevice = device => {
-    // console.log('deviceAdded');
+    console.log('deviceAdded');
     this.setState({
       devices: [...this.state.devices, device]
     });
@@ -48,8 +50,25 @@ class Dashboard extends Component {
   delDevice = id => {
     // TODO: Add function that deletes a Device
   };
-  toogleSelected = id => {
-    console.log('Item selected', id);
+  toogleSelectedDevice = id => {
+    let tempDevices = this.state.devices;
+    for (var i = 0; i < tempDevices.length; i++) {
+      if (tempDevices[i].id === id) {
+        this.setState({
+          selectedDevice: tempDevices[i]
+        });
+      }
+    }
+  };
+  toogleSelectedViz = id => {
+    let tempVizs = this.state.vizs;
+    for (var i = 0; i < tempVizs.length; i++) {
+      if (tempVizs[i].id === id) {
+        this.setState({
+          selectedViz: tempVizs[i]
+        });
+      }
+    }
   };
 
   addDataPoint = dataPoint => {
@@ -77,7 +96,8 @@ class Dashboard extends Component {
     const actions = {
       addDevice: this.addDevice,
       addViz: this.addViz,
-      toogleSelected: this.toogleSelected
+      toogleSelectedDevice: this.toogleSelectedDevice,
+      toogleSelectedViz: this.toogleSelectedViz
     };
     return (
       <div className="dashboard">
@@ -85,8 +105,14 @@ class Dashboard extends Component {
           devices={this.state.devices}
           actions={actions}
           params={this.state.deviceParams}
+          selected={this.state.selectedDevice}
         />
-        <VizPanel vizs={this.state.vizs} actions={actions} params={this.state.vizParams} />
+        <VizPanel
+          vizs={this.state.vizs}
+          actions={actions}
+          params={this.state.vizParams}
+          selected={this.state.selectedViz}
+        />
       </div>
     );
   }

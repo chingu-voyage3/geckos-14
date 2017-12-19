@@ -12,8 +12,13 @@ const VizPanel = props => {
   // console.log(props);
   return (
     <div className="viz-panel">
-      <ControlPanel actions={props.actions} params={props.params} parent="viz" />
-      <VizGrid vizs={props.vizs} />
+      <ControlPanel
+        actions={props.actions}
+        params={props.params}
+        selectedViz={props.selected}
+        parent="viz"
+      />
+      <VizGrid vizs={props.vizs} actions={props.actions} />
     </div>
   );
 };

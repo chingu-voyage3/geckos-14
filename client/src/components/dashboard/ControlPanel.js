@@ -23,25 +23,12 @@ import * as d from '../../tempData';
 class ControlPanel extends Component {
   constructor(props) {
     super(props);
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleAdd = this.handleAdd.bind(this);
     this.state = {
-      device: {
-        name: '',
-        type: '',
-        url: ''
-      },
-      viz: {
-        name: '',
-        model: '',
-        url: '',
-        x: 'date',
-        y: 'hum',
-        data: d.testData,
-        options: []
-      }
+      device: props.selectedDevice,
+      viz: props.selectedViz
     };
   }
+
   handleChange = event => {
     const value = event.target.value;
     const name = event.target.name;
@@ -51,7 +38,6 @@ class ControlPanel extends Component {
       ? this.setState({ device: { ...this.state.device, [name]: value } })
       : this.setState({ viz: { ...this.state.viz, [name]: value } });
   };
-
   handleAdd = () => {
     if (this.props.parent === 'device') {
       this.props.actions.addDevice(this.state.device);
@@ -89,9 +75,13 @@ class ControlPanel extends Component {
     });
   };
   render() {
-    // console.log('params', this.props.params);
     return (
       <div className="control-panel">
+        <div>
+          {this.props.parent === 'device'
+            ? this.props.selectedDevice.name
+            : this.props.selectedViz.name}
+        </div>
         <div className="add">
           {this.renderParams(this.props.params)}
           <button className="add-action" onClick={this.handleAdd}>

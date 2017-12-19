@@ -11,7 +11,12 @@ import ControlPanel from './ControlPanel';
 const DevicePanel = props => {
   return (
     <div className="device-panel">
-      <ControlPanel params={props.params} actions={props.actions} parent="device" />
+      <ControlPanel
+        params={props.params}
+        actions={props.actions}
+        selectedDevice={props.selected}
+        parent="device"
+      />
       <DeviceList devices={props.devices} actions={props.actions} />
     </div>
   );

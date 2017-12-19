@@ -3,11 +3,13 @@
 exports[`renders without crashing 1`] = `
 <div
   className="device"
+  onClick={[Function]}
 >
   <div>
-    device1    
+    LondonTemp    
     <span>
       <a
+        href="http://devices.webofthings.io/pi/sensors/temperature/"
         target="_blank"
       >
         Url

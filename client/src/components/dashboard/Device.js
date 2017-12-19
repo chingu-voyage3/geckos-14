@@ -5,12 +5,18 @@ TODO: Add Status
 TODO: Add specific control like Sync, Del, Edit
 TODO: Allow expand/hide
  */
+
 import React from 'react';
 
 const Device = props => {
   // console.log('Device Component');
   return (
-    <div className="device" onClick={props.actions.toogleSelected(props.device.id)}>
+    <div
+      className="device"
+      onClick={() => {
+        props.actions.toogleSelectedDevice(props.device.id);
+      }}
+    >
       <div>
         {props.device.name + '    '}
         <span>

@@ -4,6 +4,7 @@ exports[`renders without crashing 1`] = `
 <div
   className="control-panel"
 >
+  <div />
   <div
     className="add"
   >
