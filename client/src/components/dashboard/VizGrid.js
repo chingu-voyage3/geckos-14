@@ -4,10 +4,20 @@ TODO: Transform grid into draggable
  */
 import React from 'react';
 import Viz from './Viz';
+// css files included in RGL package
+import '../../assets/react-grid-layout.css';
+import '../../assets/react-resizable.css';
+import * as d from '../../tempData.js';
+
+import ReactGridLayout from 'react-grid-layout';
 
 const renderViz = viz => {
   // console.log('renderViz', viz);
-  return <Viz key={viz.name} {...viz} />;
+  return (
+    <div key={viz.name} className="viz">
+      <Viz {...viz} />
+    </div>
+  );
 };
 const renderVizGrid = vizs => {
   // console.log('renderVizList');
@@ -17,7 +27,19 @@ const renderVizGrid = vizs => {
 };
 const VizGrid = props => {
   // console.log('VizGrid Component');
-  return <div className="viz-grid">{renderVizGrid(props.vizs)}</div>;
+  return (
+    <div className="">
+      <ReactGridLayout
+        className="layout"
+        layout={d.gridLayout}
+        cols={3}
+        rowHeight={200}
+        width={900}
+      >
+        {renderVizGrid(props.vizs)}
+      </ReactGridLayout>
+    </div>
+  );
 };
 
 export default VizGrid;

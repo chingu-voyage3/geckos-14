@@ -71,27 +71,10 @@ exports[`renders without crashing 1`] = `
     vizs={
       Array [
         Object {
-          "data": Array [
-            Object {
-              "date": "12/12",
-              "temp": 2,
-            },
-            Object {
-              "date": "13/12",
-              "temp": 0,
-            },
-            Object {
-              "date": "14/12",
-              "temp": 5,
-            },
-            Object {
-              "date": "15/12",
-              "temp": -3,
-            },
-          ],
+          "data": Array [],
           "deviceName": "LondonTemp",
           "model": "VictoryLine",
-          "name": "Temp Line",
+          "name": "Temperature Sensor",
           "x": "date",
           "y": "temp",
         },
@@ -116,7 +99,7 @@ exports[`renders without crashing 1`] = `
           ],
           "deviceName": "LondonHumidity",
           "model": "VictoryBar",
-          "name": "Humidity Bar",
+          "name": "Humidity Sensor",
           "x": "date",
           "y": "hum",
         },
