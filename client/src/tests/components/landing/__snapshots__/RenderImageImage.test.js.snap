@@ -1,39 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders without crashing 1`] = `
-<section
-  className="section"
+<div
+  className="features-two"
 >
-  <h2
-    className="text-center font-weight-bold mt-10"
-  >
+  <h2>
      
     Read easy to interpret, live data from all your devices
      
   </h2>
   <div
-    className="row"
+    className="features-two-container"
   >
-    <div
-      className="col-md-6"
-    >
-      <h4
-        className="font-weight-bold"
-      >
+    <div>
+      <h4>
          
          
       </h4>
     </div>
-    <div
-      className="col-md-6"
-    >
+    <div>
       <img
         alt="Internet of things devices"
-        className="img-fluid rounded"
-        height="470px"
-        width="470px"
       />
     </div>
   </div>
-</section>
+</div>
 `;

@@ -1,3 +1,4 @@
+
 .nav-bar{
   position: sticky;
   top: 0;
@@ -19,4 +20,5 @@ ul{
   margin: 0 auto;
   display: grid;
   grid-template-columns:repeat(4, 15%);
+  -ms-grid-column: repeat(4, 15%);
 }

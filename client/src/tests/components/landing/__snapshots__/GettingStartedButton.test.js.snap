@@ -9,7 +9,7 @@ exports[`renders without crashing 1`] = `
     to="/getstarted"
   >
     <button
-      className="btn btn-outline-secondary btn-lg"
+      className="getstarted-button"
       type="button"
     >
       Get Started
