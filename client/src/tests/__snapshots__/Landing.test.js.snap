@@ -4,27 +4,6 @@ exports[`renders without crashing 1`] = `
 <div
   className="container"
 >
-<<<<<<< HEAD
-  <header
-    className="App-header"
-  >
-    <img
-      alt="logo"
-      className="App-logo"
-      src="logo.svg"
-    />
-    <h1
-      className="App-title"
-    >
-      Welcome to DashThings.io
-    </h1>
-  </header>
-  <div
-    className="App-intro"
-  >
-    BUILD, CONNECT AND SHARE.
-  </div>
-=======
   <WelcomeText
     heading="Sync, Manage and Control your Devices"
     welcomeText="DashThings.io is dedicatd to DIYers in need of an easy way to build user-friendly Dashboards for their Web of Things Devices"
@@ -53,6 +32,5 @@ exports[`renders without crashing 1`] = `
     imageOne="dataOne.jpg"
     imageTwo="dataTwo.jpg"
   />
->>>>>>> 0ab38a8c7db956f4024ffc390d2578c463e4e0dc
 </div>
 `;
