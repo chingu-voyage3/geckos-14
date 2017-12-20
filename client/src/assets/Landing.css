@@ -2,7 +2,6 @@
             General
 ======================================*/
 .section {
-  height: 100%;
   margin-top: 50px;
 }
 
@@ -20,8 +19,9 @@
 .welcome-text-button {
   padding: 10px;
   width: 20%;
-  margin: 40px auto;
+  margin: auto;
 }
+
 /*======================================
             Section one
 ======================================*/

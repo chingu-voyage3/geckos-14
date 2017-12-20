@@ -22,7 +22,8 @@ const Landing = () => {
       <div className="container">
         <WelcomeText
           heading="Sync, Manage and Control your Devices"
-          welcomeText="DashThings.io is dedicatd to DIYers in need of an easy way to build user-friendly Dashboards for their Web of Things Devices"/>
+          welcomeText="DashThings.io is dedicatd to DIYers in need of an easy way to build user-friendly Dashboards for their Web of Things Devices"
+        />
         <RenderImageCheckList
           heading="Features"
           image={board}
