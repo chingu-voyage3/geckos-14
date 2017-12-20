@@ -1,7 +1,8 @@
 .footer{
   display: grid;
   grid-template-columns:1fr 2fr 1fr;
-  font-size: 0.7em;
+  font-size: 1em;
   text-align: center;
   align-items: center;
+  background: #7899D4;
 }

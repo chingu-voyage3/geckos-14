@@ -1,5 +1,7 @@
 body {
   font-family: sans-serif;
+  background: #5F5AA2;
+  margin-top: 0;
 }
 
 .wrapper{
@@ -9,10 +11,3 @@ body {
 }
 
 /* just for testing purposes */
-.wrapper > div{
-  background: #eee;
-}
-
-.wrapper > div:nth-child(odd) {
-  background: #ddd;
-}

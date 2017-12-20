@@ -2,8 +2,9 @@
 
 exports[`renders without crashing 1`] = `
 <div
-  className="App"
+  className="container"
 >
+<<<<<<< HEAD
   <header
     className="App-header"
   >
@@ -23,5 +24,35 @@ exports[`renders without crashing 1`] = `
   >
     BUILD, CONNECT AND SHARE.
   </div>
+=======
+  <WelcomeText
+    heading="Sync, Manage and Control your Devices"
+    welcomeText="DashThings.io is dedicatd to DIYers in need of an easy way to build user-friendly Dashboards for their Web of Things Devices"
+  />
+  <RenderImageCheckList
+    alt="A Web of things dashboard"
+    heading="Features"
+    image="board.png"
+    texts={
+      Array [
+        "Discover all sensors/actuators connected to your device",
+        "Add or remove readings from a specific sensor of a connected device",
+        "Upload a file with sensor readings to display",
+        "Discover all sensors/actuators connected to your Device",
+      ]
+    }
+  />
+  <RenderTextImage
+    alt="Internet of things devices"
+    image="devices.png"
+    text="Easily add or remove devices in your DashThings board"
+  />
+  <RenderImageImage
+    alt="Internet of things devices"
+    heading="Read easy to interpret, live data from all your devices"
+    imageOne="dataOne.jpg"
+    imageTwo="dataTwo.jpg"
+  />
+>>>>>>> 0ab38a8c7db956f4024ffc390d2578c463e4e0dc
 </div>
 `;

@@ -1,11 +1,17 @@
 .nav-bar{
   position: sticky;
   top: 0;
+  background: #365437;
+}
+
+.nav-bar a{
+  color: white;
 }
 
 ul{
   padding: 0;
   list-style-type: none;
+  color:white;
 }
 
 .nav-bar ul{
