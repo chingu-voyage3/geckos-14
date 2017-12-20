@@ -1,19 +1,18 @@
 body {
-  margin: 0;
-  padding: 0;
   font-family: sans-serif;
 }
 
 .wrapper{
-  height: 100%;
-  width: 90%;
-  margin: 0 auto;
   display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 30% 30% 30%;
-  grid-row-gap: 100px;
+  grid-template-rows:0.1fr 16fr 0.1fr; /* 16fr just for testing purposes */
+  grid-gap: 1em;
 }
 
+/* just for testing purposes */
+.wrapper > div{
+  background: #eee;
+}
 
-.wrapper:nth-child(odd){
+.wrapper > div:nth-child(odd) {
+  background: #ddd;
 }

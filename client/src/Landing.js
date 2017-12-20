@@ -10,9 +10,9 @@ class Landing extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to DashThings.io</h1>
         </header>
-        <p className="App-intro">
-          BUILD, CONNECT AND SHARE.
-        </p>
+        <div className="App-intro">
+            BUILD, CONNECT AND SHARE.
+        </div>
       </div>
     );
   }

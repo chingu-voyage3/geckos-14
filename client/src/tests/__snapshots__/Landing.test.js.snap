@@ -18,10 +18,10 @@ exports[`renders without crashing 1`] = `
       Welcome to DashThings.io
     </h1>
   </header>
-  <p
+  <div
     className="App-intro"
   >
     BUILD, CONNECT AND SHARE.
-  </p>
+  </div>
 </div>
 `;
