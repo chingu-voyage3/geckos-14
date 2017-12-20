@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<section
+  className="section"
+>
+  <h2
+    className="text-center font-weight-bold"
+  >
+    Features
+  </h2>
+  <div
+    className="row"
+  >
+    <div
+      className="col-md-6"
+    >
+      <img
+        alt="A Web of things dashboard"
+        className="img-fluid"
+        src="board.png"
+      />
+    </div>
+    <div
+      className="col-md-6"
+    >
+      <CheckListItem
+        key="Discover all sensors/actuators connected to your device"
+        text="Discover all sensors/actuators connected to your device"
+      />
+      <CheckListItem
+        key="Add or remove readings from a specific sensor of a connected device"
+        text="Add or remove readings from a specific sensor of a connected device"
+      />
+      <CheckListItem
+        key="Upload a file with sensor readings to display"
+        text="Upload a file with sensor readings to display"
+      />
+      <CheckListItem
+        key="Discover all sensors/actuators connected to your Device"
+        text="Discover all sensors/actuators connected to your Device"
+      />
+    </div>
+  </div>
+</section>
+`;

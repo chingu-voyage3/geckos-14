@@ -5,7 +5,7 @@ const RenderImageCheckList = props =>{
   const texts = props.texts;
   let checkList = [];
   texts.forEach(text => {
-    checkList.push(<CheckListItem text={text} />);
+    checkList.push(<CheckListItem key={text} text={text} />);
   });
   return (
     <section className="section">
