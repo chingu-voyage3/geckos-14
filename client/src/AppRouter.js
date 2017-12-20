@@ -14,7 +14,7 @@ const LocatedNavBar = withRouter(NavBar);
 
 const AppRouter = () => (
   <Router history={history}>
-    <div>
+    <div className="wrapper">
       <LocatedNavBar />
       <Switch>
         <Route exact path="/" component={Landing} />

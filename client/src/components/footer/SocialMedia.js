@@ -4,10 +4,10 @@ const SocialMedia = () => {
    return (
        <div className="footer-mediabuttons">
         <p>
-        <u>Get in touch: </u>
-          <i className="fa fa-facebook-official fa-x2"></i>
-          <i className="fa fa-github fa-x2"></i>
-          <i className="fa fa-twitter-square fa-x2"></i>
+        <u>Get in touch:</u>
+          <i className="fa fa-facebook-official fa-2x"></i>
+          <i className="fa fa-github fa-2x"></i>
+          <i className="fa fa-twitter-square fa-2x"></i>
         </p>
         </div>
     );

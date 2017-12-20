@@ -1,10 +1,8 @@
 .footer{
-  margin: 0 auto;
-  width: 95%;
-  height: 2em;
-  background: white;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns:1fr 2fr 1fr;
+  font-size: 1em;
+  text-align: center;
   align-items: center;
+  background: #7899D4;
 }
