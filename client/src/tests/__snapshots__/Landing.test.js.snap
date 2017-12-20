@@ -2,26 +2,35 @@
 
 exports[`renders without crashing 1`] = `
 <div
-  className="App"
+  className="container"
 >
-  <header
-    className="App-header"
-  >
-    <img
-      alt="logo"
-      className="App-logo"
-      src="logo.svg"
-    />
-    <h1
-      className="App-title"
-    >
-      Welcome to DashThings.io
-    </h1>
-  </header>
-  <p
-    className="App-intro"
-  >
-    BUILD, CONNECT AND SHARE.
-  </p>
+  <WelcomeText
+    heading="Sync, Manage and Control your Devices"
+    welcomeText="DashThings.io is dedicatd to DIYers in need of an easy way to build user-friendly Dashboards for their Web of Things Devices"
+  />
+  <RenderImageCheckList
+    alt="A Web of things dashboard"
+    heading="Features"
+    image="board.png"
+    texts={
+      Array [
+        "Discover all sensors/actuators connected to your device",
+        "Add or remove readings from a specific sensor of a connected device",
+        "Upload a file with sensor readings to display",
+        "Discover all sensors/actuators connected to your Device",
+      ]
+    }
+  />
+  <RenderTextImage
+    alt="Internet of things devices"
+    image="devices.png"
+    text="Easily add or remove devices in your DashThings board"
+  />
+  <RenderImageImage
+    alt="Internet of things devices"
+    heading="Read easy to interpret, live data from all your devices"
+    imageOne="dataOne.jpg"
+    imageTwo="dataTwo.jpg"
+  />
 </div>
 `;

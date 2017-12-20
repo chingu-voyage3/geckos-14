@@ -1,0 +1,48 @@
+/*======================================
+            General
+======================================*/
+.section {
+  height: 100%;
+  margin-top: 50px;
+}
+
+
+/*======================================
+            WelcomeText Section
+======================================*/
+.welcome-text {
+  margin-top: 15%;
+  padding: 5%;
+  line-height: 1.5em;
+  letter-spacing: 0.3em;
+}
+
+.welcome-text-button {
+  padding: 10px;
+  width: 20%;
+  margin: 40px auto;
+}
+/*======================================
+            Section one
+======================================*/
+.features-one {
+  margin-top: 70px;
+  padding: 50px;
+  letter-spacing: 0.1em;
+}
+
+/*======================================
+            Section two
+======================================*/
+.features-two {
+  margin-top: 170px;
+  padding: 80px;
+}
+
+/*======================================
+            Section three
+======================================*/
+.features-three {
+  /* margin-top: 50px; */
+  padding: 80px;
+}
