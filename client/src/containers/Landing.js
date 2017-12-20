@@ -1,12 +1,12 @@
 import React from 'react';
 import '../assets/Landing.css';
-import devices from '../../assets/images/devices.png';
-import dataOne from '../../assets/images/dataOne.jpg';
-import dataTwo from '../../assets/images/dataTwo.jpg';
-import board from '../../assets/images/board.png';
+import devices from '../assets/images/devices.png';
+import dataOne from '../assets/images/dataOne.jpg';
+import dataTwo from '../assets/images/dataTwo.jpg';
+import board from '../assets/images/board.png';
 import WelcomeText from '../components/landing/WelcomeText';
 import RenderImageCheckList from '../components/landing/RenderImageCheckList';
-import RenderTextImage from './components/landing/RenderTextImage';
+import RenderTextImage from '../components/landing/RenderTextImage';
 import RenderImageImage from '../components/landing/RenderImageImage';
 
 

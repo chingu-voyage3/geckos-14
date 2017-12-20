@@ -1,5 +1,5 @@
 import React from 'react';
-import CheckListItem from './components/CheckListItem';
+import CheckListItem from './CheckListItem';
 
 const RenderImageCheckList = props =>{
   const texts = props.texts;
