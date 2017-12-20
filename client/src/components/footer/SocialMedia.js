@@ -5,9 +5,9 @@ const SocialMedia = () => {
        <div className="footer-mediabuttons">
         <p>
         <u>Get in touch:</u>
-          <i className="fa fa-facebook-official fa-2x"></i>
-          <i className="fa fa-github fa-2x"></i>
-          <i className="fa fa-twitter-square fa-2x"></i>
+          <i className="fab fa-facebook fa-2x"></i>
+          <i className="fab fa-github fa-2x"></i>
+          <i className="fab fa-twitter-square fa-2x"></i>
         </p>
         </div>
     );
