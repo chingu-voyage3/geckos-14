@@ -86,10 +86,10 @@ class Dashboard extends Component {
     });
   };
   componentDidMount() {
-    tempSocket.onmessage = event => {
-      const result = JSON.parse(event.data);
-      this.addDataPoint(result);
-    };
+    // tempSocket.onmessage = event => {
+    //   const result = JSON.parse(event.data);
+    //   this.addDataPoint(result);
+    // };
   }
 
   render() {

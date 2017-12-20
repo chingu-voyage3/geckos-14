@@ -24,9 +24,17 @@ class ControlPanel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      device: props.selectedDevice,
-      viz: props.selectedViz
+      device: '',
+      viz: ''
     };
+  }
+  componentWillReceiveProps(nextProps) {
+    console.log('controlPanel update', nextProps);
+    this.setState({
+      device: nextProps.selectedDevice,
+      viz: nextProps.selectedViz
+    });
+    console.log(this.state.device);
   }
 
   handleChange = event => {
@@ -44,20 +52,21 @@ class ControlPanel extends Component {
       this.setState({
         device: {
           name: '',
-          type: '',
-          url: ''
+          url: '',
+          type: ''
         }
       });
     } else {
       this.props.actions.addViz(this.state.viz);
       this.setState({
         viz: {
+          id: '',
           name: '',
+          deviceId: '',
           model: '',
-          data: d.testData,
-          x: 'date',
-          y: 'hum',
-          url: ''
+          x: '',
+          y: '',
+          data: d.testData
         }
       });
     }
@@ -68,20 +77,16 @@ class ControlPanel extends Component {
         <Param
           key={param.name}
           {...param}
-          value={this.state[param.name]}
+          value={this.state.device ? this.state.device[param.name] : 'nothing'}
           onChange={this.handleChange}
         />
       );
     });
   };
   render() {
+    console.log('rendering...');
     return (
       <div className="control-panel">
-        <div>
-          {this.props.parent === 'device'
-            ? this.props.selectedDevice.name
-            : this.props.selectedViz.name}
-        </div>
         <div className="add">
           {this.renderParams(this.props.params)}
           <button className="add-action" onClick={this.handleAdd}>
