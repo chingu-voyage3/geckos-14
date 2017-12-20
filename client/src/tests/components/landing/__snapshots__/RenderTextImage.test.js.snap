@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<div
+  className="features-two"
+>
+  <h2>
+     
+     
+  </h2>
+  <div
+    className="features-two-container"
+  >
+    <div>
+      <h4>
+         
+        Easily add or remove devices in your DashThings board
+         
+      </h4>
+    </div>
+    <div>
+      <img
+        alt="Internet of things devices"
+        src="devices.png"
+      />
+    </div>
+  </div>
+</div>
+`;

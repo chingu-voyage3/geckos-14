@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<div
+  className="features-two"
+>
+  <h2>
+     
+    Read easy to interpret, live data from all your devices
+     
+  </h2>
+  <div
+    className="features-two-container"
+  >
+    <div>
+      <h4>
+         
+         
+      </h4>
+    </div>
+    <div>
+      <img
+        alt="Internet of things devices"
+      />
+    </div>
+  </div>
+</div>
+`;
