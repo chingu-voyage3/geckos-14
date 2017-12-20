@@ -3,13 +3,12 @@ import React from 'react';
 import { Router, Switch, Route, withRouter } from 'react-router-dom';
 // import from services
 import history from './services/history';
-
 // import from components
 import NavBar from './NavBar';
 import Footer from './containers/Footer';
 import Landing from './containers/Landing';
 import Dashboard from './containers/Dashboard';
-import GetStarted from './GetStarted';
+import GetStarted from './containers/GetStarted';
 
 const LocatedNavBar = withRouter(NavBar);
 

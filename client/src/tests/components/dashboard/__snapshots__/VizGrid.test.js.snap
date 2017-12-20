@@ -2,63 +2,121 @@
 
 exports[`renders without crashing 1`] = `
 <div
-  className="viz-grid"
+  className=""
 >
-  <Viz
-    data={
+  <ReactGridLayout
+    autoSize={true}
+    className="layout"
+    cols={3}
+    compactType="vertical"
+    containerPadding={null}
+    draggableCancel=""
+    draggableHandle=""
+    isDraggable={true}
+    isResizable={true}
+    layout={
       Array [
         Object {
-          "date": "12/12",
-          "temp": 2,
+          "h": 1,
+          "i": "Temp Line",
+          "w": 1,
+          "x": 0,
+          "y": 0,
         },
         Object {
-          "date": "13/12",
-          "temp": 0,
-        },
-        Object {
-          "date": "14/12",
-          "temp": 5,
-        },
-        Object {
-          "date": "15/12",
-          "temp": -3,
+          "h": 1,
+          "i": "Humidity Bar",
+          "w": 1,
+          "x": 1,
+          "y": 0,
         },
       ]
     }
-    deviceName="LondonTemp"
-    key="Temp Line"
-    model="VictoryLine"
-    name="Temp Line"
-    x="date"
-    y="temp"
-  />
-  <Viz
-    data={
+    margin={
       Array [
-        Object {
-          "date": "12/12",
-          "hum": 95,
-        },
-        Object {
-          "date": "13/12",
-          "hum": 93,
-        },
-        Object {
-          "date": "14/12",
-          "hum": 98,
-        },
-        Object {
-          "date": "15/12",
-          "hum": 85,
-        },
+        10,
+        10,
       ]
     }
-    deviceName="LondonHumidity"
-    key="Humidity Bar"
-    model="VictoryBar"
-    name="Humidity Bar"
-    x="date"
-    y="hum"
-  />
+    maxRows={Infinity}
+    onDrag={[Function]}
+    onDragStart={[Function]}
+    onDragStop={[Function]}
+    onLayoutChange={[Function]}
+    onResize={[Function]}
+    onResizeStart={[Function]}
+    onResizeStop={[Function]}
+    preventCollision={false}
+    rowHeight={200}
+    style={Object {}}
+    useCSSTransforms={true}
+    verticalCompact={true}
+    width={900}
+  >
+    <div
+      className="viz"
+      key="Temp Line"
+    >
+      <Viz
+        data={
+          Array [
+            Object {
+              "date": "12/12",
+              "temp": 2,
+            },
+            Object {
+              "date": "13/12",
+              "temp": 0,
+            },
+            Object {
+              "date": "14/12",
+              "temp": 5,
+            },
+            Object {
+              "date": "15/12",
+              "temp": -3,
+            },
+          ]
+        }
+        deviceName="LondonTemp"
+        model="VictoryLine"
+        name="Temp Line"
+        x="date"
+        y="temp"
+      />
+    </div>
+    <div
+      className="viz"
+      key="Humidity Bar"
+    >
+      <Viz
+        data={
+          Array [
+            Object {
+              "date": "12/12",
+              "hum": 95,
+            },
+            Object {
+              "date": "13/12",
+              "hum": 93,
+            },
+            Object {
+              "date": "14/12",
+              "hum": 98,
+            },
+            Object {
+              "date": "15/12",
+              "hum": 85,
+            },
+          ]
+        }
+        deviceName="LondonHumidity"
+        model="VictoryBar"
+        name="Humidity Bar"
+        x="date"
+        y="hum"
+      />
+    </div>
+  </ReactGridLayout>
 </div>
 `;
