@@ -5,7 +5,7 @@
 }
 .control-panel {
   display: grid;
-  grid-auto-columns: auto;
+  grid-auto-columns: 30px;
   border: dashed 1px;
 }
 .control-panel-params {
@@ -14,13 +14,13 @@
 
 .device-panel {
   display: grid;
-  grid-template-rows: 3fr 6fr;
+  grid-template-rows: 1fr 5fr;
   border: solid 1px;
 }
 .device-list {
   display: grid;
   grid-gap: 5px;
-  grid-auto-rows: auto;
+  grid-auto-rows: 50px;
 }
 .device {
   margin-left: 20px;
@@ -28,6 +28,8 @@
   border: dashed 1px;
 }
 .viz-panel {
+  display: grid;
+  grid-template-rows: 1fr 5fr;
   border: solid 1px;
 }
 .viz-grid {
