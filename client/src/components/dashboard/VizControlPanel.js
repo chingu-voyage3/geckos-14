@@ -1,45 +1,45 @@
-/** ControlPanel Component:
-ControlPanel component is a kind of toolbar of DevicePanel
-So far it only display a device adding form
+/** VizControlPanel Component:
+VizControlPanel component is a kind of toolbar of VizPanel
+So far it only display a viz adding form
 TODO: Move the form to specific Component
 TODO: Add other controls like reorder/save
 
 Testing Data:
-  Device
+  Viz
     Name: test
-    Type: LCD
-    Url: http://devices.webofthings.io/pi/actuators/display/
+    Model: VictoryLine or VictoryBar
+    Device: No need to fill
 */
-
 import React, { Component } from 'react';
 import Param from './Param';
+import * as d from '../../tempData';
 
-class ControlPanel extends Component {
+class VizControlPanel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      device: {},
-      deviceSelected: false
+      viz: {},
+      vizSelected: false
     };
   }
   componentWillReceiveProps(nextProps) {
     if (Object.keys(nextProps.selected).length > 0) {
-      if (!this.state.deviceSelected) {
-        console.log('device', this.state.deviceSelected);
+      if (!this.state.vizSelected || nextProps.selected.id !== this.state.viz.id) {
+        console.log('viz', nextProps.selected);
         this.setState({
-          device: nextProps.selected,
-          deviceSelected: true
+          viz: nextProps.selected,
+          vizSelected: true
         });
       } else {
-        console.log('device', nextProps.selected);
+        console.log('viz', nextProps.selected);
         this.setState({
-          device: {
+          viz: {
             id: '',
             name: '',
-            url: '',
-            type: ''
+            deviceId: '',
+            model: ''
           },
-          deviceSelected: false
+          vizSelected: false
         });
       }
     }
@@ -50,16 +50,19 @@ class ControlPanel extends Component {
     const name = event.target.name;
     // console.log(event.target.name);
     // eslint-disable-next-line
-    this.setState({ device: { ...this.state.device, [name]: value } });
+    this.setState({ viz: { ...this.state.viz, [name]: value } });
   };
   handleAdd = () => {
-    this.props.actions.addDevice(this.state.device);
+    this.props.actions.addViz(this.state.viz);
     this.setState({
-      device: {
+      viz: {
         id: '',
         name: '',
-        url: '',
-        type: ''
+        vizId: '',
+        model: '',
+        x: '',
+        y: '',
+        data: d.testData
       }
     });
   };
@@ -75,32 +78,32 @@ class ControlPanel extends Component {
         <Param
           key={param.name}
           {...param}
-          value={this.state.device[param.name]}
+          value={this.state.viz[param.name]}
           onChange={this.handleChange}
         />
       );
     });
   };
   render() {
-    console.log('dev', this.state.deviceSelected);
     return (
       <div className="control-panel">
         <div className="control-panel-params">
           {this.renderParams(this.props.params)}
+
           <button
-            className={this.state.deviceSelected ? 'hidden' : 'visible'}
+            className={this.state.vizSelected ? 'hidden' : 'visible'}
             onClick={this.handleAdd}
           >
             Add
           </button>
           <button
-            className={this.state.deviceSelected ? 'visible' : 'hidden'}
+            className={this.state.vizSelected ? 'visible' : 'hidden'}
             onClick={this.handleEdit}
           >
             Edit
           </button>
           <button
-            className={this.state.deviceSelected ? 'visible' : 'hidden'}
+            className={this.state.vizSelected ? 'visible' : 'hidden'}
             onClick={this.handleDel}
           >
             Del
@@ -111,4 +114,4 @@ class ControlPanel extends Component {
   }
 }
 
-export default ControlPanel;
+export default VizControlPanel;

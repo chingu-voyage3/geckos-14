@@ -14,13 +14,13 @@ export const modelTypes = ['LineChart', 'BarChart', 'Status', 'Display'];
 export const deviceTypes = ['Thermometer', 'Humidity Sensor', 'IR sensor', 'LCD', 'LED', 'Switch'];
 export const devices = [
   {
-    id: '1',
+    id: 'dev1',
     name: 'LondonTemp',
     url: 'http://devices.webofthings.io/pi/sensors/temperature/',
     type: 'Thermometer'
   },
   {
-    id: '2',
+    id: 'dev2',
     name: 'LondonHumidity',
     url: 'http://devices.webofthings.io/pi/sensors/humidity/',
     type: 'Humidity'
@@ -28,7 +28,7 @@ export const devices = [
 ];
 export const vizs = [
   {
-    id: '1',
+    id: 'viz1',
     name: 'Temperature Sensor',
     deviceId: '1',
     model: 'VictoryLine',
@@ -38,7 +38,7 @@ export const vizs = [
     selected: false
   },
   {
-    id: '2',
+    id: 'viz2',
     name: 'Humidity Sensor',
     deviceId: '2',
     model: 'VictoryBar',

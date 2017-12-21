@@ -61,6 +61,7 @@ class Dashboard extends Component {
     }
   };
   toogleSelectedViz = id => {
+    console.log('toogleSelectedViz');
     let tempVizs = this.state.vizs;
     for (var i = 0; i < tempVizs.length; i++) {
       if (tempVizs[i].id === id) {
@@ -93,23 +94,25 @@ class Dashboard extends Component {
   }
 
   render() {
-    const actions = {
-      addDevice: this.addDevice,
+    const vizActions = {
       addViz: this.addViz,
-      toogleSelectedDevice: this.toogleSelectedDevice,
       toogleSelectedViz: this.toogleSelectedViz
+    };
+    const devActions = {
+      addDevice: this.addDevice,
+      toogleSelectedDevice: this.toogleSelectedDevice
     };
     return (
       <div className="dashboard">
         <DevicePanel
           devices={this.state.devices}
-          actions={actions}
+          actions={devActions}
           params={this.state.deviceParams}
           selected={this.state.selectedDevice}
         />
         <VizPanel
           vizs={this.state.vizs}
-          actions={actions}
+          actions={vizActions}
           params={this.state.vizParams}
           selected={this.state.selectedViz}
         />

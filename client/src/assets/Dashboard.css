@@ -8,10 +8,8 @@
   grid-auto-columns: auto;
   border: dashed 1px;
 }
-.add {
-  display: grid;
+.control-panel-params {
   margin: 5px 20px 5px 20px;
-  grid-auto-rows: auto;
 }
 
 .device-panel {
@@ -42,4 +40,11 @@
   height: 200px;
   width: 300px;
   border: dashed 1px;
+}
+.visible {
+  display: inherit;
+}
+
+.hidden {
+  display: none;
 }
