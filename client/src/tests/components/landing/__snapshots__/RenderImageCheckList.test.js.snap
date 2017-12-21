@@ -1,29 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders without crashing 1`] = `
-<section
-  className="section"
+<div
+  className="features-one"
 >
-  <h2
-    className="text-center font-weight-bold"
-  >
-    Features
-  </h2>
+  <div>
+    <h2>
+      Features
+    </h2>
+  </div>
   <div
-    className="row"
+    className="features-one-container"
   >
-    <div
-      className="col-md-6"
-    >
+    <div>
       <img
         alt="A Web of things dashboard"
-        className="img-fluid"
         src="board.png"
       />
     </div>
-    <div
-      className="col-md-6"
-    >
+    <div>
       <CheckListItem
         key="Discover all sensors/actuators connected to your device"
         text="Discover all sensors/actuators connected to your device"
@@ -42,5 +37,5 @@ exports[`renders without crashing 1`] = `
       />
     </div>
   </div>
-</section>
+</div>
 `;

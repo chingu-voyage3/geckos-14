@@ -1,48 +1,66 @@
 /*======================================
             General
 ======================================*/
-.section {
-  margin-top: 50px;
+.container{
+  display: grid;
+  grid-gap: 1em;
 }
 
+.container > div{
+  background: white;
+  padding: 1em;
+}
 
 /*======================================
             WelcomeText Section
 ======================================*/
 .welcome-text {
-  margin-top: 15%;
-  padding: 5%;
   line-height: 1.5em;
   letter-spacing: 0.3em;
+  text-align: center;
 }
 
 .welcome-text-button {
-  padding: 10px;
-  width: 20%;
-  margin: auto;
+  margin: 0 auto;
 }
 
 /*======================================
             Section one
 ======================================*/
-.features-one {
-  margin-top: 70px;
-  padding: 50px;
-  letter-spacing: 0.1em;
+.features-one h2{
+  text-align: center;
+}
+
+.features-one-container{
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-gap: 1em;
 }
 
 /*======================================
             Section two
 ======================================*/
-.features-two {
-  margin-top: 170px;
-  padding: 80px;
+.features-two h2{
+  text-align: center;
 }
-
-/*======================================
+.features-two-container{
+  text-align: center;
+}
+  /*======================================
             Section three
 ======================================*/
-.features-three {
-  /* margin-top: 50px; */
-  padding: 80px;
+.features-three h2{
+  text-align: center;
+}
+
+.features-three-container{
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-gap: 1em;
+  text-align: center;
+}
+
+.features-three-container img{
+  width: 100%;
+  height: 100%;
 }
