@@ -6,16 +6,16 @@ exports[`renders without crashing 1`] = `
 >
   <p>
     <u>
-      Get in touch: 
+      Get in touch:
     </u>
     <i
-      className="fa fa-facebook-official fa-x2"
+      className="fab fa-facebook fa-2x"
     />
     <i
-      className="fa fa-github fa-x2"
+      className="fab fa-github fa-2x"
     />
     <i
-      className="fa fa-twitter-square fa-x2"
+      className="fab fa-twitter-square fa-2x"
     />
   </p>
 </div>

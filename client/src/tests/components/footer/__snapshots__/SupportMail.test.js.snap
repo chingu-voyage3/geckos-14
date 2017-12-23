@@ -9,7 +9,7 @@ exports[`renders without crashing 1`] = `
     to="/contact"
   >
     <i
-      className="fa fa-envelope fa-x2"
+      className="fab fa-github fa-2x"
     />
      support@dashthings.io
   </Link>
