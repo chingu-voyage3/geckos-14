@@ -32,14 +32,14 @@ exports[`renders without crashing 1`] = `
         Object {
           "label": "Name :",
           "name": "name",
+          "options": Array [],
           "type": "input",
-          "values": "",
         },
         Object {
           "label": "Type :",
           "name": "type",
-          "type": "select",
-          "values": Array [
+          "options": Array [
+            "Select Device Type",
             "Thermometer",
             "Humidity Sensor",
             "IR sensor",
@@ -47,12 +47,13 @@ exports[`renders without crashing 1`] = `
             "LED",
             "Switch",
           ],
+          "type": "select",
         },
         Object {
           "label": "Url :",
           "name": "url",
-          "type": "select",
-          "values": "",
+          "options": Array [],
+          "type": "input",
         },
       ]
     }
@@ -70,22 +71,28 @@ exports[`renders without crashing 1`] = `
         Object {
           "label": "Name :",
           "name": "name",
-          "options": "",
+          "options": Array [],
+          "type": "input",
         },
         Object {
           "label": "Model :",
           "name": "model",
           "options": Array [
-            "LineChart",
-            "BarChart",
+            "Select Viz Type",
+            "VictoryLine",
+            "VictoryBar",
             "Status",
             "Display",
           ],
+          "type": "select",
         },
         Object {
-          "label": "Device :",
-          "name": "device_name",
-          "options": "",
+          "label": "Source Device:",
+          "name": "device_id",
+          "options": Array [
+            "Select Source",
+          ],
+          "type": "select",
         },
       ]
     }

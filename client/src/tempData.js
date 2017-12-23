@@ -10,8 +10,16 @@ export const barData = [
   { date: '14/12', hum: 98 },
   { date: '15/12', hum: 85 }
 ];
-export const modelTypes = ['LineChart', 'BarChart', 'Status', 'Display'];
-export const deviceTypes = ['Thermometer', 'Humidity Sensor', 'IR sensor', 'LCD', 'LED', 'Switch'];
+export const modelTypes = ['Select Viz Type', 'VictoryLine', 'VictoryBar', 'Status', 'Display'];
+export const deviceTypes = [
+  'Select Device Type',
+  'Thermometer',
+  'Humidity Sensor',
+  'IR sensor',
+  'LCD',
+  'LED',
+  'Switch'
+];
 export const devices = [
   {
     id: 'dev1',
@@ -54,19 +62,19 @@ export const deviceParams = [
     label: 'Name :',
     type: 'input',
     name: 'name',
-    values: ''
+    options: []
   },
   {
     label: 'Type :',
     type: 'select',
     name: 'type',
-    values: deviceTypes
+    options: deviceTypes
   },
   {
     label: 'Url :',
-    type: 'select',
+    type: 'input',
     name: 'url',
-    values: ''
+    options: []
   }
 ];
 
@@ -74,17 +82,20 @@ export const vizParams = [
   {
     label: 'Name :',
     name: 'name',
-    options: ''
+    type: 'input',
+    options: []
   },
   {
     label: 'Model :',
     name: 'model',
+    type: 'select',
     options: modelTypes
   },
   {
-    label: 'Device :',
-    name: 'device_name',
-    options: ''
+    label: 'Source Device:',
+    name: 'device_id',
+    type: 'select',
+    options: ['Select Source']
   }
 ];
 

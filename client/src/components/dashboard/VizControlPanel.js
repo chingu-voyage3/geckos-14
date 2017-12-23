@@ -1,7 +1,6 @@
 /** VizControlPanel Component:
 VizControlPanel component is a kind of toolbar of VizPanel
 So far it only display a viz adding form
-TODO: Move the form to specific Component
 TODO: Add other controls like reorder/save
 
 Testing Data:
@@ -22,7 +21,7 @@ class VizControlPanel extends Component {
       viz: {
         id: '',
         name: '',
-        vizId: '',
+        deviceId: '',
         model: '',
         x: '',
         y: '',

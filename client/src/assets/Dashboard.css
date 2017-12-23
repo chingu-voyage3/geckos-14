@@ -23,6 +23,9 @@
   border-radius: 5%;
   border: dashed 1px blue;
 }
+.control-panel-select {
+  width: auto;
+}
 .control-panel-param {
   border: dashed 1px green;
 }

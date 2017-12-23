@@ -61,19 +61,22 @@ class ControlPanel extends Component {
     this.setState({ device: { ...this.state.device, [name]: value } });
   };
 
-  // Handles Cli
+  // Handles Adding a Device
   handleAdd = () => {
     this.props.actions.addDevice(this.state.device);
     this.setState({
       selectedDevice: true
     });
   };
+  // TODO: Add handling Updating Device Data
   handleEdit = () => {
     console.log('Edit Item');
   };
+  // TODO: Add handling Deleting Device
   handleDel = () => {
     console.log('Del Item');
   };
+  // helper function rendering Params
   renderParams = params => {
     return params.map(param => {
       return (
@@ -82,10 +85,12 @@ class ControlPanel extends Component {
           {...param}
           value={this.state.device[param.name]}
           onChange={this.handleChange}
+          options={param.options}
         />
       );
     });
   };
+  // helper function rendering Actions
   renderActions = (actions, onclicks) => {
     return actions.map(action => {
       if (action.onSelect) {
@@ -102,6 +107,7 @@ class ControlPanel extends Component {
       );
     });
   };
+
   render() {
     const onclicks = { Add: this.handleAdd, Edit: this.handleEdit, Del: this.handleDel };
     return (
