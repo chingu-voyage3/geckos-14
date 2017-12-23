@@ -6,7 +6,7 @@ import React from 'react';
 
 const Param = props => {
   return (
-    <label htmlFor={'param-id-' + props.name}>
+    <label className="param-label" htmlFor={'param-id-' + props.name}>
       {props.label}
       <input
         className={'param-' + props.name}

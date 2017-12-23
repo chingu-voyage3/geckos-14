@@ -10,8 +10,18 @@
 }
 .control-panel-params {
   margin: 5px 20px 5px 20px;
+  display: grid;
+  grid-auto-rows: 50px;
 }
-
+.control-panel-params button {
+  border-radius: 5%;
+  margin: 1rem 1rem;
+}
+.param-label {
+  border: dashed 1px;
+}
+.param-button {
+}
 .device-panel {
   display: grid;
   grid-template-rows: 1fr 5fr;
