@@ -2,11 +2,10 @@
 
 exports[`renders without crashing 1`] = `
 <label
-  className="param-label"
+  className="control-panel-param"
   htmlFor="param-id-test"
 >
   <input
-    className="param-test"
     id="param-id-test"
     name="test"
   />

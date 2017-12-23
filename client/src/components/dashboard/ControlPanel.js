@@ -1,9 +1,8 @@
 /** ControlPanel Component:
 ControlPanel component is a kind of toolbar of DevicePanel
-So far it only display a device adding form
-TODO: Move the form to specific Component
+So far it only display a device adding form.
+State is used to allow click detection and to fill the Params Form for Edit or Deletion
 TODO: Add other controls like reorder/save
-
 Testing Data:
   Device
     Name: test
@@ -19,6 +18,7 @@ import * as d from '../../tempData.js';
 class ControlPanel extends Component {
   constructor(props) {
     super(props);
+    // state initialisation for controlled component
     this.state = {
       device: {
         id: '',
@@ -35,13 +35,12 @@ class ControlPanel extends Component {
     if (Object.keys(nextProps.selected).length > 0 && !nextProps.selected.model) {
       // Check initial state
       if (!this.state.deviceSelected || nextProps.selected.id !== this.state.device.id) {
-        // console.log('select device', nextProps.selected);
         this.setState({
           device: nextProps.selected,
           deviceSelected: true
         });
       } else {
-        // console.log('reset device', nextProps.selected);
+        // if is selected and id is same then we unselect and clear Params form
         this.setState({
           device: {
             id: '',
@@ -54,23 +53,19 @@ class ControlPanel extends Component {
       }
     }
   }
-
+  // allowing controlled components by catching all change events and updating state
   handleChange = event => {
     const value = event.target.value;
     const name = event.target.name;
-    // console.log(event.target.name);
     // eslint-disable-next-line
     this.setState({ device: { ...this.state.device, [name]: value } });
   };
+
+  // Handles Cli
   handleAdd = () => {
     this.props.actions.addDevice(this.state.device);
     this.setState({
-      device: {
-        id: '',
-        name: '',
-        url: '',
-        type: ''
-      }
+      selectedDevice: true
     });
   };
   handleEdit = () => {
@@ -111,10 +106,10 @@ class ControlPanel extends Component {
     const onclicks = { Add: this.handleAdd, Edit: this.handleEdit, Del: this.handleDel };
     return (
       <div className="control-panel">
-        <div className="control-panel-params">
-          {this.renderParams(this.props.params)}
+        <div className="control-panel-actions">
           {this.renderActions(d.devPanelActions, onclicks)}
         </div>
+        <div className="control-panel-params">{this.renderParams(this.props.params)}</div>
       </div>
     );
   }

@@ -2,11 +2,11 @@
 
 exports[`renders without crashing 1`] = `
 <label
+  className="control-panel-param"
   htmlFor="param-id-name"
 >
   label
   <input
-    className="param-name"
     id="param-id-name"
     name="name"
     onChange={[Function]}

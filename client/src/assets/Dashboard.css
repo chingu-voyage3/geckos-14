@@ -5,22 +5,26 @@
 }
 .control-panel {
   display: grid;
-  grid-auto-columns: 30px;
+  grid-auto-columns: 1fr 1fr;
   border: dashed 1px;
 }
 .control-panel-params {
   margin: 5px 20px 5px 20px;
   display: grid;
-  grid-auto-rows: 50px;
+  grid-auto-rows: 40px;
 }
-.control-panel-params button {
+.control-panel-actions {
+  display: grid;
+  grid-template-columns: repeat(5, 40px);
+  border: dashed 1px red;
+}
+
+.control-panel-action {
   border-radius: 5%;
-  margin: 1rem 1rem;
+  border: dashed 1px blue;
 }
-.param-label {
-  border: dashed 1px;
-}
-.param-button {
+.control-panel-param {
+  border: dashed 1px green;
 }
 .device-panel {
   display: grid;
@@ -54,7 +58,6 @@
   border: dashed 1px;
 }
 .visible {
-  display: inherit;
 }
 
 .hidden {

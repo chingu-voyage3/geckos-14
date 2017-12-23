@@ -5,29 +5,8 @@ exports[`renders without crashing 1`] = `
   className="control-panel"
 >
   <div
-    className="control-panel-params"
+    className="control-panel-actions"
   >
-    <Param
-      key="name"
-      label="Name :"
-      name="name"
-      onChange={[Function]}
-      value=""
-    />
-    <Param
-      key="type"
-      label="Type :"
-      name="type"
-      onChange={[Function]}
-      value=""
-    />
-    <Param
-      key="url"
-      label="Url :"
-      name="url"
-      onChange={[Function]}
-      value=""
-    />
     <div
       className="visible"
       key="Add"
@@ -58,6 +37,31 @@ exports[`renders without crashing 1`] = `
         onclick={[Function]}
       />
     </div>
+  </div>
+  <div
+    className="control-panel-params"
+  >
+    <Param
+      key="name"
+      label="Name :"
+      name="name"
+      onChange={[Function]}
+      value=""
+    />
+    <Param
+      key="type"
+      label="Type :"
+      name="type"
+      onChange={[Function]}
+      value=""
+    />
+    <Param
+      key="url"
+      label="Url :"
+      name="url"
+      onChange={[Function]}
+      value=""
+    />
   </div>
 </div>
 `;

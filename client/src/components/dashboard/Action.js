@@ -1,13 +1,13 @@
-/** Param Component:
-Param component is the smallest component of the controlPanel.
-TODO: Allow the composistion of different type of input (select, checkbox, radio)
+/** Action Component:
+Action describes all actions related to Devices or Vizs.
+action.name is used for class creation
 */
 import React from 'react';
 
 const Action = props => {
   return (
     <button
-      className={'action-' + props.name}
+      className="control-panel-action"
       name={props.name}
       onClick={props.onclick}
       id={'action-id-' + props.name}

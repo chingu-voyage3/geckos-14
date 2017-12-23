@@ -113,10 +113,10 @@ class VizControlPanel extends Component {
     const onclicks = { Add: this.handleAdd, Edit: this.handleEdit, Del: this.handleDel };
     return (
       <div className="control-panel">
-        <div className="control-panel-params">
-          {this.renderParams(this.props.params)}
+        <div className="control-panel-actions">
           {this.renderActions(d.vizPanelActions, onclicks)}
         </div>
+        <div className="control-panel-params">{this.renderParams(this.props.params)}</div>
       </div>
     );
   }

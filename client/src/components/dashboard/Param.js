@@ -6,10 +6,9 @@ import React from 'react';
 
 const Param = props => {
   return (
-    <label className="param-label" htmlFor={'param-id-' + props.name}>
+    <label className="control-panel-param" htmlFor={'param-id-' + props.name}>
       {props.label}
       <input
-        className={'param-' + props.name}
         name={props.name}
         value={props.value}
         onChange={props.onChange}
