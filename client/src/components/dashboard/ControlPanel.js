@@ -13,6 +13,8 @@ Testing Data:
 
 import React, { Component } from 'react';
 import Param from './Param';
+import Action from './Action';
+import * as d from '../../tempData.js';
 
 class ControlPanel extends Component {
   constructor(props) {
@@ -89,29 +91,29 @@ class ControlPanel extends Component {
       );
     });
   };
+  renderActions = (actions, onclicks) => {
+    return actions.map(action => {
+      if (action.onSelect) {
+        return (
+          <div key={action.name} className={this.state.deviceSelected ? 'visible' : 'hidden'}>
+            <Action {...action} onclick={onclicks[action.name]} />
+          </div>
+        );
+      }
+      return (
+        <div key={action.name} className={this.state.deviceSelected ? 'hidden' : 'visible'}>
+          <Action {...action} onclick={onclicks[action.name]} />
+        </div>
+      );
+    });
+  };
   render() {
+    const onclicks = { Add: this.handleAdd, Edit: this.handleEdit, Del: this.handleDel };
     return (
       <div className="control-panel">
         <div className="control-panel-params">
           {this.renderParams(this.props.params)}
-          <button
-            className={this.state.deviceSelected ? 'hidden' : 'visible'}
-            onClick={this.handleAdd}
-          >
-            Add
-          </button>
-          <button
-            className={this.state.deviceSelected ? 'visible' : 'hidden'}
-            onClick={this.handleEdit}
-          >
-            Edit
-          </button>
-          <button
-            className={this.state.deviceSelected ? 'visible' : 'hidden'}
-            onClick={this.handleDel}
-          >
-            Del
-          </button>
+          {this.renderActions(d.devPanelActions, onclicks)}
         </div>
       </div>
     );

@@ -12,6 +12,7 @@ Testing Data:
 */
 import React, { Component } from 'react';
 import Param from './Param';
+import Action from './Action';
 import * as d from '../../tempData';
 
 class VizControlPanel extends Component {
@@ -92,30 +93,29 @@ class VizControlPanel extends Component {
       );
     });
   };
+  renderActions = (actions, onclicks) => {
+    return actions.map(action => {
+      if (action.onSelect) {
+        return (
+          <div key={action.name} className={this.state.vizSelected ? 'visible' : 'hidden'}>
+            <Action {...action} onclick={onclicks[action.name]} />
+          </div>
+        );
+      }
+      return (
+        <div key={action.name} className={this.state.vizSelected ? 'hidden' : 'visible'}>
+          <Action {...action} onclick={onclicks[action.name]} />
+        </div>
+      );
+    });
+  };
   render() {
+    const onclicks = { Add: this.handleAdd, Edit: this.handleEdit, Del: this.handleDel };
     return (
       <div className="control-panel">
         <div className="control-panel-params">
           {this.renderParams(this.props.params)}
-
-          <button
-            className={this.state.vizSelected ? 'hidden' : 'visible'}
-            onClick={this.handleAdd}
-          >
-            Add
-          </button>
-          <button
-            className={this.state.vizSelected ? 'visible' : 'hidden'}
-            onClick={this.handleEdit}
-          >
-            Edit
-          </button>
-          <button
-            className={this.state.vizSelected ? 'visible' : 'hidden'}
-            onClick={this.handleDel}
-          >
-            Del
-          </button>
+          {this.renderActions(d.vizPanelActions, onclicks)}
         </div>
       </div>
     );

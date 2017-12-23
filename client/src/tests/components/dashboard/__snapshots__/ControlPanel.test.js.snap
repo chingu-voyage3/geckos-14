@@ -28,24 +28,36 @@ exports[`renders without crashing 1`] = `
       onChange={[Function]}
       value=""
     />
-    <button
+    <div
       className="visible"
-      onClick={[Function]}
+      key="Add"
     >
-      Add
-    </button>
-    <button
+      <Action
+        name="Add"
+        onSelect={false}
+        onclick={[Function]}
+      />
+    </div>
+    <div
       className="hidden"
-      onClick={[Function]}
+      key="Edit"
     >
-      Edit
-    </button>
-    <button
+      <Action
+        name="Edit"
+        onSelect={true}
+        onclick={[Function]}
+      />
+    </div>
+    <div
       className="hidden"
-      onClick={[Function]}
+      key="Del"
     >
-      Del
-    </button>
+      <Action
+        name="Del"
+        onSelect={true}
+        onclick={[Function]}
+      />
+    </div>
   </div>
 </div>
 `;

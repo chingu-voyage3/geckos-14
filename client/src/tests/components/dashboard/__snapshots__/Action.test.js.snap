@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<label
+  className="param-label"
+  htmlFor="param-id-test"
+>
+  <input
+    className="param-test"
+    id="param-id-test"
+    name="test"
+  />
+</label>
+`;
