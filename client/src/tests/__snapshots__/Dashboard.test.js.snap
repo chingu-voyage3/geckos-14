@@ -8,24 +8,20 @@ exports[`renders without crashing 1`] = `
     actions={
       Object {
         "addDevice": [Function],
-        "addViz": [Function],
         "toogleSelectedDevice": [Function],
-        "toogleSelectedViz": [Function],
       }
     }
     devices={
       Array [
         Object {
-          "id": "1",
+          "id": "dev1",
           "name": "LondonTemp",
-          "selected": false,
           "type": "Thermometer",
           "url": "http://devices.webofthings.io/pi/sensors/temperature/",
         },
         Object {
-          "id": "2",
+          "id": "dev2",
           "name": "LondonHumidity",
-          "selected": false,
           "type": "Humidity",
           "url": "http://devices.webofthings.io/pi/sensors/humidity/",
         },
@@ -36,14 +32,27 @@ exports[`renders without crashing 1`] = `
         Object {
           "label": "Name :",
           "name": "name",
+          "type": "input",
+          "values": "",
         },
         Object {
           "label": "Type :",
           "name": "type",
+          "type": "select",
+          "values": Array [
+            "Thermometer",
+            "Humidity Sensor",
+            "IR sensor",
+            "LCD",
+            "LED",
+            "Switch",
+          ],
         },
         Object {
           "label": "Url :",
           "name": "url",
+          "type": "select",
+          "values": "",
         },
       ]
     }
@@ -52,9 +61,7 @@ exports[`renders without crashing 1`] = `
   <VizPanel
     actions={
       Object {
-        "addDevice": [Function],
         "addViz": [Function],
-        "toogleSelectedDevice": [Function],
         "toogleSelectedViz": [Function],
       }
     }
@@ -88,7 +95,7 @@ exports[`renders without crashing 1`] = `
         Object {
           "data": Array [],
           "deviceId": "1",
-          "id": "1",
+          "id": "viz1",
           "model": "VictoryLine",
           "name": "Temperature Sensor",
           "selected": false,
@@ -115,7 +122,7 @@ exports[`renders without crashing 1`] = `
             },
           ],
           "deviceId": "2",
-          "id": "2",
+          "id": "viz2",
           "model": "VictoryBar",
           "name": "Humidity Sensor",
           "selected": false,

@@ -1,23 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders without crashing 1`] = `
-<div
-  className="device"
-  onClick={[Function]}
->
+<div>
   <div>
-    LondonTemp    
+    undefined    
     <span>
       <a
-        href="http://devices.webofthings.io/pi/sensors/temperature/"
         target="_blank"
       >
         Url
       </a>
     </span>
   </div>
-  <div>
-    Thermometer
-  </div>
+  <div />
 </div>
 `;
