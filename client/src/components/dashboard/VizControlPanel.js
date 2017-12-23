@@ -18,20 +18,28 @@ class VizControlPanel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      viz: {},
+      viz: {
+        id: '',
+        name: '',
+        vizId: '',
+        model: '',
+        x: '',
+        y: '',
+        data: []
+      },
       vizSelected: false
     };
   }
   componentWillReceiveProps(nextProps) {
-    if (Object.keys(nextProps.selected).length > 0) {
+    if (Object.keys(nextProps.selected).length > 0 && nextProps.selected.model) {
       if (!this.state.vizSelected || nextProps.selected.id !== this.state.viz.id) {
-        console.log('viz', nextProps.selected);
+        // console.log('viz', nextProps.selected);
         this.setState({
           viz: nextProps.selected,
           vizSelected: true
         });
       } else {
-        console.log('viz', nextProps.selected);
+        // console.log('viz', nextProps.selected);
         this.setState({
           viz: {
             id: '',

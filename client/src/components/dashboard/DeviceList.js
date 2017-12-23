@@ -8,7 +8,17 @@ import Device from './Device';
 
 const renderDevice = (device, actions) => {
   // console.log('renderDevice', device);
-  return <Device key={device.name} device={device} actions={actions} />;
+  return (
+    <div
+      className="device"
+      key={device.name}
+      onClick={() => {
+        actions.toogleSelectedDevice(device.id);
+      }}
+    >
+      <Device {...device} />
+    </div>
+  );
 };
 const renderDeviceList = props => {
   // console.log('renderDeviceList');

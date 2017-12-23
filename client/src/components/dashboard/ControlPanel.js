@@ -18,20 +18,28 @@ class ControlPanel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      device: {},
+      device: {
+        id: '',
+        name: '',
+        url: '',
+        type: ''
+      },
       deviceSelected: false
     };
   }
+
   componentWillReceiveProps(nextProps) {
-    if (Object.keys(nextProps.selected).length > 0) {
-      if (!this.state.deviceSelected) {
-        console.log('device', this.state.deviceSelected);
+    // check if selected Item and Item is Device;
+    if (Object.keys(nextProps.selected).length > 0 && !nextProps.selected.model) {
+      // Check initial state
+      if (!this.state.deviceSelected || nextProps.selected.id !== this.state.device.id) {
+        // console.log('select device', nextProps.selected);
         this.setState({
           device: nextProps.selected,
           deviceSelected: true
         });
       } else {
-        console.log('device', nextProps.selected);
+        // console.log('reset device', nextProps.selected);
         this.setState({
           device: {
             id: '',
@@ -82,7 +90,6 @@ class ControlPanel extends Component {
     });
   };
   render() {
-    console.log('dev', this.state.deviceSelected);
     return (
       <div className="control-panel">
         <div className="control-panel-params">

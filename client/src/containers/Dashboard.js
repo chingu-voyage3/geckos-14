@@ -19,17 +19,16 @@ class Dashboard extends Component {
     this.state = {
       devices: d.devices,
       deviceParams: d.deviceParams,
-      selectedDevice: {},
+      selected: {},
       vizs: d.vizs,
-      vizParams: d.vizParams,
-      selectedViz: {}
+      vizParams: d.vizParams
     };
   }
   editDevice = (id, newProps) => {
     // TODO: Add function that updates a Device
   };
   addDevice = device => {
-    console.log('deviceAdded');
+    // console.log('deviceAdded');
     this.setState({
       devices: [...this.state.devices, device]
     });
@@ -51,22 +50,23 @@ class Dashboard extends Component {
     // TODO: Add function that deletes a Device
   };
   toogleSelectedDevice = id => {
+    console.log('toogleSelectedDevice - ', id);
     let tempDevices = this.state.devices;
     for (var i = 0; i < tempDevices.length; i++) {
       if (tempDevices[i].id === id) {
         this.setState({
-          selectedDevice: tempDevices[i]
+          selected: tempDevices[i]
         });
       }
     }
   };
   toogleSelectedViz = id => {
-    console.log('toogleSelectedViz');
+    console.log('toogleSelectedViz - ', id);
     let tempVizs = this.state.vizs;
     for (var i = 0; i < tempVizs.length; i++) {
       if (tempVizs[i].id === id) {
         this.setState({
-          selectedViz: tempVizs[i]
+          selected: tempVizs[i]
         });
       }
     }
@@ -108,13 +108,13 @@ class Dashboard extends Component {
           devices={this.state.devices}
           actions={devActions}
           params={this.state.deviceParams}
-          selected={this.state.selectedDevice}
+          selected={this.state.selected}
         />
         <VizPanel
           vizs={this.state.vizs}
           actions={vizActions}
           params={this.state.vizParams}
-          selected={this.state.selectedViz}
+          selected={this.state.selected}
         />
       </div>
     );

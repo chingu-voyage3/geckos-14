@@ -11,21 +11,16 @@ import React from 'react';
 const Device = props => {
   // console.log('Device Component');
   return (
-    <div
-      className="device"
-      onClick={() => {
-        props.actions.toogleSelectedDevice(props.device.id);
-      }}
-    >
+    <div>
       <div>
-        {props.device.name + '    '}
+        {props.name + '    '}
         <span>
-          <a href={props.device.url} target="_blank">
+          <a href={props.url} target="_blank">
             Url
           </a>
         </span>
       </div>
-      <div>{props.device.type}</div>
+      <div>{props.type}</div>
     </div>
   );
 };
