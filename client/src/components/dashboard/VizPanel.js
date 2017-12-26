@@ -13,7 +13,7 @@ const VizPanel = props => {
   return (
     <div className="viz-panel">
       <VizControlPanel {...props} />
-      <VizGrid vizs={props.vizs} actions={props.actions} />
+      <VizGrid {...props} />
     </div>
   );
 };
