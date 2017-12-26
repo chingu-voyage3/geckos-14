@@ -10,6 +10,8 @@ export const barData = [
   { date: '14/12', hum: 98 },
   { date: '15/12', hum: 85 }
 ];
+export const uiThemes = ['Select Viz Theme', 'GrayScale', 'Material'];
+
 export const modelTypes = ['Select Viz Type', 'VictoryLine', 'VictoryBar', 'Status', 'Display'];
 export const deviceTypes = [
   'Select Device Type',
@@ -43,7 +45,8 @@ export const vizs = [
     x: 'date',
     y: 'temp',
     data: lineData,
-    selected: false
+    selected: false,
+    theme: 'GrayScale'
   },
   {
     id: 'viz2',
@@ -53,7 +56,8 @@ export const vizs = [
     x: 'date',
     y: 'hum',
     data: barData,
-    selected: false
+    selected: false,
+    theme: 'Material'
   }
 ];
 
@@ -96,6 +100,12 @@ export const vizParams = [
     name: 'device_id',
     type: 'select',
     options: ['Select Source']
+  },
+  {
+    label: 'Theme:',
+    name: 'theme',
+    type: 'select',
+    options: uiThemes
   }
 ];
 
