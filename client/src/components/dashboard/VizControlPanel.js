@@ -21,7 +21,7 @@ class VizControlPanel extends Component {
       viz: {
         id: '',
         name: '',
-        deviceId: '',
+        device_id: '',
         model: '',
         x: '',
         y: '',

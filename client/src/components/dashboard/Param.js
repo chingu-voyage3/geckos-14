@@ -9,8 +9,8 @@ const renderSelect = options => {
   return options.map(option => {
     // TODO: Add in option objects value and display text
     return (
-      <option key={option} value={option}>
-        {option}
+      <option key={option.id} value={option.value}>
+        {option.display}
       </option>
     );
   });
@@ -22,7 +22,7 @@ const populateDevices = props => {
     console.log('populating', props.name);
     props.devices.map(device => {
       if (!options.includes(device.name)) {
-        options.push(device.name);
+        options.push({ id: device.id, value: device.id, display: device.name });
       }
     });
     console.log(options);
