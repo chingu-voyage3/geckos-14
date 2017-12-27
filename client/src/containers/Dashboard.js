@@ -92,6 +92,7 @@ class Dashboard extends Component {
   componentWillMount() {
     discover('http://devices.webofthings.io/pi').then(res => {
       console.log('calling setState with ', res);
+      this.setState({ devices: res });
     });
     // tempSocket.onmessage = event => {
     //   const result = JSON.parse(event.data);
