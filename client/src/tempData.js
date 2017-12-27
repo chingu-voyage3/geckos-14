@@ -10,15 +10,27 @@ export const barData = [
   { date: '14/12', hum: 98 },
   { date: '15/12', hum: 85 }
 ];
-export const modelTypes = ['Select Viz Type', 'VictoryLine', 'VictoryBar', 'Status', 'Display'];
+export const uiThemes = [
+  { id: 'TH0', value: 'default', display: 'Select Viz Theme' },
+  { id: 'TH1', value: 'GrayScale', display: 'GrayScale' },
+  { id: 'TH2', value: 'Material', display: 'Material' }
+];
+
+export const modelTypes = [
+  { id: 'MT0', value: 'default', display: 'Select Model Type' },
+  { id: 'MT1', value: 'VictoryLine', display: 'VictoryLine' },
+  { id: 'MT2', value: 'VictoryBar', display: 'VictoryBar' },
+  { id: 'MT3', value: 'Status', display: 'Status' },
+  { id: 'MT4', value: 'Display', display: 'Display' }
+];
 export const deviceTypes = [
-  'Select Device Type',
-  'Thermometer',
-  'Humidity Sensor',
-  'IR sensor',
-  'LCD',
-  'LED',
-  'Switch'
+  { id: 'DT0', value: 'default', display: 'Select Device Type' },
+  { id: 'DT1', value: 'Thermometer', display: 'Thermometer' },
+  { id: 'DT2', value: 'Humidity', display: 'Humidity' },
+  { id: 'DT3', value: 'IR sensor', display: 'IR sensor' },
+  { id: 'DT4', value: 'LCD', display: 'LCD' },
+  { id: 'DT5', value: 'LED', display: 'LED' },
+  { id: 'DT6', value: 'Switch', display: 'Switch' }
 ];
 export const devices = [
   {
@@ -38,22 +50,24 @@ export const vizs = [
   {
     id: 'viz1',
     name: 'Temperature Sensor',
-    deviceId: '1',
+    device_id: 'dev1',
     model: 'VictoryLine',
     x: 'date',
     y: 'temp',
     data: lineData,
-    selected: false
+    selected: false,
+    theme: 'GrayScale'
   },
   {
     id: 'viz2',
     name: 'Humidity Sensor',
-    deviceId: '2',
+    device_id: 'dev2',
     model: 'VictoryBar',
     x: 'date',
     y: 'hum',
     data: barData,
-    selected: false
+    selected: false,
+    theme: 'Material'
   }
 ];
 
@@ -95,7 +109,13 @@ export const vizParams = [
     label: 'Source Device:',
     name: 'device_id',
     type: 'select',
-    options: ['Select Source']
+    options: [{ id: 'SD0', value: 'default', display: 'Select Device Source' }]
+  },
+  {
+    label: 'Theme:',
+    name: 'theme',
+    type: 'select',
+    options: uiThemes
   }
 ];
 

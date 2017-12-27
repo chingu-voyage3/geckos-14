@@ -112,6 +112,7 @@ class Dashboard extends Component {
         />
         <VizPanel
           vizs={this.state.vizs}
+          devices={this.state.devices}
           actions={vizActions}
           params={this.state.vizParams}
           selected={this.state.selected}
