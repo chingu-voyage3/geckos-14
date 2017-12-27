@@ -12,13 +12,14 @@ import '../assets/Dashboard.css';
 import * as d from '../tempData.js';
 import discover from '../helpers/discover';
 
-const tempSocket = new WebSocket('ws://devices.webofthings.io/pi/sensors/temperature');
+// TODO: To move to lower levels
+// const tempSocket = new WebSocket('ws://devices.webofthings.io/pi/sensors/temperature');
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      devices: d.devices,
+      devices: [],
       deviceParams: d.deviceParams,
       selected: {},
       vizs: d.vizs,
@@ -87,13 +88,14 @@ class Dashboard extends Component {
       vizs: tempViz
     });
   };
+
   componentWillMount() {
-    discover('http://devices.webofthings.io/pi/');
-  }
-  componentDidMount() {
+    discover('http://devices.webofthings.io/pi/').then(res => {
+      console.log('calling setState with ', res);
+    });
     // tempSocket.onmessage = event => {
     //   const result = JSON.parse(event.data);
-    //   this.addDataPoint(result);
+    //   this.addDataPoint(r"esult);
     // };
   }
 

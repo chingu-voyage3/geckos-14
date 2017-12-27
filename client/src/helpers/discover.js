@@ -1,23 +1,9 @@
 import axios from 'axios';
 import * as d from '../tempData.js';
 
-function checkResources(res, url) {
-  if (res.data.resources) {
-    const resources = res.data.resources;
-    for (let key in resources) {
-      let resUrl = url + resources[key].url;
-      discover(resUrl);
-    }
-  } else {
-    console.log('to Add to DeviceList', res.data);
-    let devices = res.data;
-    for (let key in devices) {
-      d.devices.push(devices[key]);
-    }
-  }
-}
+let devices = [];
+
 export default function discover(url) {
-  console.log('Discovering Devices from ', url);
   axios
     .get(url)
     .catch(err => {
@@ -25,6 +11,22 @@ export default function discover(url) {
     })
     .then(res => {
       console.log('Discovered :', res.data);
-      checkResources(res, url);
+      if (res.data.resources) {
+        const resources = res.data.resources;
+        let resUrl = url + '/sensors';
+        console.log('Discovering Sensors from ', resUrl);
+        return axios
+          .get(resUrl)
+          .catch(err => {
+            console.log('Error Discovering Sensors', err);
+          })
+          .then(res => {
+            const devs = res.data;
+            for (let k in devs) {
+              console.log(devs[k]);
+              devices.push(devs[k]);
+            }
+          });
+      }
     });
 }
