@@ -1,11 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders without crashing 1`] = `
-<div
-  className="device"
->
+<div>
   <div>
-    device1    
+    undefined    
     <span>
       <a
         target="_blank"
@@ -14,8 +12,6 @@ exports[`renders without crashing 1`] = `
       </a>
     </span>
   </div>
-  <div>
-    Thermometer
-  </div>
+  <div />
 </div>
 `;

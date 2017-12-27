@@ -2,25 +2,24 @@
 The Device componet show for now static Data:
 Name, Type and URL.
 TODO: Add Status
-TODO: Add specific control like Sync, Del, Edit
 TODO: Allow expand/hide
  */
 
 import React from 'react';
 
-const Device = device => {
+const Device = props => {
   // console.log('Device Component');
   return (
-    <div className="device">
+    <div>
       <div>
-        {device.name + '    '}
+        {props.name + '    '}
         <span>
-          <a href={device.url} target="_blank">
+          <a href={props.url} target="_blank">
             Url
           </a>
         </span>
       </div>
-      <div>{device.type}</div>
+      <div>{props.type}</div>
     </div>
   );
 };

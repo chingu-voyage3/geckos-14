@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Footer from '../components/footer/SocialMedia';
+import SocialMedia from '../../../components/footer/SocialMedia';
 import { shallow } from 'enzyme';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
   const wrapper = shallow(<SocialMedia />);
-  expect(toJson(wrapper)).toMatchSnapshot(); 
+  expect(toJson(wrapper)).toMatchSnapshot();
 });

@@ -4,9 +4,7 @@ exports[`renders without crashing 1`] = `
 <div
   className="viz-panel"
 >
-  <ControlPanel
-    parent="viz"
-  />
+  <VizControlPanel />
   <VizGrid />
 </div>
 `;

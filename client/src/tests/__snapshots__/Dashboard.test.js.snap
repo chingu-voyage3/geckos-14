@@ -5,24 +5,26 @@ exports[`renders without crashing 1`] = `
   className="dashboard"
 >
   <DevicePanel
-    actions={[Function]}
+    actions={
+      Object {
+        "addDevice": [Function],
+        "toogleSelectedDevice": [Function],
+      }
+    }
     devices={
       Array [
         Object {
+          "id": "dev1",
           "name": "LondonTemp",
           "type": "Thermometer",
           "url": "http://devices.webofthings.io/pi/sensors/temperature/",
         },
         Object {
+          "id": "dev2",
           "name": "LondonHumidity",
           "type": "Humidity",
           "url": "http://devices.webofthings.io/pi/sensors/humidity/",
         },
-        Object {
-          "name": "LondonIR",
-          "type": "InfraRed",
-          "url": "http://devices.webofthings.io/pi/sensors/pir/",
-        },
       ]
     }
     params={
@@ -30,51 +32,80 @@ exports[`renders without crashing 1`] = `
         Object {
           "label": "Name :",
           "name": "name",
+          "options": Array [],
+          "type": "input",
         },
         Object {
           "label": "Type :",
           "name": "type",
+          "options": Array [
+            "Select Device Type",
+            "Thermometer",
+            "Humidity Sensor",
+            "IR sensor",
+            "LCD",
+            "LED",
+            "Switch",
+          ],
+          "type": "select",
         },
         Object {
           "label": "Url :",
           "name": "url",
+          "options": Array [],
+          "type": "input",
         },
       ]
     }
+    selected={Object {}}
   />
   <VizPanel
-    actions={[Function]}
+    actions={
+      Object {
+        "addViz": [Function],
+        "toogleSelectedViz": [Function],
+      }
+    }
     params={
       Array [
         Object {
           "label": "Name :",
           "name": "name",
-          "options": "",
+          "options": Array [],
+          "type": "input",
         },
         Object {
           "label": "Model :",
           "name": "model",
           "options": Array [
-            "Line",
-            "Bar",
+            "Select Viz Type",
+            "VictoryLine",
+            "VictoryBar",
             "Status",
-            "Value",
+            "Display",
           ],
+          "type": "select",
         },
         Object {
-          "label": "Device :",
-          "name": "device_name",
-          "options": "",
+          "label": "Source Device:",
+          "name": "device_id",
+          "options": Array [
+            "Select Source",
+          ],
+          "type": "select",
         },
       ]
     }
+    selected={Object {}}
     vizs={
       Array [
         Object {
           "data": Array [],
-          "deviceName": "LondonTemp",
+          "deviceId": "1",
+          "id": "viz1",
           "model": "VictoryLine",
           "name": "Temperature Sensor",
+          "selected": false,
           "x": "date",
           "y": "temp",
         },
@@ -97,9 +128,11 @@ exports[`renders without crashing 1`] = `
               "hum": 85,
             },
           ],
-          "deviceName": "LondonHumidity",
+          "deviceId": "2",
+          "id": "viz2",
           "model": "VictoryBar",
           "name": "Humidity Sensor",
+          "selected": false,
           "x": "date",
           "y": "hum",
         },

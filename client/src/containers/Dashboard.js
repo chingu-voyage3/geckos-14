@@ -19,16 +19,22 @@ class Dashboard extends Component {
     this.state = {
       devices: d.devices,
       deviceParams: d.deviceParams,
+      selected: {},
       vizs: d.vizs,
       vizParams: d.vizParams
     };
   }
-
+  editDevice = (id, newProps) => {
+    // TODO: Add function that updates a Device
+  };
   addDevice = device => {
     // console.log('deviceAdded');
     this.setState({
       devices: [...this.state.devices, device]
     });
+  };
+  delDevice = id => {
+    // TODO: Add function that deletes a Device
   };
   addViz = viz => {
     // console.log('viz to be Added', viz);
@@ -36,6 +42,34 @@ class Dashboard extends Component {
     this.setState({
       vizs: [...this.state.vizs, viz]
     });
+  };
+  editViz = (id, newProps) => {
+    // TODO: Add function that updates a Viz
+  };
+  delDevice = id => {
+    // TODO: Add function that deletes a Device
+  };
+  toogleSelectedDevice = id => {
+    console.log('toogleSelectedDevice - ', id);
+    let tempDevices = this.state.devices;
+    for (var i = 0; i < tempDevices.length; i++) {
+      if (tempDevices[i].id === id) {
+        this.setState({
+          selected: tempDevices[i]
+        });
+      }
+    }
+  };
+  toogleSelectedViz = id => {
+    console.log('toogleSelectedViz - ', id);
+    let tempVizs = this.state.vizs;
+    for (var i = 0; i < tempVizs.length; i++) {
+      if (tempVizs[i].id === id) {
+        this.setState({
+          selected: tempVizs[i]
+        });
+      }
+    }
   };
 
   addDataPoint = dataPoint => {
@@ -53,20 +87,35 @@ class Dashboard extends Component {
     });
   };
   componentDidMount() {
-    tempSocket.onmessage = event => {
-      const result = JSON.parse(event.data);
-      this.addDataPoint(result);
-    };
+    // tempSocket.onmessage = event => {
+    //   const result = JSON.parse(event.data);
+    //   this.addDataPoint(result);
+    // };
   }
+
   render() {
+    const vizActions = {
+      addViz: this.addViz,
+      toogleSelectedViz: this.toogleSelectedViz
+    };
+    const devActions = {
+      addDevice: this.addDevice,
+      toogleSelectedDevice: this.toogleSelectedDevice
+    };
     return (
       <div className="dashboard">
         <DevicePanel
           devices={this.state.devices}
-          actions={this.addDevice}
+          actions={devActions}
           params={this.state.deviceParams}
+          selected={this.state.selected}
         />
-        <VizPanel vizs={this.state.vizs} actions={this.addViz} params={this.state.vizParams} />
+        <VizPanel
+          vizs={this.state.vizs}
+          actions={vizActions}
+          params={this.state.vizParams}
+          selected={this.state.selected}
+        />
       </div>
     );
   }

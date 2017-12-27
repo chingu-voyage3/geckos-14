@@ -1,15 +1,13 @@
 body {
   font-family: sans-serif;
-  background: #5F5AA2;
   margin-top: 0;
 }
 
-.wrapper{
+.wrapper {
   display: grid;
-  grid-template-rows:0.1fr 16fr 0.1fr; /* 16fr just for testing purposes */
+  grid-template-rows: 0.1fr 16fr 0.1fr; /* 16fr just for testing purposes */
   -ms-grid-rows: 0.1fr 16fr 0.1fr;
   grid-gap: 1em;
-
 }
 
 /* just for testing purposes */

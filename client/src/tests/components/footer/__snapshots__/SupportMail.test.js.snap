@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<div
+  className="footer-supportmail"
+>
+  <Link
+    replace={false}
+    to="/contact"
+  >
+    <i
+      className="fab fa-github fa-2x"
+    />
+     support@dashthings.io
+  </Link>
+</div>
+`;
