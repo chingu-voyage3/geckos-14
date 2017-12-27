@@ -56,7 +56,7 @@ export const vizs = [
     y: 'temp',
     data: lineData,
     selected: false,
-    theme: 'GrayScale'
+    design: 'GrayScale'
   },
   {
     id: 'viz2',
@@ -67,7 +67,7 @@ export const vizs = [
     y: 'hum',
     data: barData,
     selected: false,
-    theme: 'Material'
+    design: 'Material'
   }
 ];
 

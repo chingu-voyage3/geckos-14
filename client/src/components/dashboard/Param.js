@@ -19,13 +19,12 @@ const renderSelect = options => {
 const populateDevices = props => {
   const options = props.options;
   if (props.name === 'device_id') {
-    console.log('populating', props.name);
     props.devices.forEach(device => {
       if (!options.includes(device.name)) {
         options.push({ id: device.id, value: device.id, display: device.name });
       }
     });
-    console.log(options);
+
     return options;
   }
   return options;
