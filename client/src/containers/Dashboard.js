@@ -10,6 +10,7 @@ import DevicePanel from '../components/dashboard/DevicePanel';
 import VizPanel from '../components/dashboard/VizPanel';
 import '../assets/Dashboard.css';
 import * as d from '../tempData.js';
+import discover from '../helpers/discover';
 
 const tempSocket = new WebSocket('ws://devices.webofthings.io/pi/sensors/temperature');
 
@@ -86,6 +87,9 @@ class Dashboard extends Component {
       vizs: tempViz
     });
   };
+  componentWillMount() {
+    discover('http://devices.webofthings.io/pi/');
+  }
   componentDidMount() {
     // tempSocket.onmessage = event => {
     //   const result = JSON.parse(event.data);
