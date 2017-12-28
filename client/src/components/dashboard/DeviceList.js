@@ -11,7 +11,7 @@ const renderDevice = (device, actions) => {
   return (
     <div
       className="device"
-      key={device.name}
+      key={device.id}
       onClick={() => {
         actions.toogleSelectedDevice(device.id);
       }}
