@@ -2,30 +2,20 @@ import axios from 'axios';
 import * as d from '../tempData.js';
 
 let devices = [];
-let request;
 
-export default function discover(url) {
+export function getDevices(url, devList) {
+  // console.log('Discovering Actuators from ', resUrl);
   return axios
     .get(url)
     .catch(err => {
-      console.log('Error Discovering Root...', err);
+      console.log('Error Discovering...', err);
     })
     .then(res => {
-      console.log('Discovered :', res.data);
-      let resUrl = url + '/sensors';
-      console.log('Discovering Sensors from ', resUrl);
-      return axios
-        .get(resUrl)
-        .catch(err => {
-          console.log('Error Discovering Sensors', err);
-        })
-        .then(r => {
-          const devs = r.data;
-          for (let k in devs) {
-            console.log(devs[k]);
-            devices.push(devs[k]);
-          }
-          return devices;
-        });
+      const devs = res.data;
+      for (let k in devs) {
+        // console.log(devs[k]);
+        devList.push(devs[k]);
+      }
+      return devList;
     });
 }

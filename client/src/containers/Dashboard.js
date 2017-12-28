@@ -10,7 +10,7 @@ import DevicePanel from '../components/dashboard/DevicePanel';
 import VizPanel from '../components/dashboard/VizPanel';
 import '../assets/Dashboard.css';
 import * as d from '../tempData.js';
-import discover from '../helpers/discover';
+import * as discovery from '../helpers/discover';
 
 // TODO: To move to lower levels
 // const tempSocket = new WebSocket('ws://devices.webofthings.io/pi/sensors/temperature');
@@ -90,10 +90,14 @@ class Dashboard extends Component {
   };
 
   componentWillMount() {
-    discover('http://devices.webofthings.io/pi').then(res => {
-      console.log('calling setState with ', res);
-      this.setState({ devices: res });
-    });
+    discovery
+      .getDevices('http://devices.webofthings.io/pi/sensors', this.state.devices)
+      .then(res => {
+        discovery.getDevices('http://devices.webofthings.io/pi/actuators', res).then(devices => {
+          console.log('Devices found', devices);
+          this.setState({ devices: devices });
+        });
+      });
     // tempSocket.onmessage = event => {
     //   const result = JSON.parse(event.data);
     //   this.addDataPoint(r"esult);
