@@ -1,11 +1,7 @@
 import axios from 'axios';
-import * as d from '../tempData.js';
-
-let devices = [];
 
 function formatDevice(device, listLength, url) {
   let newDevice = { id: 'dev' + listLength, name: device.name, url: url };
-  console.log(newDevice);
   return newDevice;
 }
 

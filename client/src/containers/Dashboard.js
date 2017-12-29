@@ -73,7 +73,6 @@ class Dashboard extends Component {
       }
     }
   };
-
   addDataPoint = dataPoint => {
     let tempViz = this.state.vizs;
     for (var i = 0; i < tempViz.length; i++) {
@@ -88,16 +87,30 @@ class Dashboard extends Component {
       vizs: tempViz
     });
   };
+  populateParams = devices => {
+    // Adding New devices as input for SourceDevices Select Param
+    let newParams = this.state.vizParams;
+    // getting the index for device_id
+    let index = newParams.findIndex(p => p.name === 'device_id');
+    let newSources = newParams[index];
 
+    // Adding an entry for all Devices in state
+    devices.forEach(device => {
+      // TODO: Add a check for unique devices
+      newSources.options.push({ id: device.id, value: device.id, display: device.name });
+    });
+
+    return newParams;
+  };
   componentWillMount() {
     discovery
       .getDevices('http://devices.webofthings.io/pi/sensors', this.state.devices)
       .then(res => {
         discovery.getDevices('http://devices.webofthings.io/pi/actuators', res).then(devices => {
-          console.log('Devices found', devices);
-          this.setState({ devices: devices });
+          this.setState({ devices: devices, vizParams: this.populateParams(devices) });
         });
       });
+
     // tempSocket.onmessage = event => {
     //   const result = JSON.parse(event.data);
     //   this.addDataPoint(r"esult);

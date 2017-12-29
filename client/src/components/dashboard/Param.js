@@ -9,54 +9,24 @@ const renderSelect = options => {
   return options.map(option => {
     // TODO: Add in option objects value and display text
     return (
-      <option key={option.id} value={option.value}>
+      <option key={'SD-' + option.id} value={option.value}>
         {option.display}
       </option>
     );
   });
 };
-// populating the Source Device Select using Device List from Dashbord
-const populateDevices = props => {
-  const options = props.options;
-  if (props.name === 'device_id') {
-    props.devices.forEach(device => {
-      if (!options.includes(device.name)) {
-        options.push({ id: device.id, value: device.id, display: device.name });
-      }
-    });
-
-    return options;
-  }
-  return options;
-};
 // redering specific type for each Param.
 // TODO: Transform to switch with different type if needed
-const renderType = props => {
-  const options = populateDevices(props);
-  return props.type === 'select' ? (
-    <select
-      className="control-param-select"
-      name={props.name}
-      value={props.value}
-      onChange={props.onChange}
-      id={'param-id-' + props.name}
-    >
-      {renderSelect(options)}
-    </select>
-  ) : (
-    <input
-      name={props.name}
-      value={props.value}
-      onChange={props.onChange}
-      id={'param-id-' + props.name}
-    />
-  );
-};
+
 const Param = props => {
   return (
     <label className="control-panel-param" htmlFor={'param-id-' + props.name}>
       {props.label}
-      {renderType(props)}
+      {props.type === 'select' ? (
+        <select {...props}>{renderSelect(props.options)}</select>
+      ) : (
+        <input {...props} />
+      )}
     </label>
   );
 };
