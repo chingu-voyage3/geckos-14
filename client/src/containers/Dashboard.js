@@ -24,6 +24,9 @@ class Dashboard extends Component {
       vizParams: d.vizParams
     };
   }
+  discover = url => {
+    console.log('discovering url', url);
+  };
   editDevice = (id, newProps) => {
     // TODO: Add function that updates a Device
   };
@@ -124,7 +127,7 @@ class Dashboard extends Component {
       toogleSelectedViz: this.toogleSelectedViz
     };
     const devActions = {
-      addDevice: this.addDevice,
+      discover: this.discover,
       toogleSelectedDevice: this.toogleSelectedDevice
     };
     return (

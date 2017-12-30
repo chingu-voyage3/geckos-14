@@ -79,12 +79,6 @@ export const deviceParams = [
     options: []
   },
   {
-    label: 'Type :',
-    type: 'select',
-    name: 'type',
-    options: deviceTypes
-  },
-  {
     label: 'Url :',
     type: 'input',
     name: 'url',
@@ -172,7 +166,7 @@ export const getStartedContent = [
 
 export const devPanelActions = [
   {
-    name: 'Add',
+    name: 'Discover',
     onSelect: false
   },
   {

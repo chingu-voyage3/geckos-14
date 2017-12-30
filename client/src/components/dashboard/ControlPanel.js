@@ -21,10 +21,8 @@ class ControlPanel extends Component {
     // state initialisation for controlled component
     this.state = {
       device: {
-        id: '',
         name: '',
-        url: '',
-        type: ''
+        url: ''
       },
       deviceSelected: false
     };
@@ -61,12 +59,12 @@ class ControlPanel extends Component {
     this.setState({ device: { ...this.state.device, [name]: value } });
   };
 
-  // Handles Adding a Device
-  handleAdd = () => {
-    this.props.actions.addDevice(this.state.device);
-    this.setState({
-      selectedDevice: true
-    });
+  // Handles discovery
+  handleDiscover = () => {
+    this.props.actions.discover(this.state.device.url);
+    // this.setState({
+    //   selectedDevice: true
+    // });
   };
   // TODO: Add handling Updating Device Data
   handleEdit = () => {
@@ -109,7 +107,7 @@ class ControlPanel extends Component {
   };
 
   render() {
-    const onclicks = { Add: this.handleAdd, Edit: this.handleEdit, Del: this.handleDel };
+    const onclicks = { Discover: this.handleDiscover, Edit: this.handleEdit, Del: this.handleDel };
     return (
       <div className="control-panel">
         <div className="control-panel-actions">
