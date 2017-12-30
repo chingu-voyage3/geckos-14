@@ -6,7 +6,7 @@ function formatDevice(device, listLength, url) {
 }
 
 export function getDevices(url, devList) {
-  // console.log('Discovering Actuators from ', resUrl);
+  // console.log('Discovering devices from ', url);
   return axios
     .get(url)
     .catch(err => {

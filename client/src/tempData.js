@@ -33,18 +33,16 @@ export const deviceTypes = [
   { id: 'DT6', value: 'Switch', display: 'Switch' }
 ];
 export const devices = [
-  // {
-  //   id: 'dev1',
-  //   name: 'LondonTemp',
-  //   url: 'http://devices.webofthings.io/pi/sensors/temperature/',
-  //   type: 'Thermometer'
-  // },
-  // {
-  //   id: 'dev2',
-  //   name: 'LondonHumidity',
-  //   url: 'http://devices.webofthings.io/pi/sensors/humidity/',
-  //   type: 'Humidity'
-  // }
+  {
+    id: 'dev1',
+    name: 'LondonTemp',
+    url: 'http://devices.webofthings.io/pi/sensors/temperature/'
+  },
+  {
+    id: 'dev2',
+    name: 'LondonHumidity',
+    url: 'http://devices.webofthings.io/pi/sensors/humidity/'
+  }
 ];
 export const vizs = [
   {
@@ -192,3 +190,31 @@ export const vizPanelActions = [
     onSelect: true
   }
 ];
+export const piSensors = {
+  temperature: {
+    name: 'Temperature Sensor',
+    description: 'A temperature sensor.',
+    type: 'float',
+    unit: 'celsius',
+    value: 21.8,
+    frequency: 5000,
+    timestamp: '2017-12-30T15:19:04.340Z'
+  },
+  humidity: {
+    name: 'Humidity Sensor',
+    description: 'A temperature sensor.',
+    type: 'float',
+    unit: 'percent',
+    value: 35.4,
+    frequency: 5000,
+    timestamp: '2017-12-30T15:19:04.340Z'
+  },
+  pir: {
+    name: 'Passive Infrared',
+    description: 'A passive infrared sensor. When true someone is present.',
+    type: 'boolean',
+    value: true,
+    gpio: 20,
+    timestamp: '2015-10-17T12:27:49.914Z'
+  }
+};
