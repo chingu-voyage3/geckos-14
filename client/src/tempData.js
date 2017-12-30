@@ -33,22 +33,22 @@ export const deviceTypes = [
   { id: 'DT6', value: 'Switch', display: 'Switch' }
 ];
 export const devices = [
-  {
-    id: 'dev1',
-    name: 'LondonTemp',
-    url: 'http://devices.webofthings.io/pi/sensors/temperature/'
-  },
-  {
-    id: 'dev2',
-    name: 'LondonHumidity',
-    url: 'http://devices.webofthings.io/pi/sensors/humidity/'
-  }
+  // {
+  //   id: 'dev0',
+  //   name: 'LondonTemp',
+  //   url: 'http://devices.webofthings.io/pi/sensors/temperature/'
+  // },
+  // {
+  //   id: 'dev1',
+  //   name: 'LondonHumidity',
+  //   url: 'http://devices.webofthings.io/pi/sensors/humidity/'
+  // }
 ];
 export const vizs = [
   {
-    id: 'viz1',
+    id: 'viz0',
     name: 'Temperature Sensor',
-    device_id: 'dev1',
+    device_id: 'dev0',
     model: 'VictoryLine',
     x: 'date',
     y: 'temp',
@@ -57,9 +57,9 @@ export const vizs = [
     design: 'GrayScale'
   },
   {
-    id: 'viz2',
+    id: 'viz1',
     name: 'Humidity Sensor',
-    device_id: 'dev2',
+    device_id: 'dev1',
     model: 'VictoryBar',
     x: 'date',
     y: 'hum',
