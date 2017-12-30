@@ -70,7 +70,8 @@ class VizControlPanel extends Component {
         model: '',
         x: '',
         y: '',
-        data: d.testData
+        data: d.testData,
+        design: ''
       }
     });
   };

@@ -11,10 +11,8 @@ import VizPanel from '../components/dashboard/VizPanel';
 import '../assets/Dashboard.css';
 import * as d from '../tempData.js';
 import * as discovery from '../helpers/discover';
-
 // TODO: To move to lower levels
 // const tempSocket = new WebSocket('ws://devices.webofthings.io/pi/sensors/temperature');
-
 class Dashboard extends Component {
   constructor(props) {
     super(props);
@@ -103,10 +101,13 @@ class Dashboard extends Component {
     return newParams;
   };
   componentWillMount() {
+    // Call discovery method applied to Demo Data
     discovery
       .getDevices('http://devices.webofthings.io/pi/sensors', this.state.devices)
       .then(res => {
         discovery.getDevices('http://devices.webofthings.io/pi/actuators', res).then(devices => {
+          // Update state with new Devices
+          // Launch populating update for VizPanel Params
           this.setState({ devices: devices, vizParams: this.populateParams(devices) });
         });
       });

@@ -113,7 +113,7 @@ export const vizParams = [
   },
   {
     label: 'Theme:',
-    name: 'theme',
+    name: 'design',
     type: 'select',
     options: uiThemes
   }
