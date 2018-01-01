@@ -27,7 +27,9 @@ class NavBar extends Component {
             <Link to="/profile">Profile</Link>
           </li>
           <li>
-            <button onClick={this.handleLogout}>LogOut</button>
+            <a href="#" onClick={this.handleLogout}>
+              LogOut
+            </a>
           </li>
         </ul>
       );
@@ -36,7 +38,9 @@ class NavBar extends Component {
     return (
       <ul>
         <li>
-          <button onClick={this.handleLogin}>LogIn</button>
+          <a href="#" onClick={this.handleLogin}>
+            LogIn
+          </a>
         </li>
         <li>
           <Link to="/register">Register</Link>
@@ -44,22 +48,30 @@ class NavBar extends Component {
       </ul>
     );
   }
+
+  renderMenu() {
+    return (
+      <ul>
+        <li>
+          <Link to="/">DashThings</Link>
+        </li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/getstarted">Get Started</Link>
+        </li>
+        <li>
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
+      </ul>
+    );
+  }
   render() {
     return (
       <div className="nav-bar">
-        <ul>
-          <li>DashThing Logo</li>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/getstarted">Get Started</Link>
-          </li>
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-        </ul>
-        {this.renderLogin()}
+        <div className="nav-bar-menu">{this.renderMenu()}</div>
+        <div className="nav-bar-login">{this.renderLogin()}</div>
       </div>
     );
   }
