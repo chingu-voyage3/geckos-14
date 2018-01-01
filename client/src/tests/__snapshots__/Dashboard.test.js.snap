@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<div
+  className="dashboard"
+>
+  <DevicePanel
+    actions={
+      Object {
+        "discover": [Function],
+        "toogleSelectedDevice": [Function],
+      }
+    }
+    devices={Array []}
+    params={
+      Array [
+        Object {
+          "label": "Name :",
+          "name": "name",
+          "options": Array [],
+          "type": "input",
+        },
+        Object {
+          "label": "Url :",
+          "name": "url",
+          "options": Array [],
+          "type": "input",
+        },
+      ]
+    }
+    selected={Object {}}
+  />
+  <VizPanel
+    actions={
+      Object {
+        "addViz": [Function],
+        "toogleSelectedViz": [Function],
+      }
+    }
+    devices={Array []}
+    params={
+      Array [
+        Object {
+          "label": "Name :",
+          "name": "name",
+          "options": Array [],
+          "type": "input",
+        },
+        Object {
+          "label": "Model :",
+          "name": "model",
+          "options": Array [
+            Object {
+              "display": "Select Model Type",
+              "id": "MT0",
+              "value": "default",
+            },
+            Object {
+              "display": "VictoryLine",
+              "id": "MT1",
+              "value": "VictoryLine",
+            },
+            Object {
+              "display": "VictoryBar",
+              "id": "MT2",
+              "value": "VictoryBar",
+            },
+            Object {
+              "display": "Status",
+              "id": "MT3",
+              "value": "Status",
+            },
+            Object {
+              "display": "Display",
+              "id": "MT4",
+              "value": "Display",
+            },
+          ],
+          "type": "select",
+        },
+        Object {
+          "label": "Source Device:",
+          "name": "device_id",
+          "options": Array [
+            Object {
+              "display": "Select Device Source",
+              "id": "SD0",
+              "value": "default",
+            },
+          ],
+          "type": "select",
+        },
+        Object {
+          "label": "Theme:",
+          "name": "design",
+          "options": Array [
+            Object {
+              "display": "Select Viz Theme",
+              "id": "TH0",
+              "value": "default",
+            },
+            Object {
+              "display": "GrayScale",
+              "id": "TH1",
+              "value": "GrayScale",
+            },
+            Object {
+              "display": "Material",
+              "id": "TH2",
+              "value": "Material",
+            },
+          ],
+          "type": "select",
+        },
+      ]
+    }
+    selected={Object {}}
+    vizs={
+      Array [
+        Object {
+          "data": Array [],
+          "design": "GrayScale",
+          "device_id": "dev0",
+          "id": "viz0",
+          "model": "VictoryLine",
+          "name": "Temperature Sensor",
+          "selected": false,
+          "x": "date",
+          "y": "temp",
+        },
+        Object {
+          "data": Array [
+            Object {
+              "date": "12/12",
+              "hum": 95,
+            },
+            Object {
+              "date": "13/12",
+              "hum": 93,
+            },
+            Object {
+              "date": "14/12",
+              "hum": 98,
+            },
+            Object {
+              "date": "15/12",
+              "hum": 85,
+            },
+          ],
+          "design": "Material",
+          "device_id": "dev1",
+          "id": "viz1",
+          "model": "VictoryBar",
+          "name": "Humidity Sensor",
+          "selected": false,
+          "x": "date",
+          "y": "hum",
+        },
+      ]
+    }
+  />
+</div>
+`;

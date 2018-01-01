@@ -33,16 +33,16 @@ export const deviceTypes = [
   { id: 'DT6', value: 'Switch', display: 'Switch' }
 ];
 export const devices = [
-  // {
-  //   id: 'dev0',
-  //   name: 'LondonTemp',
-  //   url: 'http://devices.webofthings.io/pi/sensors/temperature/'
-  // },
-  // {
-  //   id: 'dev1',
-  //   name: 'LondonHumidity',
-  //   url: 'http://devices.webofthings.io/pi/sensors/humidity/'
-  // }
+  {
+    id: 'dev0',
+    name: 'LondonTemp',
+    url: 'http://devices.webofthings.io/pi/sensors/temperature/'
+  },
+  {
+    id: 'dev1',
+    name: 'LondonHumidity',
+    url: 'http://devices.webofthings.io/pi/sensors/humidity/'
+  }
 ];
 export const vizs = [
   {

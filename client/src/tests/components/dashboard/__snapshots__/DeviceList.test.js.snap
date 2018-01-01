@@ -6,22 +6,22 @@ exports[`renders without crashing 1`] = `
 >
   <div
     className="device"
-    key="dev1"
+    key="dev0"
     onClick={[Function]}
   >
     <Device
-      id="dev1"
+      id="dev0"
       name="LondonTemp"
       url="http://devices.webofthings.io/pi/sensors/temperature/"
     />
   </div>
   <div
     className="device"
-    key="dev2"
+    key="dev1"
     onClick={[Function]}
   >
     <Device
-      id="dev2"
+      id="dev1"
       name="LondonHumidity"
       url="http://devices.webofthings.io/pi/sensors/humidity/"
     />
