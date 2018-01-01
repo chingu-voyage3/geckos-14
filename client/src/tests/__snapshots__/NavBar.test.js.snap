@@ -33,5 +33,22 @@ exports[`renders without crashing 1`] = `
       </Link>
     </li>
   </ul>
+  <ul>
+    <li>
+      <button
+        onClick={[Function]}
+      >
+        LogIn
+      </button>
+    </li>
+    <li>
+      <Link
+        replace={false}
+        to="/register"
+      >
+        Register
+      </Link>
+    </li>
+  </ul>
 </div>
 `;
