@@ -4,7 +4,7 @@ import { Router, Switch, Route, withRouter } from 'react-router-dom';
 // import from services
 import history from './services/history';
 // import from components
-import NavBar from './NavBar';
+import NavBar from './containers/NavBar';
 import Footer from './containers/Footer';
 import Landing from './containers/Landing';
 import Dashboard from './containers/Dashboard';
