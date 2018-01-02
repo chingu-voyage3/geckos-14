@@ -7,7 +7,7 @@ exports[`renders without crashing 1`] = `
 >
   label
   <input
-    id="param-id-name"
+    label="label"
     name="name"
     onChange={[Function]}
     value="value"

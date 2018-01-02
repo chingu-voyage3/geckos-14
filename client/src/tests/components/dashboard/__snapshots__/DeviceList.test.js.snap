@@ -6,35 +6,24 @@ exports[`renders without crashing 1`] = `
 >
   <div
     className="device"
-    key="device1"
+    key="dev0"
     onClick={[Function]}
   >
     <Device
-      name="device1"
-      status="online"
-      type="Thermometer"
+      id="dev0"
+      name="LondonTemp"
+      url="http://devices.webofthings.io/pi/sensors/temperature/"
     />
   </div>
   <div
     className="device"
-    key="device2"
+    key="dev1"
     onClick={[Function]}
   >
     <Device
-      name="device2"
-      status="offline"
-      type="PhMeter"
-    />
-  </div>
-  <div
-    className="device"
-    key="device3"
-    onClick={[Function]}
-  >
-    <Device
-      name="device3"
-      status="offline"
-      type="Thermometer"
+      id="dev1"
+      name="LondonHumidity"
+      url="http://devices.webofthings.io/pi/sensors/humidity/"
     />
   </div>
 </div>

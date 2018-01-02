@@ -44,8 +44,9 @@ class VizControlPanel extends Component {
           viz: {
             id: '',
             name: '',
-            deviceId: '',
-            model: ''
+            device_id: '',
+            model: '',
+            design: ''
           },
           vizSelected: false
         });
@@ -70,7 +71,8 @@ class VizControlPanel extends Component {
         model: '',
         x: '',
         y: '',
-        data: d.testData
+        data: d.testData,
+        design: ''
       }
     });
   };
@@ -80,7 +82,7 @@ class VizControlPanel extends Component {
   handleDel = () => {
     console.log('Del Item');
   };
-  renderParams = (params, devices) => {
+  renderParams = params => {
     return params.map(param => {
       return (
         <Param
@@ -88,7 +90,6 @@ class VizControlPanel extends Component {
           {...param}
           value={this.state.viz[param.name]}
           onChange={this.handleChange}
-          devices={devices}
         />
       );
     });
@@ -116,9 +117,7 @@ class VizControlPanel extends Component {
         <div className="control-panel-actions">
           {this.renderActions(d.vizPanelActions, onclicks)}
         </div>
-        <div className="control-panel-params">
-          {this.renderParams(this.props.params, this.props.devices)}
-        </div>
+        <div className="control-panel-params">{this.renderParams(this.props.params)}</div>
       </div>
     );
   }
