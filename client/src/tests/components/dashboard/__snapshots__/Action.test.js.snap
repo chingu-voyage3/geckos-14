@@ -6,8 +6,9 @@ exports[`renders without crashing 1`] = `
   htmlFor="param-id-test"
 >
   <input
-    id="param-id-test"
     name="test"
+    onClick={[Function]}
+    onSelect={true}
   />
 </label>
 `;

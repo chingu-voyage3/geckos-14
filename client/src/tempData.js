@@ -34,40 +34,38 @@ export const deviceTypes = [
 ];
 export const devices = [
   {
-    id: 'dev1',
+    id: 'dev0',
     name: 'LondonTemp',
-    url: 'http://devices.webofthings.io/pi/sensors/temperature/',
-    type: 'Thermometer'
+    url: 'http://devices.webofthings.io/pi/sensors/temperature/'
   },
   {
-    id: 'dev2',
+    id: 'dev1',
     name: 'LondonHumidity',
-    url: 'http://devices.webofthings.io/pi/sensors/humidity/',
-    type: 'Humidity'
+    url: 'http://devices.webofthings.io/pi/sensors/humidity/'
   }
 ];
 export const vizs = [
   {
-    id: 'viz1',
+    id: 'viz0',
     name: 'Temperature Sensor',
-    device_id: 'dev1',
+    device_id: 'dev0',
     model: 'VictoryLine',
     x: 'date',
     y: 'temp',
     data: lineData,
     selected: false,
-    theme: 'GrayScale'
+    design: 'GrayScale'
   },
   {
-    id: 'viz2',
+    id: 'viz1',
     name: 'Humidity Sensor',
-    device_id: 'dev2',
+    device_id: 'dev1',
     model: 'VictoryBar',
     x: 'date',
     y: 'hum',
     data: barData,
     selected: false,
-    theme: 'Material'
+    design: 'Material'
   }
 ];
 
@@ -77,12 +75,6 @@ export const deviceParams = [
     type: 'input',
     name: 'name',
     options: []
-  },
-  {
-    label: 'Type :',
-    type: 'select',
-    name: 'type',
-    options: deviceTypes
   },
   {
     label: 'Url :',
@@ -113,7 +105,7 @@ export const vizParams = [
   },
   {
     label: 'Theme:',
-    name: 'theme',
+    name: 'design',
     type: 'select',
     options: uiThemes
   }
@@ -172,7 +164,7 @@ export const getStartedContent = [
 
 export const devPanelActions = [
   {
-    name: 'Add',
+    name: 'Discover',
     onSelect: false
   },
   {
@@ -198,3 +190,31 @@ export const vizPanelActions = [
     onSelect: true
   }
 ];
+export const piSensors = {
+  temperature: {
+    name: 'Temperature Sensor',
+    description: 'A temperature sensor.',
+    type: 'float',
+    unit: 'celsius',
+    value: 21.8,
+    frequency: 5000,
+    timestamp: '2017-12-30T15:19:04.340Z'
+  },
+  humidity: {
+    name: 'Humidity Sensor',
+    description: 'A temperature sensor.',
+    type: 'float',
+    unit: 'percent',
+    value: 35.4,
+    frequency: 5000,
+    timestamp: '2017-12-30T15:19:04.340Z'
+  },
+  pir: {
+    name: 'Passive Infrared',
+    description: 'A passive infrared sensor. When true someone is present.',
+    type: 'boolean',
+    value: true,
+    gpio: 20,
+    timestamp: '2015-10-17T12:27:49.914Z'
+  }
+};

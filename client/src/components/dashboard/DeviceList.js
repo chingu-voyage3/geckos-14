@@ -11,7 +11,7 @@ const renderDevice = (device, actions) => {
   return (
     <div
       className="device"
-      key={device.name}
+      key={device.id}
       onClick={() => {
         actions.toogleSelectedDevice(device.id);
       }}
@@ -28,6 +28,7 @@ const renderDeviceList = props => {
 };
 const DeviceList = props => {
   // console.log('DeviceList Component');
+  if (props.devices.length === 0) return <div className="loading">Loading Data...</div>;
   return <div className="device-list">{renderDeviceList(props)}</div>;
 };
 

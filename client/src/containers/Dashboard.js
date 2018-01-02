@@ -10,20 +10,23 @@ import DevicePanel from '../components/dashboard/DevicePanel';
 import VizPanel from '../components/dashboard/VizPanel';
 import '../assets/Dashboard.css';
 import * as d from '../tempData.js';
-
-const tempSocket = new WebSocket('ws://devices.webofthings.io/pi/sensors/temperature');
-
+import * as discovery from '../helpers/discover';
+// TODO: To move to lower levels
+// const tempSocket = new WebSocket('ws://devices.webofthings.io/pi/sensors/temperature');
 class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      devices: d.devices,
+      devices: [],
       deviceParams: d.deviceParams,
       selected: {},
       vizs: d.vizs,
       vizParams: d.vizParams
     };
   }
+  discover = url => {
+    console.log('discovering url', url);
+  };
   editDevice = (id, newProps) => {
     // TODO: Add function that updates a Device
   };
@@ -71,7 +74,6 @@ class Dashboard extends Component {
       }
     }
   };
-
   addDataPoint = dataPoint => {
     let tempViz = this.state.vizs;
     for (var i = 0; i < tempViz.length; i++) {
@@ -86,10 +88,36 @@ class Dashboard extends Component {
       vizs: tempViz
     });
   };
-  componentDidMount() {
+  populateParams = devices => {
+    // Adding New devices as input for SourceDevices Select Param
+    let newParams = this.state.vizParams;
+    // getting the index for device_id
+    let index = newParams.findIndex(p => p.name === 'device_id');
+    let newSources = newParams[index];
+
+    // Adding an entry for all Devices in state
+    devices.forEach(device => {
+      // TODO: Add a check for unique devices
+      newSources.options.push({ id: device.id, value: device.id, display: device.name });
+    });
+
+    return newParams;
+  };
+  componentWillMount() {
+    // Call discovery method applied to Demo Data
+    discovery
+      .getDevices('http://devices.webofthings.io/pi/sensors', this.state.devices)
+      .then(res => {
+        discovery.getDevices('http://devices.webofthings.io/pi/actuators', res).then(devices => {
+          // Update state with new Devices
+          // Launch populating update for VizPanel Params
+          this.setState({ devices: devices, vizParams: this.populateParams(devices) });
+        });
+      });
+
     // tempSocket.onmessage = event => {
     //   const result = JSON.parse(event.data);
-    //   this.addDataPoint(result);
+    //   this.addDataPoint(r"esult);
     // };
   }
 
@@ -99,7 +127,7 @@ class Dashboard extends Component {
       toogleSelectedViz: this.toogleSelectedViz
     };
     const devActions = {
-      addDevice: this.addDevice,
+      discover: this.discover,
       toogleSelectedDevice: this.toogleSelectedDevice
     };
     return (
