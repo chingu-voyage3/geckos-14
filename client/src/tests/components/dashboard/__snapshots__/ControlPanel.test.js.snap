@@ -5,32 +5,63 @@ exports[`renders without crashing 1`] = `
   className="control-panel"
 >
   <div
-    className="add"
+    className="control-panel-actions"
+  >
+    <div
+      className="visible"
+      key="Add"
+    >
+      <Action
+        name="Add"
+        onSelect={false}
+        onclick={[Function]}
+      />
+    </div>
+    <div
+      className="hidden"
+      key="Edit"
+    >
+      <Action
+        name="Edit"
+        onSelect={true}
+        onclick={[Function]}
+      />
+    </div>
+    <div
+      className="hidden"
+      key="Del"
+    >
+      <Action
+        name="Del"
+        onSelect={true}
+        onclick={[Function]}
+      />
+    </div>
+  </div>
+  <div
+    className="control-panel-params"
   >
     <Param
       key="name"
       label="Name :"
       name="name"
       onChange={[Function]}
+      value=""
     />
     <Param
       key="type"
       label="Type :"
       name="type"
       onChange={[Function]}
+      value=""
     />
     <Param
       key="url"
       label="Url :"
       name="url"
       onChange={[Function]}
+      value=""
     />
-    <button
-      className="add-action"
-      onClick={[Function]}
-    >
-      Add
-    </button>
   </div>
 </div>
 `;

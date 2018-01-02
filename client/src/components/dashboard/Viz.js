@@ -8,13 +8,16 @@ TODO: Make the VictoryChart Composistion more Dynamic.
  */
 
 import React from 'react';
-import { VictoryBar, VictoryLine, VictoryChart } from 'victory';
+import { VictoryBar, VictoryLine, VictoryChart, VictoryTheme } from 'victory';
 
 const Viz = props => {
   // console.log(props.model);
   const Type = props.model;
   return (
-    <VictoryChart domainPadding={20}>
+    <VictoryChart
+      domainPadding={20}
+      theme={props.theme === 'Material' ? VictoryTheme.material : VictoryTheme.grayscale}
+    >
       {React.createElement(Type === 'VictoryBar' ? VictoryBar : VictoryLine, { ...props }, null)}
     </VictoryChart>
   );

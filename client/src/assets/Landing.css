@@ -1,12 +1,12 @@
 /*======================================
             General
 ======================================*/
-.container{
+.container {
   display: grid;
   grid-gap: 1em;
 }
 
-.container > div{
+.container > div {
   background: white;
   padding: 1em;
 }
@@ -19,7 +19,11 @@
   letter-spacing: 0.3em;
   text-align: center;
 }
-
+.main-section {
+  background-image: url('images/bgImage.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .welcome-text-button {
   margin: 0 auto;
 }
@@ -27,11 +31,11 @@
 /*======================================
             Section one
 ======================================*/
-.features-one h2{
+.features-one h2 {
   text-align: center;
 }
 
-.features-one-container{
+.features-one-container {
   display: grid;
   grid-template-columns: 2fr 2fr;
   grid-gap: 1em;
@@ -40,27 +44,27 @@
 /*======================================
             Section two
 ======================================*/
-.features-two h2{
+.features-two h2 {
   text-align: center;
 }
-.features-two-container{
+.features-two-container {
   text-align: center;
 }
-  /*======================================
+/*======================================
             Section three
 ======================================*/
-.features-three h2{
+.features-three h2 {
   text-align: center;
 }
 
-.features-three-container{
+.features-three-container {
   display: grid;
   grid-template-columns: 2fr 2fr;
   grid-gap: 1em;
   text-align: center;
 }
 
-.features-three-container img{
+.features-three-container img {
   width: 100%;
   height: 100%;
 }

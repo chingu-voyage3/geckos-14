@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Footer from '../components/footer/CatchyPhrase';
+import SupportMail from '../../../components/footer/SupportMail';
 import { shallow } from 'enzyme';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  const wrapper = shallow(<CatchyPhrase />);
+  const wrapper = shallow(<SupportMail />);
   expect(toJson(wrapper)).toMatchSnapshot();
 });

@@ -6,19 +6,29 @@ TODO: Allow hiding the List
 import React from 'react';
 import Device from './Device';
 
-const renderDevice = device => {
+const renderDevice = (device, actions) => {
   // console.log('renderDevice', device);
-  return <Device key={device.name} {...device} />;
+  return (
+    <div
+      className="device"
+      key={device.name}
+      onClick={() => {
+        actions.toogleSelectedDevice(device.id);
+      }}
+    >
+      <Device {...device} />
+    </div>
+  );
 };
-const renderDeviceList = devices => {
+const renderDeviceList = props => {
   // console.log('renderDeviceList');
-  return devices.map(device => {
-    return renderDevice(device);
+  return props.devices.map(device => {
+    return renderDevice(device, props.actions);
   });
 };
 const DeviceList = props => {
   // console.log('DeviceList Component');
-  return <div className="device-list">{renderDeviceList(props.devices)}</div>;
+  return <div className="device-list">{renderDeviceList(props)}</div>;
 };
 
 export default DeviceList;

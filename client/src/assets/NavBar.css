@@ -1,24 +1,20 @@
-
-.nav-bar{
+.nav-bar {
   position: sticky;
   top: 0;
-  background: #365437;
 }
 
-.nav-bar a{
-  color: white;
+.nav-bar a {
 }
 
-ul{
+ul {
   padding: 0;
   list-style-type: none;
-  color:white;
 }
 
-.nav-bar ul{
+.nav-bar ul {
   margin-left: 0;
   margin: 0 auto;
   display: grid;
-  grid-template-columns:repeat(4, 15%);
+  grid-template-columns: repeat(4, 15%);
   -ms-grid-column: repeat(4, 15%);
 }

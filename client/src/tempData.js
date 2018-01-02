@@ -10,51 +10,85 @@ export const barData = [
   { date: '14/12', hum: 98 },
   { date: '15/12', hum: 85 }
 ];
-export const modelTypes = ['Line', 'Bar', 'Status', 'Value'];
+export const uiThemes = [
+  { id: 'TH0', value: 'default', display: 'Select Viz Theme' },
+  { id: 'TH1', value: 'GrayScale', display: 'GrayScale' },
+  { id: 'TH2', value: 'Material', display: 'Material' }
+];
+
+export const modelTypes = [
+  { id: 'MT0', value: 'default', display: 'Select Model Type' },
+  { id: 'MT1', value: 'VictoryLine', display: 'VictoryLine' },
+  { id: 'MT2', value: 'VictoryBar', display: 'VictoryBar' },
+  { id: 'MT3', value: 'Status', display: 'Status' },
+  { id: 'MT4', value: 'Display', display: 'Display' }
+];
+export const deviceTypes = [
+  { id: 'DT0', value: 'default', display: 'Select Device Type' },
+  { id: 'DT1', value: 'Thermometer', display: 'Thermometer' },
+  { id: 'DT2', value: 'Humidity', display: 'Humidity' },
+  { id: 'DT3', value: 'IR sensor', display: 'IR sensor' },
+  { id: 'DT4', value: 'LCD', display: 'LCD' },
+  { id: 'DT5', value: 'LED', display: 'LED' },
+  { id: 'DT6', value: 'Switch', display: 'Switch' }
+];
 export const devices = [
   {
+    id: 'dev1',
     name: 'LondonTemp',
     url: 'http://devices.webofthings.io/pi/sensors/temperature/',
     type: 'Thermometer'
   },
   {
+    id: 'dev2',
     name: 'LondonHumidity',
     url: 'http://devices.webofthings.io/pi/sensors/humidity/',
     type: 'Humidity'
-  },
-  { name: 'LondonIR', url: 'http://devices.webofthings.io/pi/sensors/pir/', type: 'InfraRed' }
+  }
 ];
 export const vizs = [
   {
+    id: 'viz1',
     name: 'Temperature Sensor',
-    deviceName: 'LondonTemp',
+    device_id: 'dev1',
     model: 'VictoryLine',
     x: 'date',
     y: 'temp',
-    data: lineData
+    data: lineData,
+    selected: false,
+    theme: 'GrayScale'
   },
   {
+    id: 'viz2',
     name: 'Humidity Sensor',
-    deviceName: 'LondonHumidity',
+    device_id: 'dev2',
     model: 'VictoryBar',
     x: 'date',
     y: 'hum',
-    data: barData
+    data: barData,
+    selected: false,
+    theme: 'Material'
   }
 ];
 
 export const deviceParams = [
   {
     label: 'Name :',
-    name: 'name'
+    type: 'input',
+    name: 'name',
+    options: []
   },
   {
     label: 'Type :',
-    name: 'type'
+    type: 'select',
+    name: 'type',
+    options: deviceTypes
   },
   {
     label: 'Url :',
-    name: 'url'
+    type: 'input',
+    name: 'url',
+    options: []
   }
 ];
 
@@ -62,17 +96,26 @@ export const vizParams = [
   {
     label: 'Name :',
     name: 'name',
-    options: ''
+    type: 'input',
+    options: []
   },
   {
     label: 'Model :',
     name: 'model',
+    type: 'select',
     options: modelTypes
   },
   {
-    label: 'Device :',
-    name: 'device_name',
-    options: ''
+    label: 'Source Device:',
+    name: 'device_id',
+    type: 'select',
+    options: [{ id: 'SD0', value: 'default', display: 'Select Device Source' }]
+  },
+  {
+    label: 'Theme:',
+    name: 'theme',
+    type: 'select',
+    options: uiThemes
   }
 ];
 
@@ -124,5 +167,34 @@ export const getStartedContent = [
     title: 'Display Things',
     text:
       'Unicorn hacker waterfall is so 2000 and late parallax grok piverate responsive affordances fund intuitive. Cortado bootstrapping personas ideate SpaceTeam user story co-working paradigm integrate entrepreneur 360 campaign pair programming. Human-centered design user story unicorn disrupt actionable insight pair programming prototype driven. Integrate entrepreneur fund co-working thought leader human-centered design co-working engaging. Minimum viable product user story parallax agile latte agile hacker workflow experiential physical computing engaging personas long shadow. Unicorn hacker waterfall is so 2000 and late parallax grok piverate responsive affordances fund intuitive. Cortado bootstrapping personas ideate SpaceTeam user story co-working paradigm integrate entrepreneur 360 campaign pair programming. Human-centered design user story unicorn disrupt actionable insight pair programming prototype driven. Integrate entrepreneur fund co-working thought leader human-centered design co-working engaging. Minimum viable product user story parallax agile latte agile hacker workflow experiential physical computing engaging personas long shadow. Unicorn hacker waterfall is so 2000 and late parallax grok piverate responsive affordances fund intuitive. Cortado bootstrapping personas ideate SpaceTeam user story co-working paradigm integrate entrepreneur 360 campaign pair programming. Human-centered design user story unicorn disrupt actionable insight pair programming prototype driven. Integrate entrepreneur fund co-working thought leader human-centered design co-working engaging. Minimum viable product user story parallax agile latte agile hacker workflow experiential physical computing engaging personas long shadow. Unicorn hacker waterfall is so 2000 and late parallax grok piverate responsive affordances fund intuitive. Cortado bootstrapping personas ideate SpaceTeam user story co-working paradigm integrate entrepreneur 360 campaign pair programming. Human-centered design user story unicorn disrupt actionable insight pair programming prototype driven. Integrate entrepreneur fund co-working thought leader human-centered design co-working engaging. Minimum viable product user story parallax agile latte agile hacker workflow experiential physical computing engaging personas long shadow.'
+  }
+];
+
+export const devPanelActions = [
+  {
+    name: 'Add',
+    onSelect: false
+  },
+  {
+    name: 'Edit',
+    onSelect: true
+  },
+  {
+    name: 'Del',
+    onSelect: true
+  }
+];
+export const vizPanelActions = [
+  {
+    name: 'Add',
+    onSelect: false
+  },
+  {
+    name: 'Edit',
+    onSelect: true
+  },
+  {
+    name: 'Del',
+    onSelect: true
   }
 ];
