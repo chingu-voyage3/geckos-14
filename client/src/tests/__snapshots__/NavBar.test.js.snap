@@ -4,34 +4,65 @@ exports[`renders without crashing 1`] = `
 <div
   className="nav-bar"
 >
-  <ul>
-    <li>
-      DashThing Logo
-    </li>
-    <li>
-      <Link
-        replace={false}
-        to="/"
-      >
-        Home
-      </Link>
-    </li>
-    <li>
-      <Link
-        replace={false}
-        to="/getstarted"
-      >
-        Get Started
-      </Link>
-    </li>
-    <li>
-      <Link
-        replace={false}
-        to="/dashboard"
-      >
-        Dashboard
-      </Link>
-    </li>
-  </ul>
+  <div
+    className="nav-bar-menu"
+  >
+    <ul>
+      <li>
+        <Link
+          replace={false}
+          to="/"
+        >
+          DashThings
+        </Link>
+      </li>
+      <li>
+        <Link
+          replace={false}
+          to="/"
+        >
+          Home
+        </Link>
+      </li>
+      <li>
+        <Link
+          replace={false}
+          to="/getstarted"
+        >
+          Get Started
+        </Link>
+      </li>
+      <li>
+        <Link
+          replace={false}
+          to="/dashboard"
+        >
+          Dashboard
+        </Link>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="nav-bar-login"
+  >
+    <ul>
+      <li>
+        <a
+          href="#"
+          onClick={[Function]}
+        >
+          LogIn
+        </a>
+      </li>
+      <li>
+        <Link
+          replace={false}
+          to="/register"
+        >
+          Register
+        </Link>
+      </li>
+    </ul>
+  </div>
 </div>
 `;

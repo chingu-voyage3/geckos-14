@@ -11,10 +11,36 @@ ul {
   list-style-type: none;
 }
 
-.nav-bar ul {
-  margin-left: 0;
-  margin: 0 auto;
+.nav-bar {
+  background-color: white;
   display: grid;
-  grid-template-columns: repeat(4, 15%);
-  -ms-grid-column: repeat(4, 15%);
+  grid-template-columns: 10fr 2fr;
+  -ms-grid-column: 10fr 2fr;
+}
+.nav-bar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-bar li {
+  float: left;
+}
+.nav-bar li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+/* Change the link color to #111 (black) on hover */
+.nav-bar li a:hover {
+  background-color: black;
+  color: white;
+}
+.nav-bar-menu {
+  border: dashed 1px black;
+}
+
+.nav-bar-login {
+  border: dashed 1px red;
 }
