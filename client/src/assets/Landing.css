@@ -20,12 +20,15 @@
   text-align: center;
 }
 .main-section {
-  background-image: url('images/bgImage.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
 .welcome-text-button {
   margin: 0 auto;
+  position: fixed;
+  left: 620px;
+  z-index: 1;
+
 }
 
 /*======================================
