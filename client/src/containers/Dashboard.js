@@ -108,10 +108,14 @@ class Dashboard extends Component {
     //   const result = JSON.parse(event.data);
     //   this.addDataPoint(r"esult);
     // };
+    // testing urls
     const demoThingUrl = 'http://gateway.webofthings.io';
-    const demoDeviceUrl = 'http://devices.webofthings.io/pi/sensors/temperature';
-    const demoBadUrl = 'http://devices.webofthings.io/pi/sensors';
-    discover(demoBadUrl);
+    // const demoDeviceUrl = 'http://devices.webofthings.io/pi/sensors/temperature';
+    // const demoBadUrl = 'http://devices.webofthings.io/pi/sensors';
+    discover(demoThingUrl, this.state.devices).then(res => {
+      // console.log(res);
+      this.setState({ devices: res });
+    });
   }
 
   render() {
