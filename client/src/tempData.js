@@ -299,3 +299,14 @@ export const piModel = {
   },
   headers: { Link: '/model' }
 };
+
+export const modelPrint = ['id', 'name', 'description', 'tags', 'customFields', 'links'];
+export const devicePrint = [
+  'name',
+  'description',
+  'type',
+  'unit',
+  'value',
+  'frequency',
+  'timestamp'
+];

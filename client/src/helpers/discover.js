@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { isEqual } from './utils';
+import * as d from '../tempData';
 
 function checkLink(headers) {
   // console.log('Headers :', headers);
@@ -7,26 +8,11 @@ function checkLink(headers) {
 }
 function checkModel(model) {
   // console.log('Model :', Object.keys(model));
-  return isEqual(Object.keys(model), [
-    'id',
-    'name',
-    'description',
-    'tags',
-    'customFields',
-    'links'
-  ]);
+  return isEqual(Object.keys(model), d.modelPrint);
 }
 function checkDevice(device) {
   // console.log('Device :', Object.keys(device));
-  return isEqual(Object.keys(device), [
-    'name',
-    'description',
-    'type',
-    'unit',
-    'value',
-    'frequency',
-    'timestamp'
-  ]);
+  return isEqual(Object.keys(device), d.devicePrint);
 }
 function getProperties(devList, thing, url) {
   // console.log('getProperties', thing.properties.resources);
