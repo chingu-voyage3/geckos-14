@@ -109,7 +109,10 @@ class Dashboard extends Component {
     // const demoBadUrl = 'http://devices.webofthings.io/pi/sensors';
     discover(demoThingUrl, this.state.devices).then(res => {
       // console.log(res);
-      this.setState({ devices: res });
+      this.setState({
+        devices: res,
+        vizParams: this.populateParams(res)
+      });
     });
   }
 
