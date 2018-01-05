@@ -19,7 +19,7 @@ class Dashboard extends Component {
       devices: [],
       deviceParams: d.deviceParams,
       selected: {},
-      vizs: d.vizs,
+      vizs: [],
       vizParams: d.vizParams
     };
   }

@@ -23,8 +23,6 @@ class VizControlPanel extends Component {
         name: '',
         device_id: '',
         model: '',
-        x: '',
-        y: '',
         data: []
       },
       vizSelected: false
@@ -46,6 +44,8 @@ class VizControlPanel extends Component {
             name: '',
             device_id: '',
             model: '',
+            x: '',
+            y: '',
             design: ''
           },
           vizSelected: false
@@ -53,7 +53,6 @@ class VizControlPanel extends Component {
       }
     }
   }
-
   handleChange = event => {
     const value = event.target.value;
     const name = event.target.name;
@@ -62,16 +61,26 @@ class VizControlPanel extends Component {
     this.setState({ viz: { ...this.state.viz, [name]: value } });
   };
   handleAdd = () => {
-    this.props.actions.addViz(this.state.viz);
+    let devIndex = 0;
+    this.props.actions.addViz({
+      id: 'viz' + this.props.vizs.length,
+      name: this.state.viz.name,
+      device_id: this.state.viz.device_id,
+      model: this.state.viz.model,
+      x: Object.keys(this.props.devices[devIndex].data[0])[1],
+      y: Object.keys(this.props.devices[devIndex].data[0])[0],
+      data: this.props.devices[devIndex].data,
+      design: this.state.viz.design
+    });
     this.setState({
       viz: {
         id: '',
         name: '',
-        vizId: '',
+        device_id: '',
         model: '',
         x: '',
         y: '',
-        data: d.testData,
+        data: [],
         design: ''
       }
     });

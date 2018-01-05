@@ -115,49 +115,7 @@ exports[`renders without crashing 1`] = `
       ]
     }
     selected={Object {}}
-    vizs={
-      Array [
-        Object {
-          "data": Array [],
-          "design": "GrayScale",
-          "device_id": "dev0",
-          "id": "viz0",
-          "model": "VictoryLine",
-          "name": "Temperature Sensor",
-          "selected": false,
-          "x": "date",
-          "y": "temp",
-        },
-        Object {
-          "data": Array [
-            Object {
-              "date": "12/12",
-              "hum": 95,
-            },
-            Object {
-              "date": "13/12",
-              "hum": 93,
-            },
-            Object {
-              "date": "14/12",
-              "hum": 98,
-            },
-            Object {
-              "date": "15/12",
-              "hum": 85,
-            },
-          ],
-          "design": "Material",
-          "device_id": "dev1",
-          "id": "viz1",
-          "model": "VictoryBar",
-          "name": "Humidity Sensor",
-          "selected": false,
-          "x": "date",
-          "y": "hum",
-        },
-      ]
-    }
+    vizs={Array []}
   />
 </div>
 `;
