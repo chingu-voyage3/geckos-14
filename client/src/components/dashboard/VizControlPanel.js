@@ -61,17 +61,45 @@ class VizControlPanel extends Component {
     this.setState({ viz: { ...this.state.viz, [name]: value } });
   };
   handleAdd = () => {
-    let devIndex = 0;
+    let devIndex = this.getIndex(this.state.viz.device_id);
+    let sourceDevice = this.props.devices[devIndex];
+    let axis = this.getAxis(sourceDevice);
+
     this.props.actions.addViz({
       id: 'viz' + this.props.vizs.length,
       name: this.state.viz.name,
       device_id: this.state.viz.device_id,
       model: this.state.viz.model,
-      x: Object.keys(this.props.devices[devIndex].data[0])[1],
-      y: Object.keys(this.props.devices[devIndex].data[0])[0],
-      data: this.props.devices[devIndex].data,
+      x: axis.x,
+      y: axis.y,
+      data: sourceDevice.data,
       design: this.state.viz.design
     });
+    this.clearState();
+  };
+  handleEdit = () => {
+    console.log('Edit Item');
+  };
+  handleDel = () => {
+    console.log('Del Item');
+  };
+  getIndex = id => {
+    let index = '';
+    const devices = this.props.devices;
+    devices.forEach(device => {
+      if (device.id === id) {
+        index = devices.indexOf(device);
+      }
+    });
+    return index;
+  };
+  getAxis = device => {
+    return {
+      x: 'timestamp',
+      y: Object.keys(device.values)[0]
+    };
+  };
+  clearState = () => {
     this.setState({
       viz: {
         id: '',
@@ -84,12 +112,6 @@ class VizControlPanel extends Component {
         design: ''
       }
     });
-  };
-  handleEdit = () => {
-    console.log('Edit Item');
-  };
-  handleDel = () => {
-    console.log('Del Item');
   };
   renderParams = params => {
     return params.map(param => {
