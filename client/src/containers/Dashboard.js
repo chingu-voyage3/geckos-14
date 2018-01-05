@@ -11,8 +11,7 @@ import VizPanel from '../components/dashboard/VizPanel';
 import '../assets/Dashboard.css';
 import * as d from '../tempData.js';
 import discover from '../helpers/discover';
-// TODO: To move to lower levels
-// const tempSocket = new WebSocket('ws://devices.webofthings.io/pi/sensors/temperature');
+
 class Dashboard extends Component {
   constructor(props) {
     super(props);
@@ -104,10 +103,6 @@ class Dashboard extends Component {
     return newParams;
   };
   componentWillMount() {
-    // tempSocket.onmessage = event => {
-    //   const result = JSON.parse(event.data);
-    //   this.addDataPoint(r"esult);
-    // };
     // testing urls
     const demoThingUrl = 'http://gateway.webofthings.io';
     // const demoDeviceUrl = 'http://devices.webofthings.io/pi/sensors/temperature';

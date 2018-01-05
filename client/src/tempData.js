@@ -190,31 +190,112 @@ export const vizPanelActions = [
     onSelect: true
   }
 ];
-export const piSensors = {
-  temperature: {
-    name: 'Temperature Sensor',
-    description: 'A temperature sensor.',
-    type: 'float',
-    unit: 'celsius',
-    value: 21.8,
-    frequency: 5000,
-    timestamp: '2017-12-30T15:19:04.340Z'
+export const piGateway = {
+  data: {
+    message: 'testing root url',
+    links: {
+      properties: {
+        temp: {
+          name: 'Temperature Sensor',
+          description: 'An ambient temperature sensor.',
+          values: {
+            t: {
+              name: 'Temperature sensor',
+              description: 'The temperature in celsius',
+              unit: 'celsius',
+              customFields: {
+                gpio: 12
+              }
+            }
+          },
+          tags: ['sensor', 'public', 'indoors'],
+          data: [
+            {
+              t: 36,
+              timestamp: '2018-01-04T15:44:05.589Z'
+            },
+            {
+              t: 39,
+              timestamp: '2018-01-04T15:44:10.593Z'
+            }
+          ]
+        }
+      },
+      actions: { ledState: 'leds' }
+    }
   },
-  humidity: {
-    name: 'Humidity Sensor',
-    description: 'A temperature sensor.',
-    type: 'float',
-    unit: 'percent',
-    value: 35.4,
-    frequency: 5000,
-    timestamp: '2017-12-30T15:19:04.340Z'
+  headers: { Link: '/model' }
+};
+
+export const piModel = {
+  data: {
+    message: 'testing model url',
+    links: {
+      product: {
+        link: 'https://www.raspberrypi.org/products/raspberry-pi-2-model-b/',
+        title: 'Product this Web Thing is based on'
+      },
+      properties: {
+        link: '/properties',
+        title: 'List of Properties',
+        resources: {
+          temperature: {
+            name: 'Temperature Sensor',
+            description: 'An ambient temperature sensor.',
+            values: {
+              t: {
+                name: 'Temperature sensor',
+                description: 'The temperature in celsius',
+                unit: 'celsius',
+                customFields: {
+                  gpio: 12
+                }
+              }
+            },
+            tags: ['sensor', 'public', 'indoors'],
+            data: [
+              {
+                t: 21,
+                timestamp: '2018-01-05T20:07:16.096Z'
+              },
+              {
+                t: 14,
+                timestamp: '2018-01-05T20:07:21.102Z'
+              }
+            ]
+          },
+          humidity: {
+            name: 'Humidity Sensor',
+            description: 'An ambient humidity sensor.',
+            values: {
+              h: {
+                name: 'Humidity',
+                description: 'Percentage of Humidity',
+                unit: '%',
+                customFields: {
+                  gpio: 12
+                }
+              }
+            },
+            tags: ['sensor', 'public'],
+            data: [
+              {
+                h: 24,
+                timestamp: '2018-01-05T20:07:16.096Z'
+              },
+              {
+                h: 93,
+                timestamp: '2018-01-05T20:07:21.102Z'
+              },
+              {
+                h: 63,
+                timestamp: '2018-01-05T20:07:26.108Z'
+              }
+            ]
+          }
+        }
+      }
+    }
   },
-  pir: {
-    name: 'Passive Infrared',
-    description: 'A passive infrared sensor. When true someone is present.',
-    type: 'boolean',
-    value: true,
-    gpio: 20,
-    timestamp: '2015-10-17T12:27:49.914Z'
-  }
+  headers: { Link: '/model' }
 };

@@ -79,7 +79,11 @@ function getDevice(devList, device, url) {
   }
   return devList;
 }
-
+function getModel(url) {
+  return axios.get(url + '/model', { headers: { Accept: 'application/json' } }).then(res => {
+    return res.data;
+  });
+}
 export default function discover(url, devList) {
   let devices = devList;
   // console.log('Discovering URL..');
@@ -87,42 +91,36 @@ export default function discover(url, devList) {
   return axios
     .get(url, { headers: { Accept: 'application/json' } })
     .then(res => {
-      // if no Links check for Device
-      // console.log('Checking header..');
       if (!checkLink(res.headers)) {
-        // If no Model Check for single Device
-        // console.log('No Link in header');
-        // console.log('Checking device..');
+        // If no Links check for Device
         if (!checkDevice(res.data)) {
-          // console.log('Not a proper device');
-          // console.log('Checking Model..');
-          // if not a device alert user
-          return axios
-            .get(url + '/model', { headers: { Accept: 'application/json' } })
-            .then(model => {
-              if (!checkModel(model.data)) {
-                console.log('BAD URL');
-              } else {
-                // console.log('It is a Thing');
-                devices = getProperties(devices, model.data.links, url);
-                // console.log('after properties', devices);
-                // devices = getActions(devices, model.data.links, url);
-                // console.log('after actions', devices);
-                return devices;
-              }
-            });
+          // If not a device getModel
+          return getModel(url).then(model => {
+            if (!checkModel(model)) {
+              // console.log('BAD URL');
+              // TODO: implement Error Displaying
+            } else {
+              // console.log('It is a Thing');
+              devices = getProperties(devices, model.links, url);
+              // console.log('after properties', devices);
+              // devices = getActions(devices, model.data.links, url);
+              // console.log('after actions', devices);
+              return devices;
+            }
+          });
         }
-        console.log('It is a Device');
+        // console.log('It is a Device');
         devices = getDevice(devices, res.data, url);
         return devices;
       }
       // if yes call getProperties and getActions
-      console.log('It is a Thing');
-      devices = getProperties(devices, res.data.links, url);
+      // console.log('It is a Thing');
+      return getModel(url).then(model => {
+        return getProperties(devices, model.links, url);
+      });
       // console.log('after properties', devices);
       // devices = getActions(devices, res.data.links, url);
       // console.log('after properties',devices);
-      return devices;
     })
     .catch(err => {
       console.log(err);
