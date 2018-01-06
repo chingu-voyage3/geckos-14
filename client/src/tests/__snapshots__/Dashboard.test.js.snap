@@ -78,11 +78,11 @@ exports[`renders without crashing 1`] = `
           "type": "select",
         },
         Object {
-          "label": "Source Thing:",
-          "name": "thing_id",
+          "label": "Source:",
+          "name": "source_id",
           "options": Array [
             Object {
-              "display": "Select Thing Source",
+              "display": "Select Source",
               "id": "SD0",
               "value": "default",
             },

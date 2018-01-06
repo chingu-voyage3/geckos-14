@@ -101,10 +101,10 @@ export const vizParams = [
     options: modelTypes
   },
   {
-    label: 'Source Thing:',
-    name: 'thing_id',
+    label: 'Source:',
+    name: 'source_id',
     type: 'select',
-    options: [{ id: 'SD0', value: 'default', display: 'Select Thing Source' }]
+    options: [{ id: 'SD0', value: 'default', display: 'Select Source' }]
   },
   {
     label: 'Theme:',

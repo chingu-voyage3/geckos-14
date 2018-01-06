@@ -90,8 +90,8 @@ class Dashboard extends Component {
   populateParams = things => {
     // Adding New things as input for SourceThings Select Param
     let newParams = this.state.vizParams;
-    // getting the index for thing_id
-    let index = newParams.findIndex(p => p.name === 'thing_id');
+    // getting the index for source_id
+    let index = newParams.findIndex(p => p.name === 'source_id');
     let newSources = newParams[index];
 
     // Adding an entry for all Things in state

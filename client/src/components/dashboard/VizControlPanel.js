@@ -21,7 +21,7 @@ class VizControlPanel extends Component {
       viz: {
         id: '',
         name: '',
-        device_id: '',
+        source_id: '',
         model: '',
         data: []
       },
@@ -42,7 +42,7 @@ class VizControlPanel extends Component {
           viz: {
             id: '',
             name: '',
-            device_id: '',
+            source_id: '',
             model: '',
             x: '',
             y: '',
@@ -61,9 +61,8 @@ class VizControlPanel extends Component {
     this.setState({ viz: { ...this.state.viz, [name]: value } });
   };
   handleAdd = () => {
-    let devIndex = this.getIndex(this.state.viz.device_id);
-    let sourceDevice = this.props.devices[devIndex];
-    let axis = this.getAxis(sourceDevice);
+    const source = this.getSource(this.state.viz.source_id);
+    const axis = this.getAxis(source);
 
     // const wsUrl = (secure ? 'wss://' : 'ws://') + hostname +'/properties/'+i
     // const wsUrl = 'ws://'+hostname+'/properties+'+
@@ -76,11 +75,11 @@ class VizControlPanel extends Component {
     this.props.actions.addViz({
       id: 'viz' + this.props.vizs.length,
       name: this.state.viz.name,
-      device_id: this.state.viz.device_id,
+      source_id: this.state.viz.source_id,
       model: this.state.viz.model,
       x: axis.x,
       y: axis.y,
-      data: sourceDevice.data,
+      data: source.data,
       design: this.state.viz.design
     });
     this.clearState();
@@ -91,20 +90,21 @@ class VizControlPanel extends Component {
   handleDel = () => {
     console.log('Del Item');
   };
-  getIndex = id => {
-    let index = '';
-    const devices = this.props.devices;
-    devices.forEach(device => {
-      if (device.id === id) {
-        index = devices.indexOf(device);
-      }
+  getSource = id => {
+    let source;
+    this.props.things.forEach(thing => {
+      Object.keys(thing.properties).forEach(property => {
+        if (property === id) {
+          source = thing.properties[property];
+        }
+      });
     });
-    return index;
+    return source;
   };
-  getAxis = device => {
+  getAxis = source => {
     return {
       x: 'timestamp',
-      y: Object.keys(device.values)[0]
+      y: Object.keys(source.values)[0]
     };
   };
   clearState = () => {
@@ -112,7 +112,7 @@ class VizControlPanel extends Component {
       viz: {
         id: '',
         name: '',
-        device_id: '',
+        source_id: '',
         model: '',
         x: '',
         y: '',
