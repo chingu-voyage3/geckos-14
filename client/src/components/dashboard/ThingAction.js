@@ -4,7 +4,7 @@ const ThingAction = props => {
   // console.log('ThingAction', props);
   return (
     <div className="thing-action">
-      <div>{props.key}</div>
+      <div>{props.display}</div>
       <div className="thing-description">{props.description}</div>
     </div>
   );

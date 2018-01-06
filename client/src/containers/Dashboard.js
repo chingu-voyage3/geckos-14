@@ -17,7 +17,7 @@ class Dashboard extends Component {
     super(props);
     this.state = {
       things: [],
-      thingParams: d.deviceParams,
+      thingParams: d.thingParams,
       selected: {},
       vizs: [],
       vizParams: d.vizParams

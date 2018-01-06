@@ -11,6 +11,22 @@ exports[`renders without crashing 1`] = `
         "toogleSelectedThing": [Function],
       }
     }
+    params={
+      Array [
+        Object {
+          "label": "Name :",
+          "name": "name",
+          "options": Array [],
+          "type": "input",
+        },
+        Object {
+          "label": "Url :",
+          "name": "url",
+          "options": Array [],
+          "type": "input",
+        },
+      ]
+    }
     selected={Object {}}
     things={Array []}
   />
