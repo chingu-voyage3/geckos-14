@@ -22,7 +22,7 @@ class ControlPanel extends Component {
     this.state = {
       device: {
         name: '',
-        url: ''
+        id: ''
       },
       deviceSelected: false
     };
@@ -42,9 +42,7 @@ class ControlPanel extends Component {
         this.setState({
           device: {
             id: '',
-            name: '',
-            url: '',
-            type: ''
+            name: ''
           },
           deviceSelected: false
         });

@@ -35,9 +35,6 @@
   border: solid 1px;
 }
 .thing-list {
-  display: grid;
-  grid-gap: 5px;
-  grid-auto-rows: 50px;
 }
 .thing {
   margin-left: 20px;

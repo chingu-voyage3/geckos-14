@@ -21,7 +21,7 @@ exports[`renders without crashing 1`] = `
         },
         Object {
           "label": "Url :",
-          "name": "url",
+          "name": "id",
           "options": Array [],
           "type": "input",
         },

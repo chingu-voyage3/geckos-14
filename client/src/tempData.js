@@ -82,7 +82,7 @@ export const thingParams = [
   {
     label: 'Url :',
     type: 'input',
-    name: 'url',
+    name: 'id',
     options: []
   }
 ];

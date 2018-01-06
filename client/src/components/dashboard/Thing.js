@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ThingAction from './ThingAction';
 import ThingProperty from './ThingProperty';
 
@@ -18,7 +18,7 @@ const renderActions = actions => {
 
 const Thing = props => {
   return (
-    <div className="thing">
+    <div className="thing" onClick={props.onClick}>
       {props.name + '  '}
       <span>
         <a href={props.url} target="_blank">
