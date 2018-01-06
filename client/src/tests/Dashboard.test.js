@@ -10,7 +10,6 @@ let mock = new MockAdapter(axios);
 
 // Mock any GET request to /url
 // arguments for reply are (status, data, headers)
-mock.onGet('http://gateway.webofthings.io').reply(200, d.piGateway.data, d.piGateway.headers);
 mock.onGet('http://gateway.webofthings.io/model').reply(200, d.piModel.data, d.piModel.headers);
 
 it('renders without crashing', async () => {

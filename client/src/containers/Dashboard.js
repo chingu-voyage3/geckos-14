@@ -98,12 +98,10 @@ class Dashboard extends Component {
     things.forEach(thing => {
       Object.keys(thing.properties).forEach(property => {
         // TODO: Add a check for unique things
-
         newSources.options.push({ id: property, value: property, display: property });
       });
       Object.keys(thing.actions).forEach(action => {
         // TODO: Add a check for unique things
-
         newSources.options.push({ id: action, value: action, display: action });
       });
     });

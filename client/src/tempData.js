@@ -232,7 +232,16 @@ export const piGateway = {
 
 export const piModel = {
   data: {
-    message: 'testing model url',
+    id: 'http://gateway.webofthings.io',
+    name: 'My WoT Raspberry PI',
+    description: 'A simple WoT-connected Raspberry Pi for the WoT book.',
+    tags: ['raspberry', 'pi', 'WoT'],
+    customFields: {
+      hostname: 'gateway.webofthings.io',
+      port: 8484,
+      secure: false,
+      dataArraySize: 30
+    },
     links: {
       product: {
         link: 'https://www.raspberrypi.org/products/raspberry-pi-2-model-b/',
@@ -289,14 +298,104 @@ export const piModel = {
               {
                 h: 93,
                 timestamp: '2018-01-05T20:07:21.102Z'
+              }
+            ]
+          },
+          pir: {
+            name: 'Passive Infrared',
+            description: 'A passive infrared sensor.',
+            values: {
+              presence: {
+                name: 'Presence',
+                description: 'Current sensor value (true=motion detected)',
+                type: 'boolean',
+                customFields: {
+                  gpio: 17
+                }
+              }
+            },
+            tags: ['sensor', 'public'],
+            data: [
+              {
+                presence: false,
+                timestamp: '2018-01-05T20:07:16.095Z'
               },
               {
-                h: 63,
-                timestamp: '2018-01-05T20:07:26.108Z'
+                presence: false,
+                timestamp: '2018-01-05T20:07:21.101Z'
+              }
+            ]
+          },
+          leds: {
+            name: 'LEDs',
+            description: 'The LEDs of this device.',
+            values: {
+              1: {
+                name: 'LED 1',
+                customFields: {
+                  gpio: 4
+                }
+              },
+              2: {
+                name: 'LED 2',
+                customFields: {
+                  gpio: 9
+                }
+              }
+            },
+            tags: ['sensor', 'public'],
+            data: [
+              {
+                1: false,
+                2: false,
+                timestamp: '2018-01-05T20:07:16.096Z'
+              },
+              {
+                1: false,
+                2: false,
+                timestamp: '2018-01-05T20:07:21.102Z'
               }
             ]
           }
         }
+      },
+      actions: {
+        link: '/actions',
+        title: 'Actions of this Web Thing',
+        resources: {
+          ledState: {
+            name: 'Change LED state',
+            description: 'Change the state of an LED',
+            values: {
+              ledId: {
+                type: 'enum',
+                enum: {
+                  1: 'LED 1',
+                  2: 'LED 2',
+                  ALL: 'All LEDs'
+                },
+                required: true
+              },
+              state: {
+                type: 'boolean',
+                required: true
+              }
+            },
+            data: []
+          }
+        }
+      },
+      type: {
+        link: 'http://model.webofthings.io/',
+        title: 'Instance type of the Pi'
+      },
+      help: {
+        link: 'http://webofthings.org/docs/pi/',
+        title: 'Documentation'
+      },
+      ui: {
+        link: '/',
+        title: 'User Interface'
       }
     }
   },
@@ -304,12 +403,3 @@ export const piModel = {
 };
 
 export const modelPrint = ['id', 'name', 'description', 'tags', 'customFields', 'links'];
-export const thingPrint = [
-  'name',
-  'description',
-  'type',
-  'unit',
-  'value',
-  'frequency',
-  'timestamp'
-];
