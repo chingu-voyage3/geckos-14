@@ -65,6 +65,14 @@ class VizControlPanel extends Component {
     let sourceDevice = this.props.devices[devIndex];
     let axis = this.getAxis(sourceDevice);
 
+    // const wsUrl = (secure ? 'wss://' : 'ws://') + hostname +'/properties/'+i
+    // const wsUrl = 'ws://'+hostname+'/properties+'+
+    // const socket = new WebSocket(wsUrl); //#C
+    // tempSocket.onmessage = event => {
+    //   const result = JSON.parse(event.data);
+    //   this.addDataPoint(r"esult);
+    // };
+
     this.props.actions.addViz({
       id: 'viz' + this.props.vizs.length,
       name: this.state.viz.name,
