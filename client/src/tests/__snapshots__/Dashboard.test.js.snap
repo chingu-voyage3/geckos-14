@@ -4,31 +4,15 @@ exports[`renders without crashing 1`] = `
 <div
   className="dashboard"
 >
-  <DevicePanel
+  <ThingPanel
     actions={
       Object {
         "discover": [Function],
-        "toogleSelectedDevice": [Function],
+        "toogleSelectedThing": [Function],
       }
     }
-    devices={Array []}
-    params={
-      Array [
-        Object {
-          "label": "Name :",
-          "name": "name",
-          "options": Array [],
-          "type": "input",
-        },
-        Object {
-          "label": "Url :",
-          "name": "url",
-          "options": Array [],
-          "type": "input",
-        },
-      ]
-    }
     selected={Object {}}
+    things={Array []}
   />
   <VizPanel
     actions={
@@ -37,7 +21,6 @@ exports[`renders without crashing 1`] = `
         "toogleSelectedViz": [Function],
       }
     }
-    devices={Array []}
     params={
       Array [
         Object {
@@ -79,11 +62,11 @@ exports[`renders without crashing 1`] = `
           "type": "select",
         },
         Object {
-          "label": "Source Device:",
-          "name": "device_id",
+          "label": "Source Thing:",
+          "name": "thing_id",
           "options": Array [
             Object {
-              "display": "Select Device Source",
+              "display": "Select Thing Source",
               "id": "SD0",
               "value": "default",
             },
@@ -115,6 +98,7 @@ exports[`renders without crashing 1`] = `
       ]
     }
     selected={Object {}}
+    things={Array []}
     vizs={Array []}
   />
 </div>

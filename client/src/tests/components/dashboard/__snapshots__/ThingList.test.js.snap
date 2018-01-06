@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<div
+  className="thing-list"
+>
+  <Thing
+    actions={
+      Object {
+        "act1": Object {
+          "name": "act1",
+        },
+        "act2": Object {
+          "name": "act2",
+        },
+      }
+    }
+    description="Testing Thing"
+    id="http://gateway.webofthings.io/"
+    key="http://gateway.webofthings.io/"
+    name="LondonTemp"
+    onClick={[Function]}
+    properties={
+      Object {
+        "prop1": Object {
+          "name": "prop1",
+        },
+        "prop2": Object {
+          "name": "prop2",
+        },
+      }
+    }
+  />
+</div>
+`;

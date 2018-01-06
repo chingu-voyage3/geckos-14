@@ -1,9 +1,9 @@
 import React from 'react';
-import DevicePanel from '../../../components/dashboard/DevicePanel';
+import ThingPanel from '../../../components/dashboard/ThingPanel';
 
 import { shallow } from 'enzyme';
 
 it('renders without crashing', () => {
-  const wrapper = shallow(<DevicePanel />);
+  const wrapper = shallow(<ThingPanel />);
   expect(toJson(wrapper)).toMatchSnapshot();
 });

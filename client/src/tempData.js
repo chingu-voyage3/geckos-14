@@ -23,32 +23,35 @@ export const modelTypes = [
   { id: 'MT3', value: 'Status', display: 'Status' },
   { id: 'MT4', value: 'Display', display: 'Display' }
 ];
-export const deviceTypes = [
-  { id: 'DT0', value: 'default', display: 'Select Device Type' },
-  { id: 'DT1', value: 'Thermometer', display: 'Thermometer' },
-  { id: 'DT2', value: 'Humidity', display: 'Humidity' },
-  { id: 'DT3', value: 'IR sensor', display: 'IR sensor' },
-  { id: 'DT4', value: 'LCD', display: 'LCD' },
-  { id: 'DT5', value: 'LED', display: 'LED' },
-  { id: 'DT6', value: 'Switch', display: 'Switch' }
-];
-export const devices = [
+
+export const things = [
   {
-    id: 'dev0',
+    id: 'http://gateway.webofthings.io/',
     name: 'LondonTemp',
-    url: 'http://devices.webofthings.io/pi/sensors/temperature/'
-  },
-  {
-    id: 'dev1',
-    name: 'LondonHumidity',
-    url: 'http://devices.webofthings.io/pi/sensors/humidity/'
+    description: 'Testing Thing',
+    properties: {
+      prop1: {
+        name: 'prop1'
+      },
+      prop2: {
+        name: 'prop2'
+      }
+    },
+    actions: {
+      act1: {
+        name: 'act1'
+      },
+      act2: {
+        name: 'act2'
+      }
+    }
   }
 ];
 export const vizs = [
   {
     id: 'viz0',
     name: 'Temperature Sensor',
-    device_id: 'dev0',
+    thing_id: 'dev0',
     model: 'VictoryLine',
     x: 'date',
     y: 'temp',
@@ -59,7 +62,7 @@ export const vizs = [
   {
     id: 'viz1',
     name: 'Humidity Sensor',
-    device_id: 'dev1',
+    thing_id: 'dev1',
     model: 'VictoryBar',
     x: 'date',
     y: 'hum',
@@ -69,7 +72,7 @@ export const vizs = [
   }
 ];
 
-export const deviceParams = [
+export const thingParams = [
   {
     label: 'Name :',
     type: 'input',
@@ -98,10 +101,10 @@ export const vizParams = [
     options: modelTypes
   },
   {
-    label: 'Source Device:',
-    name: 'device_id',
+    label: 'Source Thing:',
+    name: 'thing_id',
     type: 'select',
-    options: [{ id: 'SD0', value: 'default', display: 'Select Device Source' }]
+    options: [{ id: 'SD0', value: 'default', display: 'Select Thing Source' }]
   },
   {
     label: 'Theme:',
@@ -301,7 +304,7 @@ export const piModel = {
 };
 
 export const modelPrint = ['id', 'name', 'description', 'tags', 'customFields', 'links'];
-export const devicePrint = [
+export const thingPrint = [
   'name',
   'description',
   'type',

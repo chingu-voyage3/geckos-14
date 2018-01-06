@@ -4,14 +4,14 @@ import ThingProperty from './ThingProperty';
 
 const renderProperties = properties => {
   return Object.keys(properties).map(property => {
-    console.log('Property :', properties[property]);
+    // console.log('Property :', properties[property]);
     return <ThingProperty key={property} {...properties[property]} />;
   });
 };
 
 const renderActions = actions => {
   return Object.keys(actions).map(action => {
-    console.log('Action :', actions[action]);
+    // console.log('Action :', actions[action]);
     return <ThingAction key={action} {...actions[action]} />;
   });
 };
