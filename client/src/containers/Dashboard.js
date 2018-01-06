@@ -96,8 +96,16 @@ class Dashboard extends Component {
 
     // Adding an entry for all Things in state
     things.forEach(thing => {
-      // TODO: Add a check for unique things
-      newSources.options.push({ id: thing.id, value: thing.id, display: thing.name });
+      Object.keys(thing.properties).forEach(property => {
+        // TODO: Add a check for unique things
+
+        newSources.options.push({ id: property, value: property, display: property });
+      });
+      Object.keys(thing.actions).forEach(action => {
+        // TODO: Add a check for unique things
+
+        newSources.options.push({ id: action, value: action, display: action });
+      });
     });
 
     return newParams;
@@ -110,7 +118,10 @@ class Dashboard extends Component {
     discover(demoThingUrl).then(res => {
       let newThings = this.state.things;
       newThings.push(res);
-      this.setState({ things: newThings });
+      this.setState({
+        things: newThings,
+        vizParams: this.populateParams(newThings)
+      });
     });
   }
 
