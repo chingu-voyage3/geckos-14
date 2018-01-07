@@ -11,15 +11,22 @@ function getInfo(model) {
   return {
     id: model.id,
     name: model.name,
-    description: model.description
+    description: model.description,
+    customFields: model.customFields
   };
 }
-function getProperties(properties) {
+function getProperties(properties, parentThing) {
   // console.log('getProperties', properties);
+  Object.keys(properties).forEach(property => {
+    properties[property].customFields = parentThing.customFields;
+  });
   return properties;
 }
-function getActions(actions) {
+function getActions(actions, parentThing) {
   // console.log('getActions', actions);
+  Object.keys(actions).forEach(action => {
+    actions[action].customFields = parentThing.customFields;
+  });
   return actions;
 }
 function getModel(url) {
@@ -39,9 +46,9 @@ export default function discover(url) {
       } else {
         // console.log('It is a Thing');
         thing = getInfo(model);
-        thing.properties = getProperties(model.links.properties.resources);
+        thing.properties = getProperties(model.links.properties.resources, thing);
         // console.log('after properties', things);
-        thing.actions = getActions(model.links.actions.resources);
+        thing.actions = getActions(model.links.actions.resources, thing);
         // console.log('after actions', things);
         // console.log(thing);
         return thing;

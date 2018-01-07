@@ -23,7 +23,10 @@ class VizControlPanel extends Component {
         name: '',
         source_id: '',
         model: '',
-        data: []
+        x: '',
+        y: '',
+        data: [],
+        design: ''
       },
       vizSelected: false
     };
@@ -38,18 +41,7 @@ class VizControlPanel extends Component {
         });
       } else {
         // console.log('viz', nextProps.selected);
-        this.setState({
-          viz: {
-            id: '',
-            name: '',
-            source_id: '',
-            model: '',
-            x: '',
-            y: '',
-            design: ''
-          },
-          vizSelected: false
-        });
+        this.clearState();
       }
     }
   }
@@ -60,28 +52,27 @@ class VizControlPanel extends Component {
     // eslint-disable-next-line
     this.setState({ viz: { ...this.state.viz, [name]: value } });
   };
+
   handleAdd = () => {
+    // Specific to Line or Bar Chart
+    // TODO: Add check on Viz Type
     const source = this.getSource(this.state.viz.source_id);
     const axis = this.getAxis(source);
 
-    // const wsUrl = (secure ? 'wss://' : 'ws://') + hostname +'/properties/'+i
-    // const wsUrl = 'ws://'+hostname+'/properties+'+
-    // const socket = new WebSocket(wsUrl); //#C
-    // tempSocket.onmessage = event => {
-    //   const result = JSON.parse(event.data);
-    //   this.addDataPoint(r"esult);
-    // };
-
-    this.props.actions.addViz({
-      id: 'viz' + this.props.vizs.length,
-      name: this.state.viz.name,
-      source_id: this.state.viz.source_id,
-      model: this.state.viz.model,
-      x: axis.x,
-      y: axis.y,
-      data: source.data,
-      design: this.state.viz.design
-    });
+    // TODO: Add Check All required fields are set
+    this.props.actions.addViz(
+      {
+        id: 'viz' + this.props.vizs.length,
+        name: this.state.viz.name,
+        source_id: this.state.viz.source_id,
+        model: this.state.viz.model,
+        x: axis.x,
+        y: axis.y,
+        data: [],
+        design: this.state.viz.design
+      },
+      source
+    );
     this.clearState();
   };
   handleEdit = () => {
@@ -116,9 +107,10 @@ class VizControlPanel extends Component {
         model: '',
         x: '',
         y: '',
-        data: [],
-        design: ''
-      }
+        design: '',
+        data: []
+      },
+      vizSelected: false
     });
   };
   renderParams = params => {

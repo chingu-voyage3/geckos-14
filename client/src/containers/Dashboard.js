@@ -38,9 +38,10 @@ class Dashboard extends Component {
   delThing = id => {
     // TODO: Add function that deletes a Thing
   };
-  addViz = viz => {
+  addViz = (viz, source) => {
     // console.log('viz to be Added', viz);
     // console.log('dash vizs state', this.state);
+    this.createSocket(viz, source);
     this.setState({
       vizs: [...this.state.vizs, viz]
     });
@@ -50,6 +51,41 @@ class Dashboard extends Component {
   };
   delThing = id => {
     // TODO: Add function that deletes a Thing
+  };
+  createSocket = (viz, source) => {
+    const wsUrl =
+      (source.customFields.secure ? 'wss://' : 'ws://') +
+      source.customFields.hostname +
+      '/properties/' +
+      viz.source_id +
+      '?token=cKXRTaRylYWQiF3MICaKndG4WJMcVLFz';
+
+    const socket = new WebSocket(wsUrl);
+
+    socket.onopen = function (message) {
+      console.log('Subscribed to Property : ' + wsUrl);
+    };
+
+    socket.onmessage = event => {
+      const result = JSON.parse(event.data);
+      console.log('Message :', result);
+      this.addDataPoint(result, viz.id);
+    };
+
+    socket.onerror = function (error) {
+      console.log('Error while connecting to a WebSocket!');
+      console.log(error);
+    };
+  };
+  addDataPoint = (dataPoint, vizID) => {
+    let vizs = this.state.vizs;
+    vizs.forEach(viz => {
+      if (viz.id === vizID) {
+        viz.data.push(dataPoint);
+      }
+    });
+    console.log(vizs);
+    this.setState({ vizs: vizs });
   };
   toogleSelectedThing = id => {
     console.log('toogleSelectedThing - ', id);
@@ -73,20 +109,7 @@ class Dashboard extends Component {
       }
     }
   };
-  addDataPoint = dataPoint => {
-    let tempViz = this.state.vizs;
-    for (var i = 0; i < tempViz.length; i++) {
-      if (tempViz[i].name === dataPoint.name) {
-        tempViz[i].data.push({
-          date: tempViz[0].data.length,
-          temp: dataPoint.value
-        });
-      }
-    }
-    this.setState({
-      vizs: tempViz
-    });
-  };
+
   populateParams = things => {
     // Adding New things as input for SourceThings Select Param
     let newParams = this.state.vizParams;
