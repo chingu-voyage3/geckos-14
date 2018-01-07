@@ -18,7 +18,10 @@ class Dashboard extends Component {
     this.state = {
       things: [],
       thingParams: d.thingParams,
-      selected: {},
+      selected: {
+        id: '',
+        name: ''
+      },
       vizs: [],
       vizParams: d.vizParams
     };
@@ -39,8 +42,7 @@ class Dashboard extends Component {
     // TODO: Add function that deletes a Thing
   };
   addViz = (viz, source) => {
-    // console.log('viz to be Added', viz);
-    // console.log('dash vizs state', this.state);
+    // Creating WebSocket using viz and source Data
     this.createSocket(viz, source);
     this.setState({
       vizs: [...this.state.vizs, viz]
@@ -84,22 +86,31 @@ class Dashboard extends Component {
         viz.data.push(dataPoint);
       }
     });
-    console.log(vizs);
+    // console.log(vizs);
     this.setState({ vizs: vizs });
   };
-  toogleSelectedThing = id => {
-    console.log('toogleSelectedThing - ', id);
+  toogleSelectedThing = name => {
+    console.log('toogleSelectedThing - ', name);
     let tempThings = this.state.things;
-    for (var i = 0; i < tempThings.length; i++) {
-      if (tempThings[i].id === id) {
-        this.setState({
-          selected: tempThings[i]
-        });
+    tempThings.forEach(thing => {
+      if (thing.name === name) {
+        if (!this.state.selected.name) {
+          this.setState({
+            selected: thing
+          });
+        } else {
+          this.setState({
+            selected: {
+              id: '',
+              name: ''
+            }
+          });
+        }
       }
-    }
+    });
   };
   toogleSelectedViz = id => {
-    console.log('toogleSelectedViz - ', id);
+    // console.log('toogleSelectedViz - ', id);
     let tempVizs = this.state.vizs;
     for (var i = 0; i < tempVizs.length; i++) {
       if (tempVizs[i].id === id) {

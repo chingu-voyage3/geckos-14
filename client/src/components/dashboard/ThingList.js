@@ -12,7 +12,7 @@ const renderThing = (thing, actions) => {
     <Thing
       key={thing.id}
       onClick={() => {
-        actions.toogleSelectedThing(thing.id);
+        actions.toogleSelectedThing(thing.name);
       }}
       {...thing}
     />

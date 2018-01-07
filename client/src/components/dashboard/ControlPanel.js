@@ -14,6 +14,7 @@ import React, { Component } from 'react';
 import Param from './Param';
 import Action from './Action';
 import * as d from '../../tempData.js';
+import { shallowEqual } from '../../helpers/utils';
 
 class ControlPanel extends Component {
   constructor(props) {
@@ -21,31 +22,34 @@ class ControlPanel extends Component {
     // state initialisation for controlled component
     this.state = {
       device: {
-        name: '',
-        id: ''
+        id: '',
+        name: ''
       },
       deviceSelected: false
     };
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props.selected !== nextProps.selected;
+  }
+
   componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
     // check if selected Item and Item is Device;
-    if (Object.keys(nextProps.selected).length > 0 && !nextProps.selected.model) {
-      // Check initial state
-      if (!this.state.deviceSelected || nextProps.selected.id !== this.state.device.id) {
-        this.setState({
-          device: nextProps.selected,
-          deviceSelected: true
-        });
-      } else {
-        // if is selected and id is same then we unselect and clear Params form
-        this.setState({
-          device: {
-            id: '',
-            name: ''
-          },
-          deviceSelected: false
-        });
+    if (!shallowEqual(this.state.device, nextProps.selected)) {
+      if (!nextProps.selected.model) {
+        // Check initial state
+        if (!this.state.deviceSelected) {
+          console.log('move to true');
+          this.setState({
+            device: nextProps.selected,
+            deviceSelected: true
+          });
+        } else {
+          // if is selected and id is same then we unselect and clear Params form
+          console.log('move to false');
+          this.clearState();
+        }
       }
     }
   }
@@ -71,6 +75,16 @@ class ControlPanel extends Component {
   // TODO: Add handling Deleting Device
   handleDel = () => {
     console.log('Del Item');
+  };
+  // clearing State
+  clearState = () => {
+    this.setState({
+      device: {
+        id: '',
+        name: ''
+      },
+      deviceSelected: false
+    });
   };
   // helper function rendering Params
   renderParams = params => {

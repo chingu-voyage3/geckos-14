@@ -19,12 +19,7 @@ const renderActions = actions => {
 const Thing = props => {
   return (
     <div className="thing" onClick={props.onClick}>
-      {props.name + '  '}
-      <span>
-        <a href={props.url} target="_blank">
-          Url
-        </a>
-      </span>
+      {props.name}
       <div>{renderProperties(props.properties)}</div>
       <div>{renderActions(props.actions)}</div>
     </div>

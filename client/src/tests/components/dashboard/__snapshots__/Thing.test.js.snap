@@ -4,14 +4,7 @@ exports[`renders without crashing 1`] = `
 <div
   className="thing"
 >
-  LondonTemp  
-  <span>
-    <a
-      target="_blank"
-    >
-      Url
-    </a>
-  </span>
+  LondonTemp
   <div>
     <ThingProperty
       display="prop1"
