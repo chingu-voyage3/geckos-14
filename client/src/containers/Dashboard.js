@@ -173,8 +173,8 @@ class Dashboard extends Component {
       let newThings = this.state.things;
       newThings.push(res);
       this.setState({
-        things: newThings,
-        vizParams: this.populateParams(newThings)
+        things: newThings
+        // vizParams: this.populateParams(newThings)
       });
     });
   }
