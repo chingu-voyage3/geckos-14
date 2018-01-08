@@ -54,6 +54,28 @@ exports[`renders without crashing 1`] = `
           "type": "input",
         },
         Object {
+          "label": "VizType :",
+          "name": "vizType",
+          "options": Array [
+            Object {
+              "display": "Select Viz Type",
+              "id": "VT0",
+              "value": "default",
+            },
+            Object {
+              "display": "DataDisplay",
+              "id": "VT1",
+              "value": "property",
+            },
+            Object {
+              "display": "DataControl",
+              "id": "VT2",
+              "value": "action",
+            },
+          ],
+          "type": "select",
+        },
+        Object {
           "label": "Model :",
           "name": "model",
           "options": Array [
@@ -81,6 +103,28 @@ exports[`renders without crashing 1`] = `
               "display": "Display",
               "id": "MT4",
               "value": "Display",
+            },
+          ],
+          "type": "select",
+        },
+        Object {
+          "label": "DataType :",
+          "name": "dataType",
+          "options": Array [
+            Object {
+              "display": "Select Data Type",
+              "id": "DT0",
+              "value": "default",
+            },
+            Object {
+              "display": "WebSocket",
+              "id": "DT1",
+              "value": "ws",
+            },
+            Object {
+              "display": "Static",
+              "id": "DT2",
+              "value": "static",
             },
           ],
           "type": "select",

@@ -40,7 +40,12 @@ class Dashboard extends Component {
   };
   addViz = (viz, source) => {
     // Creating WebSocket using viz and source Data
-    this.createSocket(viz, source);
+    if (viz.dataType === 'ws') {
+      this.createSocket(viz, source);
+    } else {
+      viz.data = source.data;
+    }
+
     this.setState({
       vizs: [...this.state.vizs, viz]
     });
@@ -173,8 +178,8 @@ class Dashboard extends Component {
       let newThings = this.state.things;
       newThings.push(res);
       this.setState({
-        things: newThings,
-        vizParams: this.populateParams(newThings)
+        things: newThings
+        // vizParams: this.populateParams(newThings)
       });
     });
   }

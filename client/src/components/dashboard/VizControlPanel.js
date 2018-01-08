@@ -21,14 +21,17 @@ class VizControlPanel extends Component {
       viz: {
         id: '',
         name: '',
-        source_id: '',
+        vizType: '',
         model: '',
+        dataType: '',
+        source_id: '',
         x: '',
         y: '',
-        data: [],
-        design: ''
+        design: '',
+        data: []
       },
-      vizSelected: false
+      vizSelected: false,
+      params: props.params
     };
   }
   // shouldComponentUpdate(nextProps, nextState) {
@@ -58,11 +61,35 @@ class VizControlPanel extends Component {
   handleChange = event => {
     const value = event.target.value;
     const name = event.target.name;
-    // console.log(event.target.name);
+    if (name === 'vizType') {
+      this.populateParams(value);
+    }
     // eslint-disable-next-line
     this.setState({ viz: { ...this.state.viz, [name]: value } });
   };
+  populateParams = vizType => {
+    // console.log('populating params...');
+    let newParams = this.state.params;
+    // getting the index for source_id
+    let index = newParams.findIndex(p => p.name === 'source_id');
+    newParams[index].options.splice(1, newParams[index].options.length - 1);
 
+    this.props.things.forEach(thing => {
+      if (vizType === 'property') {
+        Object.keys(thing.properties).forEach(property => {
+          // TODO: Add a check for unique things
+          newParams[index].options.push({ id: property, value: property, display: property });
+        });
+      } else {
+        Object.keys(thing.actions).forEach(action => {
+          // TODO: Add a check for unique things
+          newParams[index].options.push({ id: action, value: action, display: action });
+        });
+      }
+    });
+    // console.log('populated params', newParams);
+    return newParams;
+  };
   handleAdd = () => {
     // Specific to Line or Bar Chart
     // TODO: Add check on Viz Type
@@ -74,12 +101,14 @@ class VizControlPanel extends Component {
       {
         id: 'viz' + this.props.vizs.length,
         name: this.state.viz.name,
-        source_id: this.state.viz.source_id,
+        vizType: this.state.viz.vizType,
         model: this.state.viz.model,
+        dataType: this.state.viz.dataType,
+        source_id: this.state.viz.source_id,
         x: axis.x,
         y: axis.y,
-        data: [],
-        design: this.state.viz.design
+        design: this.state.viz.design,
+        data: []
       },
       source
     );
@@ -113,8 +142,10 @@ class VizControlPanel extends Component {
       viz: {
         id: '',
         name: '',
-        source_id: '',
+        vizType: '',
         model: '',
+        dataType: '',
+        source_id: '',
         x: '',
         y: '',
         design: '',
