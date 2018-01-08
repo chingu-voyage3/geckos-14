@@ -1,47 +1,46 @@
 /** Dashboard Container :
-The Dahshboard contains the state allowing to display the Device list,
+The Dahshboard contains the state allowing to display the Thing list,
  the Viz Grid and the control panels
  For now the data is pulled from a localFile.
  Later part of the data will be stored in cache and DB
  */
 
 import React, { Component } from 'react';
-import DevicePanel from '../components/dashboard/DevicePanel';
+import ThingPanel from '../components/dashboard/ThingPanel';
 import VizPanel from '../components/dashboard/VizPanel';
 import '../assets/Dashboard.css';
 import * as d from '../tempData.js';
-import * as discovery from '../helpers/discover';
-// TODO: To move to lower levels
-// const tempSocket = new WebSocket('ws://devices.webofthings.io/pi/sensors/temperature');
+import discover from '../helpers/discover';
+
 class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      devices: [],
-      deviceParams: d.deviceParams,
-      selected: {},
-      vizs: d.vizs,
+      things: [],
+      thingParams: d.thingParams,
+      selected: { item: { id: '', name: '' }, parent: '' },
+      vizs: [],
       vizParams: d.vizParams
     };
   }
   discover = url => {
     console.log('discovering url', url);
   };
-  editDevice = (id, newProps) => {
-    // TODO: Add function that updates a Device
+  editThing = (id, newProps) => {
+    // TODO: Add function that updates a Thing
   };
-  addDevice = device => {
-    // console.log('deviceAdded');
+  addThing = thing => {
+    // console.log('thingAdded');
     this.setState({
-      devices: [...this.state.devices, device]
+      things: [...this.state.things, thing]
     });
   };
-  delDevice = id => {
-    // TODO: Add function that deletes a Device
+  delThing = id => {
+    // TODO: Add function that deletes a Thing
   };
-  addViz = viz => {
-    // console.log('viz to be Added', viz);
-    // console.log('dash vizs state', this.state);
+  addViz = (viz, source) => {
+    // Creating WebSocket using viz and source Data
+    this.createSocket(viz, source);
     this.setState({
       vizs: [...this.state.vizs, viz]
     });
@@ -49,76 +48,135 @@ class Dashboard extends Component {
   editViz = (id, newProps) => {
     // TODO: Add function that updates a Viz
   };
-  delDevice = id => {
-    // TODO: Add function that deletes a Device
+  delThing = id => {
+    // TODO: Add function that deletes a Thing
   };
-  toogleSelectedDevice = id => {
-    console.log('toogleSelectedDevice - ', id);
-    let tempDevices = this.state.devices;
-    for (var i = 0; i < tempDevices.length; i++) {
-      if (tempDevices[i].id === id) {
-        this.setState({
-          selected: tempDevices[i]
-        });
-      }
-    }
+  createSocket = (viz, source) => {
+    const wsUrl =
+      (source.customFields.secure ? 'wss://' : 'ws://') +
+      source.customFields.hostname +
+      '/properties/' +
+      viz.source_id +
+      '?token=cKXRTaRylYWQiF3MICaKndG4WJMcVLFz';
+
+    const socket = new WebSocket(wsUrl);
+
+    socket.onopen = function (message) {
+      console.log('Subscribed to Property : ' + wsUrl);
+    };
+
+    socket.onmessage = event => {
+      const result = JSON.parse(event.data);
+      console.log('Message :', result);
+      this.addDataPoint(result, viz.id);
+    };
+
+    socket.onerror = function (error) {
+      console.log('Error while connecting to a WebSocket!');
+      console.log(error);
+    };
   };
-  toogleSelectedViz = id => {
-    console.log('toogleSelectedViz - ', id);
-    let tempVizs = this.state.vizs;
-    for (var i = 0; i < tempVizs.length; i++) {
-      if (tempVizs[i].id === id) {
-        this.setState({
-          selected: tempVizs[i]
-        });
+  addDataPoint = (dataPoint, vizID) => {
+    let vizs = this.state.vizs;
+    vizs.forEach(viz => {
+      if (viz.id === vizID) {
+        viz.data.push(dataPoint);
       }
-    }
+    });
+    // console.log(vizs);
+    this.setState({ vizs: vizs });
   };
-  addDataPoint = dataPoint => {
-    let tempViz = this.state.vizs;
-    for (var i = 0; i < tempViz.length; i++) {
-      if (tempViz[i].name === dataPoint.name) {
-        tempViz[i].data.push({
-          date: tempViz[0].data.length,
-          temp: dataPoint.value
-        });
+  toogleSelectedThing = name => {
+    // console.log('toogleSelectedThing - ', name);
+    let tempThings = this.state.things;
+    tempThings.forEach(thing => {
+      if (thing.name === name) {
+        if (!this.state.selected.item.name) {
+          // console.log('setting thing');
+          this.setState({
+            selected: { item: thing, parent: 'thing' }
+          });
+        } else {
+          // console.log('clearing thing');
+          this.setState({
+            selected: {
+              item: {
+                id: '',
+                name: ''
+              },
+              parent: 'thing'
+            }
+          });
+        }
       }
-    }
-    this.setState({
-      vizs: tempViz
     });
   };
-  populateParams = devices => {
-    // Adding New devices as input for SourceDevices Select Param
+  toogleSelectedViz = id => {
+    console.log('toogleSelectedThing - ', id);
+    let tempVizs = this.state.vizs;
+    tempVizs.forEach(viz => {
+      if (viz.id === id) {
+        if (!this.state.selected.item.id) {
+          // console.log('setting viz');
+          this.setState({
+            selected: { item: viz, parent: 'viz' }
+          });
+        } else {
+          // console.log('clearing viz');
+          this.setState({
+            selected: {
+              item: {
+                id: '',
+                name: '',
+                source_id: '',
+                model: '',
+                x: '',
+                y: '',
+                data: [],
+                design: ''
+              },
+              parent: 'viz'
+            }
+          });
+        }
+      }
+    });
+  };
+
+  populateParams = things => {
+    // Adding New things as input for SourceThings Select Param
     let newParams = this.state.vizParams;
-    // getting the index for device_id
-    let index = newParams.findIndex(p => p.name === 'device_id');
+    // getting the index for source_id
+    let index = newParams.findIndex(p => p.name === 'source_id');
     let newSources = newParams[index];
 
-    // Adding an entry for all Devices in state
-    devices.forEach(device => {
-      // TODO: Add a check for unique devices
-      newSources.options.push({ id: device.id, value: device.id, display: device.name });
+    // Adding an entry for all Things in state
+    things.forEach(thing => {
+      Object.keys(thing.properties).forEach(property => {
+        // TODO: Add a check for unique things
+        newSources.options.push({ id: property, value: property, display: property });
+      });
+      Object.keys(thing.actions).forEach(action => {
+        // TODO: Add a check for unique things
+        newSources.options.push({ id: action, value: action, display: action });
+      });
     });
 
     return newParams;
   };
   componentWillMount() {
-    // Call discovery method applied to Demo Data
-    discovery
-      .getDevices('http://devices.webofthings.io/pi/sensors', this.state.devices)
-      .then(res => {
-        discovery.getDevices('http://devices.webofthings.io/pi/actuators', res).then(devices => {
-          // Update state with new Devices
-          // Launch populating update for VizPanel Params
-          this.setState({ devices: devices, vizParams: this.populateParams(devices) });
-        });
+    // testing urls
+    const demoThingUrl = 'http://gateway.webofthings.io';
+    // const demoThingUrl = 'http://things.webofthings.io/pi/sensors/temperature';
+    // const demoBadUrl = 'http://things.webofthings.io/pi/sensors';
+    discover(demoThingUrl).then(res => {
+      let newThings = this.state.things;
+      newThings.push(res);
+      this.setState({
+        things: newThings,
+        vizParams: this.populateParams(newThings)
       });
-
-    // tempSocket.onmessage = event => {
-    //   const result = JSON.parse(event.data);
-    //   this.addDataPoint(r"esult);
-    // };
+    });
   }
 
   render() {
@@ -128,19 +186,19 @@ class Dashboard extends Component {
     };
     const devActions = {
       discover: this.discover,
-      toogleSelectedDevice: this.toogleSelectedDevice
+      toogleSelectedThing: this.toogleSelectedThing
     };
     return (
       <div className="dashboard">
-        <DevicePanel
-          devices={this.state.devices}
+        <ThingPanel
+          things={this.state.things}
           actions={devActions}
-          params={this.state.deviceParams}
+          params={this.state.thingParams}
           selected={this.state.selected}
         />
         <VizPanel
           vizs={this.state.vizs}
-          devices={this.state.devices}
+          things={this.state.things}
           actions={vizActions}
           params={this.state.vizParams}
           selected={this.state.selected}

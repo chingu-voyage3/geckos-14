@@ -59,7 +59,6 @@ exports[`renders without crashing 1`] = `
       label="Url :"
       name="url"
       onChange={[Function]}
-      value=""
     />
   </div>
 </div>

@@ -2,9 +2,11 @@
 
 exports[`renders without crashing 1`] = `
 <div
-  className="device-panel"
+  className="thing-action"
 >
-  <ControlPanel />
-  <DeviceList />
+  <div />
+  <div
+    className="thing-description"
+  />
 </div>
 `;

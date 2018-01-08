@@ -10,8 +10,7 @@ let mock = new MockAdapter(axios);
 
 // Mock any GET request to /url
 // arguments for reply are (status, data, headers)
-mock.onGet('http://devices.webofthings.io/pi/sensors').reply(200, d.piSensors);
-mock.onGet('http://devices.webofthings.io/pi/actuators').reply(200, d.piSensors);
+mock.onGet('http://gateway.webofthings.io/model').reply(200, d.piModel.data, d.piModel.headers);
 
 it('renders without crashing', async () => {
   const wrapper = await shallow(<Dashboard />);

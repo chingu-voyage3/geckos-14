@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<div
+  className="thing"
+>
+  LondonTemp
+  <div>
+    <ThingProperty
+      display="prop1"
+      key="prop1"
+      name="prop1"
+    />
+    <ThingProperty
+      display="prop2"
+      key="prop2"
+      name="prop2"
+    />
+  </div>
+  <div>
+    <ThingAction
+      display="act1"
+      key="act1"
+      name="act1"
+    />
+    <ThingAction
+      display="act2"
+      key="act2"
+      name="act2"
+    />
+  </div>
+</div>
+`;

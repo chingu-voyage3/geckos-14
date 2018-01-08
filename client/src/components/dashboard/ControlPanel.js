@@ -1,13 +1,13 @@
 /** ControlPanel Component:
-ControlPanel component is a kind of toolbar of DevicePanel
-So far it only display a device adding form.
+ControlPanel component is a kind of toolbar of ThingPanel
+So far it only display a thing adding form.
 State is used to allow click detection and to fill the Params Form for Edit or Deletion
 TODO: Add other controls like reorder/save
 Testing Data:
-  Device
+  Thing
     Name: test
     Type: LCD
-    Url: http://devices.webofthings.io/pi/actuators/display/
+    Url: http://things.webofthings.io/pi/actuators/display/
 */
 
 import React, { Component } from 'react';
@@ -20,34 +20,36 @@ class ControlPanel extends Component {
     super(props);
     // state initialisation for controlled component
     this.state = {
-      device: {
-        name: '',
-        url: ''
+      thing: {
+        id: '',
+        name: ''
       },
-      deviceSelected: false
+      thingSelected: false
     };
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props.selected !== nextProps.selected;
+  }
+
   componentWillReceiveProps(nextProps) {
-    // check if selected Item and Item is Device;
-    if (Object.keys(nextProps.selected).length > 0 && !nextProps.selected.model) {
-      // Check initial state
-      if (!this.state.deviceSelected || nextProps.selected.id !== this.state.device.id) {
-        this.setState({
-          device: nextProps.selected,
-          deviceSelected: true
-        });
-      } else {
-        // if is selected and id is same then we unselect and clear Params form
-        this.setState({
-          device: {
-            id: '',
-            name: '',
-            url: '',
-            type: ''
-          },
-          deviceSelected: false
-        });
+    // console.log('thing', nextProps.selected);
+    if (nextProps.selected.parent === 'thing') {
+      // check if selected Item and Item is Thing;
+      if (this.state.thing.name !== nextProps.selected.item.name) {
+        // console.log('different');
+        // Check initial state
+        if (!this.state.thingSelected) {
+          // console.log('move to true thing');
+          this.setState({
+            thing: nextProps.selected.item,
+            thingSelected: true
+          });
+        } else {
+          // if is selected and id is same then we unselect and clear Params form
+          // console.log('move to false thing');
+          this.clearState();
+        }
       }
     }
   }
@@ -56,23 +58,33 @@ class ControlPanel extends Component {
     const value = event.target.value;
     const name = event.target.name;
     // eslint-disable-next-line
-    this.setState({ device: { ...this.state.device, [name]: value } });
+    this.setState({ thing: { ...this.state.thing, [name]: value } });
   };
 
   // Handles discovery
   handleDiscover = () => {
-    this.props.actions.discover(this.state.device.url);
+    this.props.actions.discover(this.state.thing.url);
     // this.setState({
-    //   selectedDevice: true
+    //   selectedThing: true
     // });
   };
-  // TODO: Add handling Updating Device Data
+  // TODO: Add handling Updating Thing Data
   handleEdit = () => {
     console.log('Edit Item');
   };
-  // TODO: Add handling Deleting Device
+  // TODO: Add handling Deleting Thing
   handleDel = () => {
     console.log('Del Item');
+  };
+  // clearing State
+  clearState = () => {
+    this.setState({
+      thing: {
+        id: '',
+        name: ''
+      },
+      thingSelected: false
+    });
   };
   // helper function rendering Params
   renderParams = params => {
@@ -81,7 +93,7 @@ class ControlPanel extends Component {
         <Param
           key={param.name}
           {...param}
-          value={this.state.device[param.name]}
+          value={this.state.thing[param.name]}
           onChange={this.handleChange}
           options={param.options}
         />
@@ -93,13 +105,13 @@ class ControlPanel extends Component {
     return actions.map(action => {
       if (action.onSelect) {
         return (
-          <div key={action.name} className={this.state.deviceSelected ? 'visible' : 'hidden'}>
+          <div key={action.name} className={this.state.thingSelected ? 'visible' : 'hidden'}>
             <Action {...action} onclick={onclicks[action.name]} />
           </div>
         );
       }
       return (
-        <div key={action.name} className={this.state.deviceSelected ? 'hidden' : 'visible'}>
+        <div key={action.name} className={this.state.thingSelected ? 'hidden' : 'visible'}>
           <Action {...action} onclick={onclicks[action.name]} />
         </div>
       );

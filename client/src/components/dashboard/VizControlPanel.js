@@ -21,35 +21,36 @@ class VizControlPanel extends Component {
       viz: {
         id: '',
         name: '',
-        device_id: '',
+        source_id: '',
         model: '',
         x: '',
         y: '',
-        data: []
+        data: [],
+        design: ''
       },
       vizSelected: false
     };
   }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //    return this.props.selected !== nextProps.selected;
+  // }
   componentWillReceiveProps(nextProps) {
-    if (Object.keys(nextProps.selected).length > 0 && nextProps.selected.model) {
-      if (!this.state.vizSelected || nextProps.selected.id !== this.state.viz.id) {
-        // console.log('viz', nextProps.selected);
-        this.setState({
-          viz: nextProps.selected,
-          vizSelected: true
-        });
-      } else {
-        // console.log('viz', nextProps.selected);
-        this.setState({
-          viz: {
-            id: '',
-            name: '',
-            device_id: '',
-            model: '',
-            design: ''
-          },
-          vizSelected: false
-        });
+    // console.log('viz', nextProps.selected);
+    if (nextProps.selected.parent === 'viz') {
+      // check if selected Item and Item is Thing;
+      if (this.state.viz.id !== nextProps.selected.item.id) {
+        // console.log('diferent vizs');
+        if (!this.state.vizSelected) {
+          // console.log('move to true viz');
+          this.setState({
+            viz: nextProps.selected.item,
+            vizSelected: true
+          });
+        } else {
+          // if is selected and id is same then we unselect and clear Params form
+          // console.log('move to false viz');
+          this.clearState();
+        }
       }
     }
   }
@@ -61,26 +62,66 @@ class VizControlPanel extends Component {
     // eslint-disable-next-line
     this.setState({ viz: { ...this.state.viz, [name]: value } });
   };
+
   handleAdd = () => {
-    this.props.actions.addViz(this.state.viz);
-    this.setState({
-      viz: {
-        id: '',
-        name: '',
-        vizId: '',
-        model: '',
-        x: '',
-        y: '',
-        data: d.testData,
-        design: ''
-      }
-    });
+    // Specific to Line or Bar Chart
+    // TODO: Add check on Viz Type
+    const source = this.getSource(this.state.viz.source_id);
+    const axis = this.getAxis(source);
+
+    // TODO: Add Check All required fields are set
+    this.props.actions.addViz(
+      {
+        id: 'viz' + this.props.vizs.length,
+        name: this.state.viz.name,
+        source_id: this.state.viz.source_id,
+        model: this.state.viz.model,
+        x: axis.x,
+        y: axis.y,
+        data: [],
+        design: this.state.viz.design
+      },
+      source
+    );
+    this.clearState();
   };
   handleEdit = () => {
     console.log('Edit Item');
   };
   handleDel = () => {
     console.log('Del Item');
+  };
+  getSource = id => {
+    let source;
+    this.props.things.forEach(thing => {
+      Object.keys(thing.properties).forEach(property => {
+        if (property === id) {
+          source = thing.properties[property];
+        }
+      });
+    });
+    return source;
+  };
+  getAxis = source => {
+    return {
+      x: 'timestamp',
+      y: Object.keys(source.values)[0]
+    };
+  };
+  clearState = () => {
+    this.setState({
+      viz: {
+        id: '',
+        name: '',
+        source_id: '',
+        model: '',
+        x: '',
+        y: '',
+        design: '',
+        data: []
+      },
+      vizSelected: false
+    });
   };
   renderParams = params => {
     return params.map(param => {

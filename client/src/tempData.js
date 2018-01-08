@@ -23,32 +23,35 @@ export const modelTypes = [
   { id: 'MT3', value: 'Status', display: 'Status' },
   { id: 'MT4', value: 'Display', display: 'Display' }
 ];
-export const deviceTypes = [
-  { id: 'DT0', value: 'default', display: 'Select Device Type' },
-  { id: 'DT1', value: 'Thermometer', display: 'Thermometer' },
-  { id: 'DT2', value: 'Humidity', display: 'Humidity' },
-  { id: 'DT3', value: 'IR sensor', display: 'IR sensor' },
-  { id: 'DT4', value: 'LCD', display: 'LCD' },
-  { id: 'DT5', value: 'LED', display: 'LED' },
-  { id: 'DT6', value: 'Switch', display: 'Switch' }
-];
-export const devices = [
+
+export const things = [
   {
-    id: 'dev0',
+    id: 'http://gateway.webofthings.io/',
     name: 'LondonTemp',
-    url: 'http://devices.webofthings.io/pi/sensors/temperature/'
-  },
-  {
-    id: 'dev1',
-    name: 'LondonHumidity',
-    url: 'http://devices.webofthings.io/pi/sensors/humidity/'
+    description: 'Testing Thing',
+    properties: {
+      prop1: {
+        name: 'prop1'
+      },
+      prop2: {
+        name: 'prop2'
+      }
+    },
+    actions: {
+      act1: {
+        name: 'act1'
+      },
+      act2: {
+        name: 'act2'
+      }
+    }
   }
 ];
 export const vizs = [
   {
     id: 'viz0',
     name: 'Temperature Sensor',
-    device_id: 'dev0',
+    thing_id: 'dev0',
     model: 'VictoryLine',
     x: 'date',
     y: 'temp',
@@ -59,7 +62,7 @@ export const vizs = [
   {
     id: 'viz1',
     name: 'Humidity Sensor',
-    device_id: 'dev1',
+    thing_id: 'dev1',
     model: 'VictoryBar',
     x: 'date',
     y: 'hum',
@@ -69,7 +72,7 @@ export const vizs = [
   }
 ];
 
-export const deviceParams = [
+export const thingParams = [
   {
     label: 'Name :',
     type: 'input',
@@ -79,7 +82,7 @@ export const deviceParams = [
   {
     label: 'Url :',
     type: 'input',
-    name: 'url',
+    name: 'id',
     options: []
   }
 ];
@@ -98,10 +101,10 @@ export const vizParams = [
     options: modelTypes
   },
   {
-    label: 'Source Device:',
-    name: 'device_id',
+    label: 'Source:',
+    name: 'source_id',
     type: 'select',
-    options: [{ id: 'SD0', value: 'default', display: 'Select Device Source' }]
+    options: [{ id: 'SD0', value: 'default', display: 'Select Source' }]
   },
   {
     label: 'Theme:',
@@ -190,31 +193,213 @@ export const vizPanelActions = [
     onSelect: true
   }
 ];
-export const piSensors = {
-  temperature: {
-    name: 'Temperature Sensor',
-    description: 'A temperature sensor.',
-    type: 'float',
-    unit: 'celsius',
-    value: 21.8,
-    frequency: 5000,
-    timestamp: '2017-12-30T15:19:04.340Z'
+export const piGateway = {
+  data: {
+    message: 'testing root url',
+    links: {
+      properties: {
+        temp: {
+          name: 'Temperature Sensor',
+          description: 'An ambient temperature sensor.',
+          values: {
+            t: {
+              name: 'Temperature sensor',
+              description: 'The temperature in celsius',
+              unit: 'celsius',
+              customFields: {
+                gpio: 12
+              }
+            }
+          },
+          tags: ['sensor', 'public', 'indoors'],
+          data: [
+            {
+              t: 36,
+              timestamp: '2018-01-04T15:44:05.589Z'
+            },
+            {
+              t: 39,
+              timestamp: '2018-01-04T15:44:10.593Z'
+            }
+          ]
+        }
+      },
+      actions: { ledState: 'leds' }
+    }
   },
-  humidity: {
-    name: 'Humidity Sensor',
-    description: 'A temperature sensor.',
-    type: 'float',
-    unit: 'percent',
-    value: 35.4,
-    frequency: 5000,
-    timestamp: '2017-12-30T15:19:04.340Z'
-  },
-  pir: {
-    name: 'Passive Infrared',
-    description: 'A passive infrared sensor. When true someone is present.',
-    type: 'boolean',
-    value: true,
-    gpio: 20,
-    timestamp: '2015-10-17T12:27:49.914Z'
-  }
+  headers: { Link: '/model' }
 };
+
+export const piModel = {
+  data: {
+    id: 'http://gateway.webofthings.io',
+    name: 'My WoT Raspberry PI',
+    description: 'A simple WoT-connected Raspberry Pi for the WoT book.',
+    tags: ['raspberry', 'pi', 'WoT'],
+    customFields: {
+      hostname: 'gateway.webofthings.io',
+      port: 8484,
+      secure: false,
+      dataArraySize: 30
+    },
+    links: {
+      product: {
+        link: 'https://www.raspberrypi.org/products/raspberry-pi-2-model-b/',
+        title: 'Product this Web Thing is based on'
+      },
+      properties: {
+        link: '/properties',
+        title: 'List of Properties',
+        resources: {
+          temperature: {
+            name: 'Temperature Sensor',
+            description: 'An ambient temperature sensor.',
+            values: {
+              t: {
+                name: 'Temperature sensor',
+                description: 'The temperature in celsius',
+                unit: 'celsius',
+                customFields: {
+                  gpio: 12
+                }
+              }
+            },
+            tags: ['sensor', 'public', 'indoors'],
+            data: [
+              {
+                t: 21,
+                timestamp: '2018-01-05T20:07:16.096Z'
+              },
+              {
+                t: 14,
+                timestamp: '2018-01-05T20:07:21.102Z'
+              }
+            ]
+          },
+          humidity: {
+            name: 'Humidity Sensor',
+            description: 'An ambient humidity sensor.',
+            values: {
+              h: {
+                name: 'Humidity',
+                description: 'Percentage of Humidity',
+                unit: '%',
+                customFields: {
+                  gpio: 12
+                }
+              }
+            },
+            tags: ['sensor', 'public'],
+            data: [
+              {
+                h: 24,
+                timestamp: '2018-01-05T20:07:16.096Z'
+              },
+              {
+                h: 93,
+                timestamp: '2018-01-05T20:07:21.102Z'
+              }
+            ]
+          },
+          pir: {
+            name: 'Passive Infrared',
+            description: 'A passive infrared sensor.',
+            values: {
+              presence: {
+                name: 'Presence',
+                description: 'Current sensor value (true=motion detected)',
+                type: 'boolean',
+                customFields: {
+                  gpio: 17
+                }
+              }
+            },
+            tags: ['sensor', 'public'],
+            data: [
+              {
+                presence: false,
+                timestamp: '2018-01-05T20:07:16.095Z'
+              },
+              {
+                presence: false,
+                timestamp: '2018-01-05T20:07:21.101Z'
+              }
+            ]
+          },
+          leds: {
+            name: 'LEDs',
+            description: 'The LEDs of this device.',
+            values: {
+              1: {
+                name: 'LED 1',
+                customFields: {
+                  gpio: 4
+                }
+              },
+              2: {
+                name: 'LED 2',
+                customFields: {
+                  gpio: 9
+                }
+              }
+            },
+            tags: ['sensor', 'public'],
+            data: [
+              {
+                1: false,
+                2: false,
+                timestamp: '2018-01-05T20:07:16.096Z'
+              },
+              {
+                1: false,
+                2: false,
+                timestamp: '2018-01-05T20:07:21.102Z'
+              }
+            ]
+          }
+        }
+      },
+      actions: {
+        link: '/actions',
+        title: 'Actions of this Web Thing',
+        resources: {
+          ledState: {
+            name: 'Change LED state',
+            description: 'Change the state of an LED',
+            values: {
+              ledId: {
+                type: 'enum',
+                enum: {
+                  1: 'LED 1',
+                  2: 'LED 2',
+                  ALL: 'All LEDs'
+                },
+                required: true
+              },
+              state: {
+                type: 'boolean',
+                required: true
+              }
+            },
+            data: []
+          }
+        }
+      },
+      type: {
+        link: 'http://model.webofthings.io/',
+        title: 'Instance type of the Pi'
+      },
+      help: {
+        link: 'http://webofthings.org/docs/pi/',
+        title: 'Documentation'
+      },
+      ui: {
+        link: '/',
+        title: 'User Interface'
+      }
+    }
+  },
+  headers: { Link: '/model' }
+};
+
+export const modelPrint = ['id', 'name', 'description', 'tags', 'customFields', 'links'];

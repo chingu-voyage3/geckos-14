@@ -4,14 +4,13 @@ exports[`renders without crashing 1`] = `
 <div
   className="dashboard"
 >
-  <DevicePanel
+  <ThingPanel
     actions={
       Object {
         "discover": [Function],
-        "toogleSelectedDevice": [Function],
+        "toogleSelectedThing": [Function],
       }
     }
-    devices={Array []}
     params={
       Array [
         Object {
@@ -22,13 +21,22 @@ exports[`renders without crashing 1`] = `
         },
         Object {
           "label": "Url :",
-          "name": "url",
+          "name": "id",
           "options": Array [],
           "type": "input",
         },
       ]
     }
-    selected={Object {}}
+    selected={
+      Object {
+        "item": Object {
+          "id": "",
+          "name": "",
+        },
+        "parent": "",
+      }
+    }
+    things={Array []}
   />
   <VizPanel
     actions={
@@ -37,7 +45,6 @@ exports[`renders without crashing 1`] = `
         "toogleSelectedViz": [Function],
       }
     }
-    devices={Array []}
     params={
       Array [
         Object {
@@ -79,11 +86,11 @@ exports[`renders without crashing 1`] = `
           "type": "select",
         },
         Object {
-          "label": "Source Device:",
-          "name": "device_id",
+          "label": "Source:",
+          "name": "source_id",
           "options": Array [
             Object {
-              "display": "Select Device Source",
+              "display": "Select Source",
               "id": "SD0",
               "value": "default",
             },
@@ -114,50 +121,17 @@ exports[`renders without crashing 1`] = `
         },
       ]
     }
-    selected={Object {}}
-    vizs={
-      Array [
-        Object {
-          "data": Array [],
-          "design": "GrayScale",
-          "device_id": "dev0",
-          "id": "viz0",
-          "model": "VictoryLine",
-          "name": "Temperature Sensor",
-          "selected": false,
-          "x": "date",
-          "y": "temp",
+    selected={
+      Object {
+        "item": Object {
+          "id": "",
+          "name": "",
         },
-        Object {
-          "data": Array [
-            Object {
-              "date": "12/12",
-              "hum": 95,
-            },
-            Object {
-              "date": "13/12",
-              "hum": 93,
-            },
-            Object {
-              "date": "14/12",
-              "hum": 98,
-            },
-            Object {
-              "date": "15/12",
-              "hum": 85,
-            },
-          ],
-          "design": "Material",
-          "device_id": "dev1",
-          "id": "viz1",
-          "model": "VictoryBar",
-          "name": "Humidity Sensor",
-          "selected": false,
-          "x": "date",
-          "y": "hum",
-        },
-      ]
+        "parent": "",
+      }
     }
+    things={Array []}
+    vizs={Array []}
   />
 </div>
 `;
