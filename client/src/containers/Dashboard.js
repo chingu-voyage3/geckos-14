@@ -18,10 +18,7 @@ class Dashboard extends Component {
     this.state = {
       things: [],
       thingParams: d.thingParams,
-      selected: {
-        id: '',
-        name: ''
-      },
+      selected: { item: { id: '', name: '' }, parent: '' },
       vizs: [],
       vizParams: d.vizParams
     };
@@ -90,19 +87,24 @@ class Dashboard extends Component {
     this.setState({ vizs: vizs });
   };
   toogleSelectedThing = name => {
-    console.log('toogleSelectedThing - ', name);
+    // console.log('toogleSelectedThing - ', name);
     let tempThings = this.state.things;
     tempThings.forEach(thing => {
       if (thing.name === name) {
-        if (!this.state.selected.name) {
+        if (!this.state.selected.item.name) {
+          // console.log('setting thing');
           this.setState({
-            selected: thing
+            selected: { item: thing, parent: 'thing' }
           });
         } else {
+          // console.log('clearing thing');
           this.setState({
             selected: {
-              id: '',
-              name: ''
+              item: {
+                id: '',
+                name: ''
+              },
+              parent: 'thing'
             }
           });
         }
@@ -110,15 +112,35 @@ class Dashboard extends Component {
     });
   };
   toogleSelectedViz = id => {
-    // console.log('toogleSelectedViz - ', id);
+    console.log('toogleSelectedThing - ', id);
     let tempVizs = this.state.vizs;
-    for (var i = 0; i < tempVizs.length; i++) {
-      if (tempVizs[i].id === id) {
-        this.setState({
-          selected: tempVizs[i]
-        });
+    tempVizs.forEach(viz => {
+      if (viz.id === id) {
+        if (!this.state.selected.item.id) {
+          // console.log('setting viz');
+          this.setState({
+            selected: { item: viz, parent: 'viz' }
+          });
+        } else {
+          // console.log('clearing viz');
+          this.setState({
+            selected: {
+              item: {
+                id: '',
+                name: '',
+                source_id: '',
+                model: '',
+                x: '',
+                y: '',
+                data: [],
+                design: ''
+              },
+              parent: 'viz'
+            }
+          });
+        }
       }
-    }
+    });
   };
 
   populateParams = things => {

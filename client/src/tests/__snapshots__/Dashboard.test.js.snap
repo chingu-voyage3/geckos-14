@@ -29,8 +29,11 @@ exports[`renders without crashing 1`] = `
     }
     selected={
       Object {
-        "id": "",
-        "name": "",
+        "item": Object {
+          "id": "",
+          "name": "",
+        },
+        "parent": "",
       }
     }
     things={Array []}
@@ -120,8 +123,11 @@ exports[`renders without crashing 1`] = `
     }
     selected={
       Object {
-        "id": "",
-        "name": "",
+        "item": Object {
+          "id": "",
+          "name": "",
+        },
+        "parent": "",
       }
     }
     things={Array []}

@@ -52,6 +52,8 @@ export const isEqual = (value, other) => {
 };
 
 export const shallowEqual = (objA, objB) => {
+  console.log('A', objA);
+  console.log('B', objB);
   if (objA === objB) {
     return true;
   }

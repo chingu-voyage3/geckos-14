@@ -31,20 +31,30 @@ class VizControlPanel extends Component {
       vizSelected: false
     };
   }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //    return this.props.selected !== nextProps.selected;
+  // }
   componentWillReceiveProps(nextProps) {
-    if (Object.keys(nextProps.selected).length > 0 && nextProps.selected.model) {
-      if (!this.state.vizSelected || nextProps.selected.id !== this.state.viz.id) {
-        // console.log('viz', nextProps.selected);
-        this.setState({
-          viz: nextProps.selected,
-          vizSelected: true
-        });
-      } else {
-        // console.log('viz', nextProps.selected);
-        this.clearState();
+    // console.log('viz', nextProps.selected);
+    if (nextProps.selected.parent === 'viz') {
+      // check if selected Item and Item is Thing;
+      if (this.state.viz.id !== nextProps.selected.item.id) {
+        // console.log('diferent vizs');
+        if (!this.state.vizSelected) {
+          // console.log('move to true viz');
+          this.setState({
+            viz: nextProps.selected.item,
+            vizSelected: true
+          });
+        } else {
+          // if is selected and id is same then we unselect and clear Params form
+          // console.log('move to false viz');
+          this.clearState();
+        }
       }
     }
   }
+
   handleChange = event => {
     const value = event.target.value;
     const name = event.target.name;
