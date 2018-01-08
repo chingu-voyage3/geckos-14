@@ -24,6 +24,18 @@ export const modelTypes = [
   { id: 'MT4', value: 'Display', display: 'Display' }
 ];
 
+export const dataTypes = [
+  { id: 'DT0', value: 'default', display: 'Select Data Type' },
+  { id: 'DT1', value: 'ws', display: 'WebSocket' },
+  { id: 'DT2', value: 'static', display: 'Static' }
+];
+
+export const vizTypes = [
+  { id: 'VT0', value: 'default', display: 'Select Viz Type' },
+  { id: 'VT1', value: 'property', display: 'DataDisplay' },
+  { id: 'VT2', value: 'action', display: 'DataControl' }
+];
+
 export const things = [
   {
     id: 'http://gateway.webofthings.io/',
@@ -95,10 +107,22 @@ export const vizParams = [
     options: []
   },
   {
+    label: 'VizType :',
+    name: 'vizType',
+    type: 'select',
+    options: vizTypes
+  },
+  {
     label: 'Model :',
     name: 'model',
     type: 'select',
     options: modelTypes
+  },
+  {
+    label: 'DataType :',
+    name: 'dataType',
+    type: 'select',
+    options: dataTypes
   },
   {
     label: 'Source:',

@@ -21,12 +21,14 @@ class VizControlPanel extends Component {
       viz: {
         id: '',
         name: '',
-        source_id: '',
+        vizType: '',
         model: '',
+        dataType: '',
+        source_id: '',
         x: '',
         y: '',
-        data: [],
-        design: ''
+        design: '',
+        data: []
       },
       vizSelected: false
     };
@@ -74,12 +76,14 @@ class VizControlPanel extends Component {
       {
         id: 'viz' + this.props.vizs.length,
         name: this.state.viz.name,
-        source_id: this.state.viz.source_id,
+        vizType: this.state.viz.vizType,
         model: this.state.viz.model,
+        dataType: this.state.viz.dataType,
+        source_id: this.state.viz.source_id,
         x: axis.x,
         y: axis.y,
-        data: [],
-        design: this.state.viz.design
+        design: this.state.viz.design,
+        data: []
       },
       source
     );
@@ -113,8 +117,10 @@ class VizControlPanel extends Component {
       viz: {
         id: '',
         name: '',
-        source_id: '',
+        vizType: '',
         model: '',
+        dataType: '',
+        source_id: '',
         x: '',
         y: '',
         design: '',
