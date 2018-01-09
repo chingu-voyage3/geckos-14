@@ -27,11 +27,9 @@ class ControlPanel extends Component {
       thingSelected: false
     };
   }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.props.selected !== nextProps.selected;
-  }
-
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return this.props.selected !== nextProps.selected;
+  // }
   componentWillReceiveProps(nextProps) {
     // console.log('thing', nextProps.selected);
     if (nextProps.selected.parent === 'thing') {
@@ -60,7 +58,6 @@ class ControlPanel extends Component {
     // eslint-disable-next-line
     this.setState({ thing: { ...this.state.thing, [name]: value } });
   };
-
   // Handles discovery
   handleDiscover = () => {
     this.props.actions.discover(this.state.thing.url);
@@ -68,16 +65,15 @@ class ControlPanel extends Component {
     //   selectedThing: true
     // });
   };
-  // TODO: Add handling Updating Thing Data
-  handleEdit = () => {
-    console.log('Edit Item');
-  };
   // TODO: Add handling Deleting Thing
   handleDel = () => {
-    console.log('Del Item');
+    // console.log('Del Item');
+    this.props.actions.delThing(this.state.thing.id);
+    this.clearState();
   };
   // clearing State
   clearState = () => {
+    // console.log('Clearing State');
     this.setState({
       thing: {
         id: '',

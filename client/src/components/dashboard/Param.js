@@ -20,14 +20,16 @@ const renderSelect = options => {
 
 const Param = props => {
   return (
-    <label className="control-panel-param" htmlFor={'param-id-' + props.name}>
-      {props.label}
+    <div className="control-panel-param">
+      <label htmlFor={'param-id-' + props.name}>{props.label}</label>
       {props.type === 'select' ? (
-        <select {...props}>{renderSelect(props.options)}</select>
+        <select className="" {...props}>
+          {renderSelect(props.options)}
+        </select>
       ) : (
-        <input {...props} />
+        <input className="" {...props} />
       )}
-    </label>
+    </div>
   );
 };
 

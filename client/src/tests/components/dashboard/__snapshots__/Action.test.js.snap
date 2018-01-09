@@ -1,14 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders without crashing 1`] = `
-<label
+<div
   className="control-panel-param"
-  htmlFor="param-id-test"
 >
+  <label
+    htmlFor="param-id-test"
+  />
   <input
+    className=""
     name="test"
     onClick={[Function]}
     onSelect={true}
   />
-</label>
+</div>
 `;

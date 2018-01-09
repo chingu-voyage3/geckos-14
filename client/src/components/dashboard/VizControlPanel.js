@@ -28,15 +28,13 @@ class VizControlPanel extends Component {
         x: '',
         y: '',
         design: '',
-        data: []
+        data: [],
+        socket: {}
       },
       vizSelected: false,
       params: props.params
     };
   }
-  // shouldComponentUpdate(nextProps, nextState) {
-  //    return this.props.selected !== nextProps.selected;
-  // }
   componentWillReceiveProps(nextProps) {
     // console.log('viz', nextProps.selected);
     if (nextProps.selected.parent === 'viz') {
@@ -57,7 +55,6 @@ class VizControlPanel extends Component {
       }
     }
   }
-
   handleChange = event => {
     const value = event.target.value;
     const name = event.target.name;
@@ -66,29 +63,6 @@ class VizControlPanel extends Component {
     }
     // eslint-disable-next-line
     this.setState({ viz: { ...this.state.viz, [name]: value } });
-  };
-  populateParams = vizType => {
-    // console.log('populating params...');
-    let newParams = this.state.params;
-    // getting the index for source_id
-    let index = newParams.findIndex(p => p.name === 'source_id');
-    newParams[index].options.splice(1, newParams[index].options.length - 1);
-
-    this.props.things.forEach(thing => {
-      if (vizType === 'property') {
-        Object.keys(thing.properties).forEach(property => {
-          // TODO: Add a check for unique things
-          newParams[index].options.push({ id: property, value: property, display: property });
-        });
-      } else {
-        Object.keys(thing.actions).forEach(action => {
-          // TODO: Add a check for unique things
-          newParams[index].options.push({ id: action, value: action, display: action });
-        });
-      }
-    });
-    // console.log('populated params', newParams);
-    return newParams;
   };
   handleAdd = () => {
     // Specific to Line or Bar Chart
@@ -114,11 +88,10 @@ class VizControlPanel extends Component {
     );
     this.clearState();
   };
-  handleEdit = () => {
-    console.log('Edit Item');
-  };
   handleDel = () => {
-    console.log('Del Item');
+    // console.log('Del Viz');
+    this.props.actions.delViz(this.state.viz.id, this.state.viz.socket);
+    this.clearState();
   };
   getSource = id => {
     let source;
@@ -138,6 +111,7 @@ class VizControlPanel extends Component {
     };
   };
   clearState = () => {
+    console.log('Clearing State');
     this.setState({
       viz: {
         id: '',
@@ -149,10 +123,34 @@ class VizControlPanel extends Component {
         x: '',
         y: '',
         design: '',
-        data: []
+        data: [],
+        socket: {}
       },
       vizSelected: false
     });
+  };
+  populateParams = vizType => {
+    // console.log('populating params...');
+    let newParams = this.state.params;
+    // getting the index for source_id
+    let index = newParams.findIndex(p => p.name === 'source_id');
+    newParams[index].options.splice(1, newParams[index].options.length - 1);
+
+    this.props.things.forEach(thing => {
+      if (vizType === 'property') {
+        Object.keys(thing.properties).forEach(property => {
+          // TODO: Add a check for unique things
+          newParams[index].options.push({ id: property, value: property, display: property });
+        });
+      } else {
+        Object.keys(thing.actions).forEach(action => {
+          // TODO: Add a check for unique things
+          newParams[index].options.push({ id: action, value: action, display: action });
+        });
+      }
+    });
+    // console.log('populated params', newParams);
+    return newParams;
   };
   renderParams = params => {
     return params.map(param => {
@@ -183,13 +181,13 @@ class VizControlPanel extends Component {
     });
   };
   render() {
-    const onclicks = { Add: this.handleAdd, Edit: this.handleEdit, Del: this.handleDel };
+    const onclicks = { Add: this.handleAdd, Del: this.handleDel };
     return (
       <div className="control-panel">
         <div className="control-panel-actions">
           {this.renderActions(d.vizPanelActions, onclicks)}
         </div>
-        <div className="control-panel-params">{this.renderParams(this.props.params)}</div>
+        <div className="viz-control-panel-params">{this.renderParams(this.props.params)}</div>
       </div>
     );
   }
