@@ -42,11 +42,14 @@ class Dashboard extends Component {
   };
   addViz = (viz, source) => {
     // Creating WebSocket using viz and source Data
-    if (viz.dataType === 'ws') {
-      viz.socket = this.createSocket(viz, source);
-    } else {
-      viz.data = source.data;
-    }
+    console.log(viz);
+    console.log(source);
+    viz.vizType === 'property'
+      ? viz.dataType === 'ws'
+        ? (viz.socket = this.createSocket(viz, source))
+        : (viz.data = source.data)
+      : (viz.action = source);
+
     this.setState({
       vizs: [...this.state.vizs, viz]
     });
@@ -54,7 +57,7 @@ class Dashboard extends Component {
 
   delViz = (id, socket) => {
     // console.log('Deleting viz...', id);
-    if (socket.url) {
+    if (Object.keys(socket).length > 0) {
       // console.log('Closing Socket...');
       socket.close();
     }

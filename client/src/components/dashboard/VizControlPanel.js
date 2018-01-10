@@ -42,7 +42,7 @@ class VizControlPanel extends Component {
       if (this.state.viz.id !== nextProps.selected.item.id) {
         // console.log('diferent vizs');
         if (!this.state.vizSelected) {
-          // console.log('move to true viz');
+          console.log('move to true viz');
           this.setState({
             viz: nextProps.selected.item,
             vizSelected: true
@@ -65,8 +65,11 @@ class VizControlPanel extends Component {
     this.setState({ viz: { ...this.state.viz, [name]: value } });
   };
   handleAdd = () => {
-    // Specific to Line or Bar Chart
-    // TODO: Add check on Viz Type
+    this.state.viz.vizType === 'property' ? this.handleAddProperty() : this.handleAddController();
+    this.clearState();
+  };
+
+  handleAddProperty = () => {
     const source = this.getSource(this.state.viz.source_id);
     const axis = this.getAxis(source);
 
@@ -82,11 +85,27 @@ class VizControlPanel extends Component {
         x: axis.x,
         y: axis.y,
         design: this.state.viz.design,
-        data: []
+        data: [],
+        socket: {},
+        action: {}
       },
       source
     );
-    this.clearState();
+  };
+  handleAddController = () => {
+    const source = this.getSource(this.state.viz.source_id);
+    this.props.actions.addViz(
+      {
+        id: 'viz' + this.props.vizs.length,
+        name: this.state.viz.name,
+        vizType: this.state.viz.vizType,
+        model: this.state.viz.model,
+        dataType: this.state.viz.dataType,
+        source_id: this.state.viz.source_id,
+        design: this.state.viz.design
+      },
+      source
+    );
   };
   handleDel = () => {
     // console.log('Del Viz');
@@ -96,11 +115,13 @@ class VizControlPanel extends Component {
   getSource = id => {
     let source;
     this.props.things.forEach(thing => {
-      Object.keys(thing.properties).forEach(property => {
-        if (property === id) {
-          source = thing.properties[property];
-        }
-      });
+      this.state.viz.vizType === ' property '
+        ? Object.keys(thing.properties).forEach(property => {
+          if (property === id) source = thing.properties[property];
+        })
+        : Object.keys(thing.actions).forEach(action => {
+          if (action === id) source = thing.actions[action];
+        });
     });
     return source;
   };
@@ -111,7 +132,7 @@ class VizControlPanel extends Component {
     };
   };
   clearState = () => {
-    console.log('Clearing State');
+    console.log('Clearing State CVP...');
     this.setState({
       viz: {
         id: '',
@@ -124,7 +145,8 @@ class VizControlPanel extends Component {
         y: '',
         design: '',
         data: [],
-        socket: {}
+        socket: {},
+        action: {}
       },
       vizSelected: false
     });
