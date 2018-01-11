@@ -19,16 +19,6 @@ exports[`renders without crashing 1`] = `
     </div>
     <div
       className="hidden"
-      key="Edit"
-    >
-      <Action
-        name="Edit"
-        onSelect={true}
-        onclick={[Function]}
-      />
-    </div>
-    <div
-      className="hidden"
       key="Del"
     >
       <Action

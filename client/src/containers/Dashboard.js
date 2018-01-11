@@ -24,37 +24,43 @@ class Dashboard extends Component {
     };
   }
   discover = url => {
-    console.log('discovering url', url);
-  };
-  editThing = (id, newProps) => {
-    // TODO: Add function that updates a Thing
-  };
-  addThing = thing => {
-    // console.log('thingAdded');
-    this.setState({
-      things: [...this.state.things, thing]
+    // console.log('discovering url', url);
+    discover(url).then(res => {
+      let newThings = this.state.things;
+      newThings.push(res);
+      this.setState({
+        things: newThings
+      });
     });
   };
+
   delThing = id => {
-    // TODO: Add function that deletes a Thing
+    // console.log('Deleting thing...', id);
+    this.setState({
+      things: this.state.things.filter(thing => thing.id !== id)
+    });
   };
   addViz = (viz, source) => {
     // Creating WebSocket using viz and source Data
     if (viz.dataType === 'ws') {
-      this.createSocket(viz, source);
+      viz.socket = this.createSocket(viz, source);
     } else {
       viz.data = source.data;
     }
-
     this.setState({
       vizs: [...this.state.vizs, viz]
     });
   };
-  editViz = (id, newProps) => {
-    // TODO: Add function that updates a Viz
-  };
-  delThing = id => {
-    // TODO: Add function that deletes a Thing
+
+  delViz = (id, socket) => {
+    // console.log('Deleting viz...', id);
+    if (socket.url) {
+      // console.log('Closing Socket...');
+      socket.close();
+    }
+    this.setState({
+      vizs: this.state.vizs.filter(viz => viz.id !== id)
+    });
   };
   createSocket = (viz, source) => {
     const wsUrl =
@@ -67,12 +73,12 @@ class Dashboard extends Component {
     const socket = new WebSocket(wsUrl);
 
     socket.onopen = function (message) {
-      console.log('Subscribed to Property : ' + wsUrl);
+      // console.log('Subscribed to Property : ' + wsUrl);
     };
 
     socket.onmessage = event => {
       const result = JSON.parse(event.data);
-      console.log('Message :', result);
+      // console.log('Message :', result);
       this.addDataPoint(result, viz.id);
     };
 
@@ -80,6 +86,7 @@ class Dashboard extends Component {
       console.log('Error while connecting to a WebSocket!');
       console.log(error);
     };
+    return socket;
   };
   addDataPoint = (dataPoint, vizID) => {
     let vizs = this.state.vizs;
@@ -187,10 +194,13 @@ class Dashboard extends Component {
   render() {
     const vizActions = {
       addViz: this.addViz,
+      delViz: this.delViz,
+      updateViz: this.updateViz,
       toogleSelectedViz: this.toogleSelectedViz
     };
     const devActions = {
       discover: this.discover,
+      delThing: this.delThing,
       toogleSelectedThing: this.toogleSelectedThing
     };
     return (

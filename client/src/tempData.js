@@ -85,17 +85,18 @@ export const vizs = [
 ];
 
 export const thingParams = [
-  {
-    label: 'Name :',
-    type: 'input',
-    name: 'name',
-    options: []
-  },
+  // {
+  //   label: 'Name :',
+  //   type: 'input',
+  //   name: 'name',
+  //   options: []
+  // },
   {
     label: 'Url :',
     type: 'input',
     name: 'id',
-    options: []
+    options: [],
+    required: true
   }
 ];
 
@@ -104,37 +105,43 @@ export const vizParams = [
     label: 'Name :',
     name: 'name',
     type: 'input',
-    options: []
+    options: [],
+    required: true
   },
   {
     label: 'VizType :',
     name: 'vizType',
     type: 'select',
-    options: vizTypes
+    options: vizTypes,
+    required: true
   },
   {
     label: 'Model :',
     name: 'model',
     type: 'select',
-    options: modelTypes
+    options: modelTypes,
+    required: true
   },
   {
     label: 'DataType :',
     name: 'dataType',
     type: 'select',
-    options: dataTypes
+    options: dataTypes,
+    required: true
   },
   {
     label: 'Source:',
     name: 'source_id',
     type: 'select',
-    options: [{ id: 'SD0', value: 'default', display: 'Select Source' }]
+    options: [{ id: 'SD0', value: 'default', display: 'Select Source' }],
+    required: true
   },
   {
     label: 'Theme:',
     name: 'design',
     type: 'select',
-    options: uiThemes
+    options: uiThemes,
+    required: false
   }
 ];
 
@@ -195,10 +202,6 @@ export const devPanelActions = [
     onSelect: false
   },
   {
-    name: 'Edit',
-    onSelect: true
-  },
-  {
     name: 'Del',
     onSelect: true
   }
@@ -207,10 +210,6 @@ export const vizPanelActions = [
   {
     name: 'Add',
     onSelect: false
-  },
-  {
-    name: 'Edit',
-    onSelect: true
   },
   {
     name: 'Del',
