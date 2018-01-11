@@ -81,6 +81,15 @@
   width: 300px;
   border: dashed 1px;
 }
+.viz-property {
+}
+.viz-action {
+  padding: 20px 20px 20px 20px;
+}
+.viz-action label {
+  padding-right: 20px;
+}
+
 .visible {
 }
 
