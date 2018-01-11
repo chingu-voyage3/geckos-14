@@ -13,7 +13,7 @@ import * as d from '../../tempData.js';
 import ReactGridLayout from 'react-grid-layout';
 
 const renderViz = (viz, actions) => {
-  console.log('renderViz', viz);
+  // console.log('renderViz', viz);
   return viz.vizType === 'property' ? (
     <div
       key={viz.id}
@@ -32,7 +32,7 @@ const renderViz = (viz, actions) => {
         actions.toogleSelectedViz(viz.id);
       }}
     >
-      <Controller {...viz} />
+      <Controller {...viz} update={actions.update} />
     </div>
   );
 };

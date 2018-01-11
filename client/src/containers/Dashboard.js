@@ -42,13 +42,12 @@ class Dashboard extends Component {
   };
   addViz = (viz, source) => {
     // Creating WebSocket using viz and source Data
-    console.log(viz);
-    console.log(source);
+
     viz.vizType === 'property'
       ? viz.dataType === 'ws'
         ? (viz.socket = this.createSocket(viz, source))
         : (viz.data = source.data)
-      : (viz.action = source);
+      : (viz = this.createController(viz, source));
 
     this.setState({
       vizs: [...this.state.vizs, viz]
@@ -64,6 +63,17 @@ class Dashboard extends Component {
     this.setState({
       vizs: this.state.vizs.filter(viz => viz.id !== id)
     });
+  };
+  createController = (viz, source) => {
+    viz.action = source.values;
+    viz.actionUrl =
+      (source.customFields.secure ? 'https://' : 'http://') +
+      source.customFields.hostname +
+      '/actions/' +
+      viz.source_id +
+      '?token=cKXRTaRylYWQiF3MICaKndG4WJMcVLFz';
+
+    return viz;
   };
   createSocket = (viz, source) => {
     const wsUrl =

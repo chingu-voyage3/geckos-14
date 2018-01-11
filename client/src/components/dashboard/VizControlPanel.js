@@ -29,7 +29,9 @@ class VizControlPanel extends Component {
         y: '',
         design: '',
         data: [],
-        socket: {}
+        socket: {},
+        action: {},
+        actionUrl: ''
       },
       vizSelected: false,
       params: props.params
@@ -42,7 +44,7 @@ class VizControlPanel extends Component {
       if (this.state.viz.id !== nextProps.selected.item.id) {
         // console.log('diferent vizs');
         if (!this.state.vizSelected) {
-          console.log('move to true viz');
+          // console.log('move to true viz');
           this.setState({
             viz: nextProps.selected.item,
             vizSelected: true
@@ -86,8 +88,7 @@ class VizControlPanel extends Component {
         y: axis.y,
         design: this.state.viz.design,
         data: [],
-        socket: {},
-        action: {}
+        socket: {}
       },
       source
     );
@@ -102,7 +103,10 @@ class VizControlPanel extends Component {
         model: this.state.viz.model,
         dataType: this.state.viz.dataType,
         source_id: this.state.viz.source_id,
-        design: this.state.viz.design
+        design: this.state.viz.design,
+        action: {},
+
+        actionUrl: ''
       },
       source
     );
@@ -132,7 +136,7 @@ class VizControlPanel extends Component {
     };
   };
   clearState = () => {
-    console.log('Clearing State CVP...');
+    // console.log('Clearing State CVP...');
     this.setState({
       viz: {
         id: '',
@@ -146,7 +150,8 @@ class VizControlPanel extends Component {
         design: '',
         data: [],
         socket: {},
-        action: {}
+        action: {},
+        actionUrl: ''
       },
       vizSelected: false
     });
