@@ -54,11 +54,11 @@ exports[`renders without crashing 1`] = `
     width={900}
   >
     <div
-      className="viz"
-      key="Temp Line"
+      className="viz-action"
+      key="viz0"
       onClick={[Function]}
     >
-      <Viz
+      <Controller
         data={
           Array [
             Object {
@@ -80,18 +80,20 @@ exports[`renders without crashing 1`] = `
           ]
         }
         deviceName="LondonTemp"
+        id="viz0"
         model="VictoryLine"
         name="Temp Line"
+        update={[Function]}
         x="date"
         y="temp"
       />
     </div>
     <div
-      className="viz"
-      key="Humidity Bar"
+      className="viz-action"
+      key="viz1"
       onClick={[Function]}
     >
-      <Viz
+      <Controller
         data={
           Array [
             Object {
@@ -113,8 +115,10 @@ exports[`renders without crashing 1`] = `
           ]
         }
         deviceName="LondonHumidity"
+        id="viz1"
         model="VictoryBar"
         name="Humidity Bar"
+        update={[Function]}
         x="date"
         y="hum"
       />

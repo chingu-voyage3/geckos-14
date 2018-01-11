@@ -24,7 +24,7 @@ class Controller extends Component {
     return Object.keys(action).map(value => {
       // console.log(action[value]);
       return (
-        <div key={action.id}>
+        <div key={value}>
           <label htmlFor={'enum-' + value}>{value}</label>
           <select name={value} value={this.state.data[value]} onChange={this.handleChange}>
             {action[value].type === 'enum'

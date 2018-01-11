@@ -16,6 +16,7 @@ const barData = [
 ];
 const vizs = [
   {
+    id: 'viz0',
     name: 'Temp Line',
     deviceName: 'LondonTemp',
     model: 'VictoryLine',
@@ -24,6 +25,7 @@ const vizs = [
     data: lineData
   },
   {
+    id: 'viz1',
     name: 'Humidity Bar',
     deviceName: 'LondonHumidity',
     model: 'VictoryBar',
@@ -32,8 +34,8 @@ const vizs = [
     data: barData
   }
 ];
-
+const update = jest.fn();
 it('renders without crashing', () => {
-  const wrapper = shallow(<VizGrid vizs={vizs} />);
+  const wrapper = shallow(<VizGrid vizs={vizs} actions={{ update: update }} />);
   expect(toJson(wrapper)).toMatchSnapshot();
 });

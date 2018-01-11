@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<div
+  className="Controller"
+>
+  <div
+    key="ledId"
+  >
+    <label
+      htmlFor="enum-ledId"
+    >
+      ledId
+    </label>
+    <select
+      name="ledId"
+      onChange={[Function]}
+    >
+      <option
+        key="LED 1"
+      >
+        LED 1
+      </option>
+      <option
+        key="LED 2"
+      >
+        LED 2
+      </option>
+      <option
+        key="All LEDs"
+      >
+        All LEDs
+      </option>
+    </select>
+  </div>
+  <div
+    key="state"
+  >
+    <label
+      htmlFor="enum-state"
+    >
+      state
+    </label>
+    <select
+      name="state"
+      onChange={[Function]}
+    >
+      <option
+        key="true"
+      >
+        true
+      </option>
+      <option
+        key="false"
+      >
+        false
+      </option>
+    </select>
+  </div>
+  <button
+    onClick={[Function]}
+  >
+    Update
+  </button>
+</div>
+`;
