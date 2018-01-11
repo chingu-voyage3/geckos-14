@@ -4,6 +4,7 @@ TODO: Transform grid into draggable
  */
 import React from 'react';
 import Viz from './Viz';
+import Controller from './Controller';
 // css files included in RGL package
 import '../../assets/react-grid-layout.css';
 import '../../assets/react-resizable.css';
@@ -13,15 +14,25 @@ import ReactGridLayout from 'react-grid-layout';
 
 const renderViz = (viz, actions) => {
   // console.log('renderViz', viz);
-  return (
+  return viz.vizType === 'property' ? (
     <div
-      key={viz.name}
-      className="viz"
+      key={viz.id}
+      className="viz-property"
       onClick={() => {
         actions.toogleSelectedViz(viz.id);
       }}
     >
       <Viz {...viz} />
+    </div>
+  ) : (
+    <div
+      key={viz.id}
+      className="viz-action"
+      onClick={() => {
+        actions.toogleSelectedViz(viz.id);
+      }}
+    >
+      <Controller {...viz} update={actions.update} />
     </div>
   );
 };

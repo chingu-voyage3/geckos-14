@@ -252,6 +252,32 @@ export const piGateway = {
   },
   headers: { Link: '/model' }
 };
+export const controller = {
+  actionUrl:
+    'http://gateway.webofthings.io/actions/ledState?token=cKXRTaRylYWQiF3MICaKndG4WJMcVLFz',
+  dataType: 'static',
+  design: '',
+  id: 'viz0',
+  model: '',
+  name: 'toto',
+  source_id: 'ledState',
+  vizType: 'action',
+  action: {
+    ledId: {
+      type: 'enum',
+      enum: {
+        1: 'LED 1',
+        2: 'LED 2',
+        ALL: 'All LEDs'
+      },
+      required: true
+    },
+    state: {
+      type: 'boolean',
+      required: true
+    }
+  }
+};
 
 export const piModel = {
   data: {
