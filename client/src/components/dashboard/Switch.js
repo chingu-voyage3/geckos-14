@@ -1,10 +1,9 @@
 import React from 'react';
 
 const Switch = props => {
-  console.log(props);
   return Object.keys(props.values).map(value => {
     let status = props.values[value];
-    let data = props.data[0];
+    let data = props.data[Object.keys(props.data).length - 1];
 
     return (
       <div key={'status-' + status.name}>

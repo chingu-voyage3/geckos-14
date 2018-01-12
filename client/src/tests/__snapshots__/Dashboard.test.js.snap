@@ -97,12 +97,12 @@ exports[`renders without crashing 1`] = `
             Object {
               "display": "Status",
               "id": "MT3",
-              "value": "Status",
+              "value": "switch",
             },
             Object {
               "display": "Display",
               "id": "MT4",
-              "value": "Display",
+              "value": "display",
             },
           ],
           "required": true,
