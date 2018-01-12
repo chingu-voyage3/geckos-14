@@ -42,13 +42,14 @@ class Dashboard extends Component {
   };
   addViz = (viz, source) => {
     // Creating WebSocket using viz and source Data
-
+    console.log(source);
     viz.vizType === 'property'
       ? viz.dataType === 'ws'
         ? (viz.socket = this.createSocket(viz, source))
         : (viz.data = source.data)
       : (viz = this.createController(viz, source));
 
+    viz.values = source.values;
     this.setState({
       vizs: [...this.state.vizs, viz]
     });

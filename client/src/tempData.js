@@ -20,8 +20,8 @@ export const modelTypes = [
   { id: 'MT0', value: 'default', display: 'Select Model Type' },
   { id: 'MT1', value: 'VictoryLine', display: 'VictoryLine' },
   { id: 'MT2', value: 'VictoryBar', display: 'VictoryBar' },
-  { id: 'MT3', value: 'Status', display: 'Status' },
-  { id: 'MT4', value: 'Display', display: 'Display' }
+  { id: 'MT3', value: 'switch', display: 'Status' },
+  { id: 'MT4', value: 'display', display: 'Display' }
 ];
 
 export const dataTypes = [
