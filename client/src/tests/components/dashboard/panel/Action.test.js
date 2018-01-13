@@ -1,5 +1,5 @@
 import React from 'react';
-import Param from '../../../components/dashboard/Param';
+import Param from '../../../../components/dashboard/panel/Param';
 import { shallow } from 'enzyme';
 
 const onclick = e => {

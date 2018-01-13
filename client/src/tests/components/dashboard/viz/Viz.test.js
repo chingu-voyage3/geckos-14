@@ -1,5 +1,5 @@
 import React from 'react';
-import Viz from '../../../components/dashboard/Viz';
+import Viz from '../../../../components/dashboard/viz/Viz';
 
 import { shallow } from 'enzyme';
 

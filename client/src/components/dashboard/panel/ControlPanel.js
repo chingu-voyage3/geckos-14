@@ -13,7 +13,7 @@ Testing Data:
 import React, { Component } from 'react';
 import Param from './Param';
 import Action from './Action';
-import * as d from '../../tempData.js';
+import * as d from '../../../tempData.js';
 
 class ControlPanel extends Component {
   constructor(props) {
@@ -31,21 +31,21 @@ class ControlPanel extends Component {
   //   return this.props.selected !== nextProps.selected;
   // }
   componentWillReceiveProps(nextProps) {
-    // console.log('thing', nextProps.selected);
+    // console.log('Thing nextProps', nextProps);
     if (nextProps.selected.parent === 'thing') {
       // check if selected Item and Item is Thing;
       if (this.state.thing.name !== nextProps.selected.item.name) {
         // console.log('different');
         // Check initial state
         if (!this.state.thingSelected) {
-          // console.log('move to true thing');
+          // console.log('Thing - move to true');
           this.setState({
             thing: nextProps.selected.item,
             thingSelected: true
           });
         } else {
           // if is selected and id is same then we unselect and clear Params form
-          // console.log('move to false thing');
+          // console.log('Thing - move to false');
           this.clearState();
         }
       }

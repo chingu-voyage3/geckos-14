@@ -1,7 +1,7 @@
 import React from 'react';
-import Switch from '../../../components/dashboard/Switch';
+import Switch from '../../../../components/dashboard/viz/Switch';
 import { shallow } from 'enzyme';
-import * as d from '../../../tempData';
+import * as d from '../../../../tempData';
 
 it('renders without crashing', () => {
   const wrapper = shallow(<Switch {...d.switchData.values} />);

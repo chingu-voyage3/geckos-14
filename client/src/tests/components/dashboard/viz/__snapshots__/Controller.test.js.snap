@@ -15,6 +15,7 @@ exports[`renders without crashing 1`] = `
     <select
       name="ledId"
       onChange={[Function]}
+      onClick={[Function]}
     >
       <option
         key="LED 1"
@@ -44,6 +45,7 @@ exports[`renders without crashing 1`] = `
     <select
       name="state"
       onChange={[Function]}
+      onClick={[Function]}
     >
       <option
         key="true"
