@@ -26,7 +26,12 @@ class Controller extends Component {
       return (
         <div key={value}>
           <label htmlFor={'enum-' + value}>{value}</label>
-          <select name={value} value={this.state.data[value]} onChange={this.handleChange}>
+          <select
+            name={value}
+            value={this.state.data[value]}
+            onChange={this.handleChange}
+            onClick={e => e.stopPropagation()}
+          >
             {action[value].type === 'enum'
               ? this.renderOptions(Object.values(action[value].enum))
               : this.renderOptions(['true', 'false'])}
@@ -35,8 +40,9 @@ class Controller extends Component {
       );
     });
   };
-  updateControl = () => {
+  updateControl = event => {
     // console.log('Sending Action...');
+    event.stopPropagation();
     axios.post(this.state.url, this.state.data);
   };
   render = () => {
