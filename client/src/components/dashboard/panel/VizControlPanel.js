@@ -38,20 +38,21 @@ class VizControlPanel extends Component {
     };
   }
   componentWillReceiveProps(nextProps) {
-    // console.log('viz', nextProps.selected);
+    // console.log('Viz nextProps', nextProps);
+    // console.log('Viz Props', this.props);
     if (nextProps.selected.parent === 'viz') {
       // check if selected Item and Item is Thing;
       if (this.state.viz.id !== nextProps.selected.item.id) {
         // console.log('diferent vizs');
         if (!this.state.vizSelected) {
-          // console.log('move to true viz');
+          // console.log('Viz - move to true');
           this.setState({
             viz: nextProps.selected.item,
             vizSelected: true
           });
         } else {
           // if is selected and id is same then we unselect and clear Params form
-          // console.log('move to false viz');
+          // console.log('Viz - move to false');
           this.clearState();
         }
       }

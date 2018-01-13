@@ -33,37 +33,26 @@ class Dashboard extends Component {
       });
     });
   };
+  populateParams = things => {
+    // Adding New things as input for SourceThings Select Param
+    let newParams = this.state.vizParams;
+    // getting the index for source_id
+    let index = newParams.findIndex(p => p.name === 'source_id');
+    let newSources = newParams[index];
 
-  delThing = id => {
-    // console.log('Deleting thing...', id);
-    this.setState({
-      things: this.state.things.filter(thing => thing.id !== id)
+    // Adding an entry for all Things in state
+    things.forEach(thing => {
+      Object.keys(thing.properties).forEach(property => {
+        // TODO: Add a check for unique things
+        newSources.options.push({ id: property, value: property, display: property });
+      });
+      Object.keys(thing.actions).forEach(action => {
+        // TODO: Add a check for unique things
+        newSources.options.push({ id: action, value: action, display: action });
+      });
     });
-  };
-  addViz = (viz, source) => {
-    // Creating WebSocket using viz and source Data
-    console.log(source);
-    viz.vizType === 'property'
-      ? viz.dataType === 'ws'
-        ? (viz.socket = this.createSocket(viz, source))
-        : (viz.data = source.data)
-      : (viz = this.createController(viz, source));
 
-    viz.values = source.values;
-    this.setState({
-      vizs: [...this.state.vizs, viz]
-    });
-  };
-
-  delViz = (id, socket) => {
-    // console.log('Deleting viz...', id);
-    if (Object.keys(socket).length > 0) {
-      // console.log('Closing Socket...');
-      socket.close();
-    }
-    this.setState({
-      vizs: this.state.vizs.filter(viz => viz.id !== id)
-    });
+    return newParams;
   };
   createController = (viz, source) => {
     viz.action = source.values;
@@ -112,6 +101,37 @@ class Dashboard extends Component {
     // console.log(vizs);
     this.setState({ vizs: vizs });
   };
+  delThing = id => {
+    // console.log('Deleting thing...', id);
+    this.setState({
+      things: this.state.things.filter(thing => thing.id !== id)
+    });
+  };
+  addViz = (viz, source) => {
+    // Creating WebSocket using viz and source Data
+    // console.log(source);
+    viz.vizType === 'property'
+      ? viz.dataType === 'ws'
+        ? (viz.socket = this.createSocket(viz, source))
+        : (viz.data = source.data)
+      : (viz = this.createController(viz, source));
+
+    viz.values = source.values;
+    this.setState({
+      vizs: [...this.state.vizs, viz]
+    });
+  };
+  delViz = (id, socket) => {
+    // console.log('Deleting viz...', id);
+    if (Object.keys(socket).length > 0) {
+      // console.log('Closing Socket...');
+      socket.close();
+    }
+    this.setState({
+      vizs: this.state.vizs.filter(viz => viz.id !== id)
+    });
+  };
+
   toogleSelectedThing = name => {
     // console.log('toogleSelectedThing - ', name);
     let tempThings = this.state.things;
@@ -138,7 +158,7 @@ class Dashboard extends Component {
     });
   };
   toogleSelectedViz = id => {
-    console.log('toogleSelectedThing - ', id);
+    // console.log('toogleSelectedThing - ', id);
     let tempVizs = this.state.vizs;
     tempVizs.forEach(viz => {
       if (viz.id === id) {
@@ -169,27 +189,6 @@ class Dashboard extends Component {
     });
   };
 
-  populateParams = things => {
-    // Adding New things as input for SourceThings Select Param
-    let newParams = this.state.vizParams;
-    // getting the index for source_id
-    let index = newParams.findIndex(p => p.name === 'source_id');
-    let newSources = newParams[index];
-
-    // Adding an entry for all Things in state
-    things.forEach(thing => {
-      Object.keys(thing.properties).forEach(property => {
-        // TODO: Add a check for unique things
-        newSources.options.push({ id: property, value: property, display: property });
-      });
-      Object.keys(thing.actions).forEach(action => {
-        // TODO: Add a check for unique things
-        newSources.options.push({ id: action, value: action, display: action });
-      });
-    });
-
-    return newParams;
-  };
   componentWillMount() {
     // testing urls
     const demoThingUrl = 'http://gateway.webofthings.io';
@@ -204,7 +203,6 @@ class Dashboard extends Component {
       });
     });
   }
-
   render() {
     const vizActions = {
       addViz: this.addViz,
