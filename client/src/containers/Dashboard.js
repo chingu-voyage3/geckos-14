@@ -30,13 +30,18 @@ class Dashboard extends Component {
   }
   discover = url => {
     // console.log('discovering url', url);
-    discover(url).then(res => {
-      let newThings = this.state.things;
-      newThings.push(res);
-      this.setState({
-        things: newThings
+    if (this.checkUrl(url)) {
+      discover(url).then(res => {
+        let newThings = this.state.things;
+        newThings.push(res);
+        this.setState({
+          message: { type: 'warning', text: 'Discovering..' },
+          things: newThings
+        });
       });
-    });
+    } else {
+      this.setMessage('error', 'Url is not valid');
+    }
   };
   populateParams = things => {
     // Adding New things as input for SourceThings Select Param
@@ -127,9 +132,7 @@ class Dashboard extends Component {
         vizs: [...this.state.vizs, viz]
       });
     } else {
-      this.setState({
-        message: { type: 'error', text: 'Invalid Viz Data' }
-      });
+      this.setMessage('error', 'Complete all viz fields');
     }
   };
   delViz = (id, socket) => {
@@ -147,9 +150,14 @@ class Dashboard extends Component {
 
     return valid;
   };
-  checkThing = thing => {
+  checkUrl = url => {
     let valid = true;
-    return valid;
+    url === '' ? valid : !valid;
+  };
+  setMessage = (type, text) => {
+    this.setState({
+      message: { type: type, text: text }
+    });
   };
   toogleSelectedThing = name => {
     // console.log('toogleSelectedThing - ', name);
@@ -237,7 +245,6 @@ class Dashboard extends Component {
     return (
       <div>
         <Message {...this.state.message} />
-
         <div className="dashboard-board">
           <ThingPanel
             things={this.state.things}
