@@ -99,11 +99,6 @@ exports[`renders without crashing 1`] = `
               "id": "MT3",
               "value": "switch",
             },
-            Object {
-              "display": "Display",
-              "id": "MT4",
-              "value": "display",
-            },
           ],
           "required": true,
           "type": "select",
