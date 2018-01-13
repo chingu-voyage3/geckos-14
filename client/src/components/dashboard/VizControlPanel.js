@@ -119,7 +119,7 @@ class VizControlPanel extends Component {
   getSource = id => {
     let source;
     this.props.things.forEach(thing => {
-      this.state.viz.vizType === ' property '
+      this.state.viz.vizType === 'property'
         ? Object.keys(thing.properties).forEach(property => {
           if (property === id) source = thing.properties[property];
         })

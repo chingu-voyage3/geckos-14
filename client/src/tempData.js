@@ -20,8 +20,8 @@ export const modelTypes = [
   { id: 'MT0', value: 'default', display: 'Select Model Type' },
   { id: 'MT1', value: 'VictoryLine', display: 'VictoryLine' },
   { id: 'MT2', value: 'VictoryBar', display: 'VictoryBar' },
-  { id: 'MT3', value: 'Status', display: 'Status' },
-  { id: 'MT4', value: 'Display', display: 'Display' }
+  { id: 'MT3', value: 'switch', display: 'Status' },
+  { id: 'MT4', value: 'display', display: 'Display' }
 ];
 
 export const dataTypes = [
@@ -278,7 +278,25 @@ export const controller = {
     }
   }
 };
-
+export const switchData = {
+  values: {
+    data: {
+      0: { 1: false, 2: true, timestamp: '2018-01-12T21:30:49.217Z' },
+      1: { 1: true, 2: false, timestamp: '2018-01-12T21:30:54.217Z' }
+    },
+    dataType: 'static',
+    design: 'GrayScale',
+    id: 'viz0',
+    model: 'switch',
+    name: 'dede',
+    socket: {},
+    source_id: 'leds',
+    values: { 1: { name: 'LED 1', customFields: {} }, 2: { name: 'LED 2', customFields: {} } },
+    vizType: 'property',
+    x: 'timestamp',
+    y: '1'
+  }
+};
 export const piModel = {
   data: {
     id: 'http://gateway.webofthings.io',

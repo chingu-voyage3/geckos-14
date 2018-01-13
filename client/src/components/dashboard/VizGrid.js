@@ -5,6 +5,7 @@ TODO: Transform grid into draggable
 import React from 'react';
 import Viz from './Viz';
 import Controller from './Controller';
+import Switch from './Switch';
 // css files included in RGL package
 import '../../assets/react-grid-layout.css';
 import '../../assets/react-resizable.css';
@@ -14,27 +15,59 @@ import ReactGridLayout from 'react-grid-layout';
 
 const renderViz = (viz, actions) => {
   // console.log('renderViz', viz);
-  return viz.vizType === 'property' ? (
-    <div
-      key={viz.id}
-      className="viz-property"
-      onClick={() => {
-        actions.toogleSelectedViz(viz.id);
-      }}
-    >
-      <Viz {...viz} />
-    </div>
-  ) : (
-    <div
-      key={viz.id}
-      className="viz-action"
-      onClick={() => {
-        actions.toogleSelectedViz(viz.id);
-      }}
-    >
-      <Controller {...viz} update={actions.update} />
-    </div>
-  );
+
+  if (viz.vizType === 'property') {
+    switch (viz.model) {
+      case 'display':
+        return (
+          <div
+            key={viz.id}
+            className="viz-property"
+            onClick={() => {
+              actions.toogleSelectedViz(viz.id);
+            }}
+          >
+            display
+          </div>
+        );
+      case 'switch':
+        return (
+          <div
+            key={viz.id}
+            className="viz-property"
+            onClick={() => {
+              actions.toogleSelectedViz(viz.id);
+            }}
+          >
+            <Switch {...viz} />
+          </div>
+        );
+      default:
+        return (
+          <div
+            key={viz.id}
+            className="viz-property"
+            onClick={() => {
+              actions.toogleSelectedViz(viz.id);
+            }}
+          >
+            <Viz {...viz} />
+          </div>
+        );
+    }
+  } else {
+    return (
+      <div
+        key={viz.id}
+        className="viz-action"
+        onClick={() => {
+          actions.toogleSelectedViz(viz.id);
+        }}
+      >
+        <Controller {...viz} update={actions.update} />
+      </div>
+    );
+  }
 };
 const renderVizGrid = props => {
   // console.log('renderVizList');

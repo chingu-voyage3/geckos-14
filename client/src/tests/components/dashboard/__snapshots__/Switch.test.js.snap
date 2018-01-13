@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<div>
+  <div
+    className="switch"
+    key="LED 1"
+  >
+    <div
+      className="switch-name"
+    >
+      LED 1 - 2018-01-12T21:30:54.217Z
+    </div>
+    <div
+      className="switch-label"
+    >
+      <label>
+        ON
+      </label>
+    </div>
+    <div
+      className="switch-time"
+    />
+  </div>
+  <div
+    className="switch"
+    key="LED 2"
+  >
+    <div
+      className="switch-name"
+    >
+      LED 2 - 2018-01-12T21:30:54.217Z
+    </div>
+    <div
+      className="switch-label"
+    >
+      <label>
+        OFF
+      </label>
+    </div>
+    <div
+      className="switch-time"
+    />
+  </div>
+</div>
+`;
