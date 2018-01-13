@@ -8,6 +8,7 @@ The Dahshboard contains the state allowing to display the Thing list,
 import React, { Component } from 'react';
 import ThingPanel from '../components/dashboard/ThingPanel';
 import VizPanel from '../components/dashboard/VizPanel';
+import Message from '../components/dashboard/Message';
 import '../assets/Dashboard.css';
 import * as d from '../tempData.js';
 import discover from '../helpers/discover';
@@ -20,7 +21,11 @@ class Dashboard extends Component {
       thingParams: d.thingParams,
       selected: { item: { id: '', name: '' }, parent: '' },
       vizs: [],
-      vizParams: d.vizParams
+      vizParams: d.vizParams,
+      message: {
+        type: '',
+        text: ''
+      }
     };
   }
   discover = url => {
@@ -110,16 +115,22 @@ class Dashboard extends Component {
   addViz = (viz, source) => {
     // Creating WebSocket using viz and source Data
     // console.log(source);
-    viz.vizType === 'property'
-      ? viz.dataType === 'ws'
-        ? (viz.socket = this.createSocket(viz, source))
-        : (viz.data = source.data)
-      : (viz = this.createController(viz, source));
+    if (this.checkViz(viz)) {
+      viz.vizType === 'property'
+        ? viz.dataType === 'ws'
+          ? (viz.socket = this.createSocket(viz, source))
+          : (viz.data = source.data)
+        : (viz = this.createController(viz, source));
 
-    viz.values = source.values;
-    this.setState({
-      vizs: [...this.state.vizs, viz]
-    });
+      viz.values = source.values;
+      this.setState({
+        vizs: [...this.state.vizs, viz]
+      });
+    } else {
+      this.setState({
+        message: { type: 'error', text: 'Invalid Viz Data' }
+      });
+    }
   };
   delViz = (id, socket) => {
     // console.log('Deleting viz...', id);
@@ -131,7 +142,15 @@ class Dashboard extends Component {
       vizs: this.state.vizs.filter(viz => viz.id !== id)
     });
   };
+  checkViz = viz => {
+    let valid = true;
 
+    return valid;
+  };
+  checkThing = thing => {
+    let valid = true;
+    return valid;
+  };
   toogleSelectedThing = name => {
     // console.log('toogleSelectedThing - ', name);
     let tempThings = this.state.things;
@@ -216,20 +235,24 @@ class Dashboard extends Component {
       toogleSelectedThing: this.toogleSelectedThing
     };
     return (
-      <div className="dashboard">
-        <ThingPanel
-          things={this.state.things}
-          actions={devActions}
-          params={this.state.thingParams}
-          selected={this.state.selected}
-        />
-        <VizPanel
-          vizs={this.state.vizs}
-          things={this.state.things}
-          actions={vizActions}
-          params={this.state.vizParams}
-          selected={this.state.selected}
-        />
+      <div>
+        <Message {...this.state.message} />
+
+        <div className="dashboard-board">
+          <ThingPanel
+            things={this.state.things}
+            actions={devActions}
+            params={this.state.thingParams}
+            selected={this.state.selected}
+          />
+          <VizPanel
+            vizs={this.state.vizs}
+            things={this.state.things}
+            actions={vizActions}
+            params={this.state.vizParams}
+            selected={this.state.selected}
+          />
+        </div>
       </div>
     );
   }

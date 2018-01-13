@@ -65,7 +65,7 @@ class ControlPanel extends Component {
     //   selectedThing: true
     // });
   };
-  // TODO: Add handling Deleting Thing
+  // Handles delering
   handleDel = () => {
     // console.log('Del Item');
     this.props.actions.delThing(this.state.thing.id);

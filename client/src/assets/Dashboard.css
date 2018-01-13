@@ -1,7 +1,29 @@
-.dashboard {
+.dashboard-message {
+}
+.dashboard-board {
   display: grid;
   grid-template-columns: 2fr 6fr;
   margin: 20px 20px 20px 20px;
+}
+.message- {
+  display: none;
+  border: dashed 1px;
+  height: 50px;
+}
+.message-error {
+  background-color: #dc4c46;
+  border: dashed 1px;
+  height: 50px;
+}
+.message-warning {
+  background-color: #d2691e;
+  border: dashed 1px;
+  height: 50px;
+}
+.message-success {
+  background-color: #92b558;
+  border: dashed 1px;
+  height: 50px;
 }
 .thing-panel {
   display: grid;
