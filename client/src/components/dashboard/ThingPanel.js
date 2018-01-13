@@ -5,8 +5,8 @@ ThingList just needs the list of devices
  */
 
 import React from 'react';
-import ThingList from './ThingList';
-import ControlPanel from './ControlPanel';
+import ThingList from './thing/ThingList';
+import ControlPanel from './panel/ControlPanel';
 
 const ThingPanel = props => {
   return (

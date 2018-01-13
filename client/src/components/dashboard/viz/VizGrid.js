@@ -7,9 +7,9 @@ import Viz from './Viz';
 import Controller from './Controller';
 import Switch from './Switch';
 // css files included in RGL package
-import '../../assets/react-grid-layout.css';
-import '../../assets/react-resizable.css';
-import * as d from '../../tempData.js';
+import '../../../assets/react-grid-layout.css';
+import '../../../assets/react-resizable.css';
+import * as d from '../../../tempData.js';
 
 import ReactGridLayout from 'react-grid-layout';
 

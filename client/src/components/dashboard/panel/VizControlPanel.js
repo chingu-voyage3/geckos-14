@@ -12,7 +12,7 @@ Testing Data:
 import React, { Component } from 'react';
 import Param from './Param';
 import Action from './Action';
-import * as d from '../../tempData';
+import * as d from '../../../tempData';
 
 class VizControlPanel extends Component {
   constructor(props) {

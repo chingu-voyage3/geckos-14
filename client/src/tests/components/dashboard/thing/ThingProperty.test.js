@@ -1,7 +1,6 @@
 import React from 'react';
-import ThingProperty from '../../../components/dashboard/ThingProperty';
+import ThingProperty from '../../../../components/dashboard/thing/ThingProperty';
 import { shallow } from 'enzyme';
-// import * as d from '../../../tempData';
 
 it('renders without crashing', () => {
   const wrapper = shallow(<ThingProperty />);

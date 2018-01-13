@@ -5,8 +5,8 @@ VizGrid just needs the list of vizs
  */
 
 import React from 'react';
-import VizGrid from './VizGrid';
-import VizControlPanel from './VizControlPanel';
+import VizGrid from './viz/VizGrid';
+import VizControlPanel from './panel/VizControlPanel';
 
 const VizPanel = props => {
   // console.log(props);

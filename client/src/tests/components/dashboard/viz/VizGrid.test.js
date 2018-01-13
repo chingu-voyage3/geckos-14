@@ -1,5 +1,5 @@
 import React from 'react';
-import VizGrid from '../../../components/dashboard/VizGrid';
+import VizGrid from '../../../../components/dashboard/viz/VizGrid';
 
 import { shallow } from 'enzyme';
 const lineData = [

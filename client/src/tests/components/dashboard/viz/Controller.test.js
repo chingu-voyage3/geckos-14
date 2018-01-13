@@ -1,9 +1,9 @@
 import React from 'react';
-import Controller from '../../../components/dashboard/Controller';
+import Controller from '../../../../components/dashboard/viz/Controller';
 import { shallow } from 'enzyme';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import * as d from '../../../tempData';
+import * as d from '../../../../tempData';
 // This sets the mock adapter on the default instance
 let mock = new MockAdapter(axios);
 

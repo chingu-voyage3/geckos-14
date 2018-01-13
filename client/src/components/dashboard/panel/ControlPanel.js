@@ -13,7 +13,7 @@ Testing Data:
 import React, { Component } from 'react';
 import Param from './Param';
 import Action from './Action';
-import * as d from '../../tempData.js';
+import * as d from '../../../tempData.js';
 
 class ControlPanel extends Component {
   constructor(props) {
