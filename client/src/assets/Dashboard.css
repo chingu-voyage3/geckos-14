@@ -96,9 +96,19 @@
 .hidden {
   display: none;
 }
-
-/* The switch - the box around the slider */
 .switch {
+  display: grid;
+  grid-template-rows: repeat(2, 40px);
+  border: dashed 1px red;
+}
+.switch-label {
+  display: grid;
+  grid-template-columns: repeat(3, 60px);
+  border: dashed 1px blue;
+  text-align: center;
+}
+/* The switch - the box around the slider */
+.switch-box {
   position: relative;
   display: inline-block;
   width: 60px;
@@ -106,7 +116,7 @@
 }
 
 /* Hide default HTML checkbox */
-.switch input {
+.switch-box input {
   display: none;
 }
 
