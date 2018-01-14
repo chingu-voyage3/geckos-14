@@ -123,7 +123,7 @@ class Dashboard extends Component {
     // console.log('Deleting thing...', id);
     this.setState({
       things: this.state.things.filter(thing => thing.id !== id),
-      message: {type: 'success', text: 'Thing deleted successfuly'}
+      message: { type: 'success', text: 'Thing deleted successfuly' }
     });
   };
   addViz = (viz, source) => {
@@ -139,7 +139,7 @@ class Dashboard extends Component {
       viz.values = source.values;
       this.setState({
         vizs: [...this.state.vizs, viz],
-        message: {type: 'success', text: 'Viz Added successfuly'}
+        message: { type: 'success', text: 'Viz Added successfuly' }
       });
     } else {
       this.setMessage('error', 'Complete all viz fields');
@@ -152,8 +152,8 @@ class Dashboard extends Component {
       viz.socket.close();
     }
     this.setState({
-      vizs: this.state.vizs.filter(v => v.id !== viz.id)
-      message: {type: 'success', text: 'Viz deleted successfuly'}
+      vizs: this.state.vizs.filter(v => v.id !== viz.id),
+      message: { type: 'success', text: 'Viz deleted successfuly' }
     });
   };
   checkViz = viz => {
@@ -229,7 +229,6 @@ class Dashboard extends Component {
       }
     });
   };
-
   componentWillMount() {
     // testing urls
     const demoThingUrl = 'http://gateway.webofthings.io';
