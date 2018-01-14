@@ -60,7 +60,7 @@ class ControlPanel extends Component {
   };
   // Handles discovery
   handleDiscover = () => {
-    this.props.actions.discover(this.state.thing.url);
+    this.props.actions.discover(this.state.thing.id);
     // this.setState({
     //   selectedThing: true
     // });

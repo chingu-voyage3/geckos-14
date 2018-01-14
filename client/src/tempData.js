@@ -84,12 +84,6 @@ export const vizs = [
 ];
 
 export const thingParams = [
-  // {
-  //   label: 'Name :',
-  //   type: 'input',
-  //   name: 'name',
-  //   options: []
-  // },
   {
     label: 'Url :',
     type: 'input',
