@@ -143,12 +143,11 @@ class Dashboard extends Component {
       this.setMessage('error', 'Complete all viz fields');
     }
   };
-  delViz = (viz, socket) => {
+  delViz = viz => {
     console.log('Deleting viz...', viz.id);
-
     if (viz.dataType === 'ws') {
       console.log('Closing Socket...');
-      socket.close();
+      viz.socket.close();
     }
     this.setState({
       vizs: this.state.vizs.filter(v => v.id !== viz.id)
