@@ -1,180 +1,186 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders without crashing 1`] = `
-<div
-  className="dashboard"
->
-  <ThingPanel
-    actions={
-      Object {
-        "delThing": [Function],
-        "discover": [Function],
-        "toogleSelectedThing": [Function],
-      }
-    }
-    params={
-      Array [
-        Object {
-          "label": "Url :",
-          "name": "id",
-          "options": Array [],
-          "required": true,
-          "type": "input",
-        },
-      ]
-    }
-    selected={
-      Object {
-        "item": Object {
-          "id": "",
-          "name": "",
-        },
-        "parent": "",
-      }
-    }
-    things={Array []}
+<div>
+  <Message
+    text=""
+    type=""
   />
-  <VizPanel
-    actions={
-      Object {
-        "addViz": [Function],
-        "delViz": [Function],
-        "toogleSelectedViz": [Function],
-        "updateViz": undefined,
+  <div
+    className="dashboard-board"
+  >
+    <ThingPanel
+      actions={
+        Object {
+          "delThing": [Function],
+          "discover": [Function],
+          "toogleSelectedThing": [Function],
+        }
       }
-    }
-    params={
-      Array [
-        Object {
-          "label": "Name :",
-          "name": "name",
-          "options": Array [],
-          "required": true,
-          "type": "input",
-        },
-        Object {
-          "label": "VizType :",
-          "name": "vizType",
-          "options": Array [
-            Object {
-              "display": "Select Viz Type",
-              "id": "VT0",
-              "value": "default",
-            },
-            Object {
-              "display": "DataDisplay",
-              "id": "VT1",
-              "value": "property",
-            },
-            Object {
-              "display": "DataControl",
-              "id": "VT2",
-              "value": "action",
-            },
-          ],
-          "required": true,
-          "type": "select",
-        },
-        Object {
-          "label": "Model :",
-          "name": "model",
-          "options": Array [
-            Object {
-              "display": "Select Model Type",
-              "id": "MT0",
-              "value": "default",
-            },
-            Object {
-              "display": "VictoryLine",
-              "id": "MT1",
-              "value": "VictoryLine",
-            },
-            Object {
-              "display": "VictoryBar",
-              "id": "MT2",
-              "value": "VictoryBar",
-            },
-            Object {
-              "display": "Status",
-              "id": "MT3",
-              "value": "switch",
-            },
-          ],
-          "required": true,
-          "type": "select",
-        },
-        Object {
-          "label": "DataType :",
-          "name": "dataType",
-          "options": Array [
-            Object {
-              "display": "Select Data Type",
-              "id": "DT0",
-              "value": "default",
-            },
-            Object {
-              "display": "WebSocket",
-              "id": "DT1",
-              "value": "ws",
-            },
-            Object {
-              "display": "Static",
-              "id": "DT2",
-              "value": "static",
-            },
-          ],
-          "required": true,
-          "type": "select",
-        },
-        Object {
-          "label": "Source:",
-          "name": "source_id",
-          "options": Array [
-            Object {
-              "display": "Select Source",
-              "id": "SD0",
-              "value": "default",
-            },
-          ],
-          "required": true,
-          "type": "select",
-        },
-        Object {
-          "label": "Theme:",
-          "name": "design",
-          "options": Array [
-            Object {
-              "display": "Select Viz Theme",
-              "id": "TH0",
-              "value": "default",
-            },
-            Object {
-              "display": "GrayScale",
-              "id": "TH1",
-              "value": "GrayScale",
-            },
-            Object {
-              "display": "Material",
-              "id": "TH2",
-              "value": "Material",
-            },
-          ],
-          "required": false,
-          "type": "select",
-        },
-      ]
-    }
-    selected={
-      Object {
-        "item": Object {
-          "id": "",
-          "name": "",
-        },
-        "parent": "",
+      params={
+        Array [
+          Object {
+            "label": "Url :",
+            "name": "id",
+            "options": Array [],
+            "required": true,
+            "type": "input",
+          },
+        ]
       }
-    }
-    things={Array []}
-    vizs={Array []}
-  />
+      selected={
+        Object {
+          "item": Object {
+            "id": "",
+            "name": "",
+          },
+          "parent": "",
+        }
+      }
+      things={Array []}
+    />
+    <VizPanel
+      actions={
+        Object {
+          "addViz": [Function],
+          "delViz": [Function],
+          "toogleSelectedViz": [Function],
+          "updateViz": undefined,
+        }
+      }
+      params={
+        Array [
+          Object {
+            "label": "Name :",
+            "name": "name",
+            "options": Array [],
+            "required": true,
+            "type": "input",
+          },
+          Object {
+            "label": "VizType :",
+            "name": "vizType",
+            "options": Array [
+              Object {
+                "display": "Select Viz Type",
+                "id": "VT0",
+                "value": "default",
+              },
+              Object {
+                "display": "DataDisplay",
+                "id": "VT1",
+                "value": "property",
+              },
+              Object {
+                "display": "DataControl",
+                "id": "VT2",
+                "value": "action",
+              },
+            ],
+            "required": true,
+            "type": "select",
+          },
+          Object {
+            "label": "Model :",
+            "name": "model",
+            "options": Array [
+              Object {
+                "display": "Select Model Type",
+                "id": "MT0",
+                "value": "default",
+              },
+              Object {
+                "display": "VictoryLine",
+                "id": "MT1",
+                "value": "VictoryLine",
+              },
+              Object {
+                "display": "VictoryBar",
+                "id": "MT2",
+                "value": "VictoryBar",
+              },
+              Object {
+                "display": "Status",
+                "id": "MT3",
+                "value": "switch",
+              },
+            ],
+            "required": true,
+            "type": "select",
+          },
+          Object {
+            "label": "DataType :",
+            "name": "dataType",
+            "options": Array [
+              Object {
+                "display": "Select Data Type",
+                "id": "DT0",
+                "value": "default",
+              },
+              Object {
+                "display": "WebSocket",
+                "id": "DT1",
+                "value": "ws",
+              },
+              Object {
+                "display": "Static",
+                "id": "DT2",
+                "value": "static",
+              },
+            ],
+            "required": true,
+            "type": "select",
+          },
+          Object {
+            "label": "Source:",
+            "name": "source_id",
+            "options": Array [
+              Object {
+                "display": "Select Source",
+                "id": "SD0",
+                "value": "default",
+              },
+            ],
+            "required": true,
+            "type": "select",
+          },
+          Object {
+            "label": "Theme:",
+            "name": "design",
+            "options": Array [
+              Object {
+                "display": "Select Viz Theme",
+                "id": "TH0",
+                "value": "default",
+              },
+              Object {
+                "display": "GrayScale",
+                "id": "TH1",
+                "value": "GrayScale",
+              },
+              Object {
+                "display": "Material",
+                "id": "TH2",
+                "value": "Material",
+              },
+            ],
+            "required": false,
+            "type": "select",
+          },
+        ]
+      }
+      selected={
+        Object {
+          "item": Object {
+            "id": "",
+            "name": "",
+          },
+          "parent": "",
+        }
+      }
+      things={Array []}
+      vizs={Array []}
+    />
+  </div>
 </div>
 `;

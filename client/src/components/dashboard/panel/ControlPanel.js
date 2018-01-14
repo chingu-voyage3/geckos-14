@@ -60,12 +60,12 @@ class ControlPanel extends Component {
   };
   // Handles discovery
   handleDiscover = () => {
-    this.props.actions.discover(this.state.thing.url);
+    this.props.actions.discover(this.state.thing.id);
     // this.setState({
     //   selectedThing: true
     // });
   };
-  // TODO: Add handling Deleting Thing
+  // Handles delering
   handleDel = () => {
     // console.log('Del Item');
     this.props.actions.delThing(this.state.thing.id);

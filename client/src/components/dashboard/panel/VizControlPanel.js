@@ -114,7 +114,7 @@ class VizControlPanel extends Component {
   };
   handleDel = () => {
     // console.log('Del Viz');
-    this.props.actions.delViz(this.state.viz.id, this.state.viz.socket);
+    this.props.actions.delViz(this.state.viz);
     this.clearState();
   };
   getSource = id => {

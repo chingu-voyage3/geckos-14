@@ -8,6 +8,7 @@ The Dahshboard contains the state allowing to display the Thing list,
 import React, { Component } from 'react';
 import ThingPanel from '../components/dashboard/ThingPanel';
 import VizPanel from '../components/dashboard/VizPanel';
+import Message from '../components/dashboard/Message';
 import '../assets/Dashboard.css';
 import * as d from '../tempData.js';
 import discover from '../helpers/discover';
@@ -20,18 +21,35 @@ class Dashboard extends Component {
       thingParams: d.thingParams,
       selected: { item: { id: '', name: '' }, parent: '' },
       vizs: [],
-      vizParams: d.vizParams
+      vizParams: d.vizParams,
+      message: {
+        type: '',
+        text: ''
+      }
     };
   }
   discover = url => {
     // console.log('discovering url', url);
-    discover(url).then(res => {
-      let newThings = this.state.things;
-      newThings.push(res);
-      this.setState({
-        things: newThings
-      });
-    });
+    if (this.checkUrl(url)) {
+      discover(url)
+        .then(res => {
+          if (res) {
+            let newThings = this.state.things;
+            newThings.push(res);
+            this.setState({
+              message: { type: 'success', text: 'Discovered Thing' },
+              things: newThings
+            });
+          } else {
+            this.setMessage('error', 'Url is not a Thing');
+          }
+        })
+        .catch(err => {
+          this.setMessage('error', err);
+        });
+    } else {
+      this.setMessage('error', 'Url is not valid');
+    }
   };
   populateParams = things => {
     // Adding New things as input for SourceThings Select Param
@@ -104,34 +122,60 @@ class Dashboard extends Component {
   delThing = id => {
     // console.log('Deleting thing...', id);
     this.setState({
-      things: this.state.things.filter(thing => thing.id !== id)
+      things: this.state.things.filter(thing => thing.id !== id),
+      message: { type: 'success', text: 'Thing deleted successfuly' }
     });
   };
   addViz = (viz, source) => {
     // Creating WebSocket using viz and source Data
     // console.log(source);
-    viz.vizType === 'property'
-      ? viz.dataType === 'ws'
-        ? (viz.socket = this.createSocket(viz, source))
-        : (viz.data = source.data)
-      : (viz = this.createController(viz, source));
+    if (this.checkViz(viz)) {
+      viz.vizType === 'property'
+        ? viz.dataType === 'ws'
+          ? (viz.socket = this.createSocket(viz, source))
+          : (viz.data = source.data)
+        : (viz = this.createController(viz, source));
 
-    viz.values = source.values;
-    this.setState({
-      vizs: [...this.state.vizs, viz]
-    });
+      viz.values = source.values;
+      this.setState({
+        vizs: [...this.state.vizs, viz],
+        message: { type: 'success', text: 'Viz Added successfuly' }
+      });
+    } else {
+      this.setMessage('error', 'Complete all viz fields');
+    }
   };
-  delViz = (id, socket) => {
-    // console.log('Deleting viz...', id);
-    if (Object.keys(socket).length > 0) {
+  delViz = viz => {
+    // console.log('Deleting viz...', viz.id);
+    if (viz.dataType === 'ws') {
       // console.log('Closing Socket...');
-      socket.close();
+      viz.socket.close();
     }
     this.setState({
-      vizs: this.state.vizs.filter(viz => viz.id !== id)
+      vizs: this.state.vizs.filter(v => v.id !== viz.id),
+      message: { type: 'success', text: 'Viz deleted successfuly' }
     });
   };
-
+  checkViz = viz => {
+    if (viz.name && viz.dataType && viz.vizType && viz.design && viz.source_id && viz.model) {
+      // console.log('Proper Viz');
+      return true;
+    }
+    // console.log('Bad Viz');
+    return false;
+  };
+  checkUrl = url => {
+    const regexp = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
+    if (regexp.test(url)) {
+      return true;
+    }
+    return false;
+  };
+  setMessage = (type, text) => {
+    this.setState({
+      message: { type: type, text: text }
+    });
+  };
   toogleSelectedThing = name => {
     // console.log('toogleSelectedThing - ', name);
     let tempThings = this.state.things;
@@ -188,7 +232,6 @@ class Dashboard extends Component {
       }
     });
   };
-
   componentWillMount() {
     // testing urls
     const demoThingUrl = 'http://gateway.webofthings.io';
@@ -216,20 +259,23 @@ class Dashboard extends Component {
       toogleSelectedThing: this.toogleSelectedThing
     };
     return (
-      <div className="dashboard">
-        <ThingPanel
-          things={this.state.things}
-          actions={devActions}
-          params={this.state.thingParams}
-          selected={this.state.selected}
-        />
-        <VizPanel
-          vizs={this.state.vizs}
-          things={this.state.things}
-          actions={vizActions}
-          params={this.state.vizParams}
-          selected={this.state.selected}
-        />
+      <div>
+        <Message {...this.state.message} />
+        <div className="dashboard-board">
+          <ThingPanel
+            things={this.state.things}
+            actions={devActions}
+            params={this.state.thingParams}
+            selected={this.state.selected}
+          />
+          <VizPanel
+            vizs={this.state.vizs}
+            things={this.state.things}
+            actions={vizActions}
+            params={this.state.vizParams}
+            selected={this.state.selected}
+          />
+        </div>
       </div>
     );
   }
